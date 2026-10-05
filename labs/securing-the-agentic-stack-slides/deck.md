@@ -25,7 +25,15 @@
 
 <!-- chrome: false -->
 
-<img src="assets/slide-04.webp" alt="Access the Workshop" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
+  <div style="position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;padding:0 6%;">
+    <div style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">CONTAINER DAYS SINGAPORE 2026</div>
+    <div style="margin-top:16px;font:800 40px/1.06 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Access the Workshop</div>
+    <div style="margin-top:26px;font:700 30px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;text-decoration:underline;text-underline-offset:6px;">containerdays.dockerworkshop.com</div>
+    <div style="margin-top:18px;font:400 17px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Runs in your browser — nothing to install.</div>
+  </div>
+  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
+</div>
 
 ---
 
@@ -93,9 +101,15 @@
 
 <!-- chrome: false -->
 
-<img src="assets/slide-15.webp" alt="Container Days Singapore 2026 - Lab" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-<div style="position:absolute;left:5.9%;top:34.9%;height:2.8%;display:flex;align-items:center;padding:0 14px 0 7px;background:#fdfdfd;white-space:nowrap;"><span style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;color:#2f6bff;">CONTAINER DAYS SINGAPORE 2026</span></div>
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
+  <div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;">
+    <div style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">HANDS-ON · FOLLOW ALONG</div>
+    <div style="font:800 40px/1.06 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Open the lab</div>
+    <div style="margin-top:2px;font:700 25px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">containerdays.dockerworkshop.com</div>
+    <div style="font:400 17px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:84%;">Hand a real app to an agent and watch what it builds — right on your host.</div>
+  </div>
+  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
+</div>
 
 ---
 
@@ -364,9 +378,15 @@ Note: All about runbook….It's the operations guide for one feature: letting an
 
 <!-- chrome: false -->
 
-<img src="assets/slide-72.webp" alt="Container Days Singapore 2026 - Lab" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-<div style="position:absolute;left:5.9%;top:34.9%;height:2.8%;display:flex;align-items:center;padding:0 14px 0 7px;background:#fdfdfd;white-space:nowrap;"><span style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;color:#2f6bff;">CONTAINER DAYS SINGAPORE 2026</span></div>
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
+  <div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;">
+    <div style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">HANDS-ON · YOUR TURN</div>
+    <div style="font:800 40px/1.06 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Box the agent</div>
+    <div style="margin-top:2px;font:700 25px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">containerdays.dockerworkshop.com</div>
+    <div style="font:400 17px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:84%;">Re-run the same agent inside an sbx microVM and watch the blast radius vanish.</div>
+  </div>
+  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
+</div>
 
 ---
 
