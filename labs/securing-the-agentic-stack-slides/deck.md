@@ -1,6 +1,8 @@
 <!-- chrome: false -->
 
-<img src="assets/slide-01.webp" alt="WEAREDEVELOPERS 2026" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-01.webp" alt="Container Days Singapore 2026 - Securing the Agentic Stack" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+<div style="position:absolute;left:5.9%;top:34.4%;height:3.8%;display:flex;align-items:center;padding:0 14px 0 7px;background:#0b111d;white-space:nowrap;"><span style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;color:#8a94a8;">CONTAINER DAYS SINGAPORE 2026</span></div>
 
 ---
 
@@ -24,7 +26,9 @@
 
 <!-- chrome: false -->
 
-<img src="assets/slide-05.webp" alt="WEAREDEVELOPERS 2026" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-05.webp" alt="Container Days Singapore 2026" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+<div style="position:absolute;left:5.9%;top:34.4%;height:3.8%;display:flex;align-items:center;padding:0 14px 0 7px;background:#0c111d;white-space:nowrap;"><span style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;color:#8a94a8;">CONTAINER DAYS SINGAPORE 2026</span></div>
 
 ---
 
@@ -84,7 +88,9 @@
 
 <!-- chrome: false -->
 
-<img src="assets/slide-15.webp" alt="WEAREDEVELOPERS 2026" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-15.webp" alt="Container Days Singapore 2026 - Lab" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+<div style="position:absolute;left:5.9%;top:34.9%;height:2.8%;display:flex;align-items:center;padding:0 14px 0 7px;background:#fdfdfd;white-space:nowrap;"><span style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;color:#2f6bff;">CONTAINER DAYS SINGAPORE 2026</span></div>
 
 ---
 
@@ -353,7 +359,9 @@ Note: All about runbook….It's the operations guide for one feature: letting an
 
 <!-- chrome: false -->
 
-<img src="assets/slide-72.webp" alt="WEAREDEVELOPERS 2026" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-72.webp" alt="Container Days Singapore 2026 - Lab" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+<div style="position:absolute;left:5.9%;top:34.9%;height:2.8%;display:flex;align-items:center;padding:0 14px 0 7px;background:#fdfdfd;white-space:nowrap;"><span style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;color:#2f6bff;">CONTAINER DAYS SINGAPORE 2026</span></div>
 
 ---
 
