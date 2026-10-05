@@ -1,8 +1,13 @@
 <!-- chrome: false -->
 
-<img src="assets/slide-01.webp" alt="Container Days Singapore 2026 - Securing the Agentic Stack" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-<div style="position:absolute;left:5.9%;top:34.4%;height:3.8%;display:flex;align-items:center;padding:0 14px 0 7px;background:#0b111d;white-space:nowrap;"><span style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;color:#8a94a8;">CONTAINER DAYS SINGAPORE 2026</span></div>
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
+  <div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;">
+    <div style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">CONTAINER DAYS SINGAPORE 2026</div>
+    <div style="font:800 40px/1.06 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:-.01em;color:#ffffff;">Run Fast Without Running Wild</div>
+    <div style="font:400 18px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:84%;">AI Coding Agent Horror Stories and the microVM That Saves You</div>
+  </div>
+  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
+</div>
 
 ---
 

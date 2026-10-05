@@ -5,8 +5,8 @@
 # demos can be spliced into the deck if desired (see spec/slidedeck.md in
 # dockersamples/simspace).
 kind: slides
-title: "Securing the Agentic Stack - Slides"
-description: "The workshop deck: real AI coding-agent horror stories, and Docker Sandbox (sbx) as the boundary that stops them. Watch the talk, then do the lab."
+title: "Run Fast Without Running Wild"
+description: "AI coding agent horror stories - and the microVM that saves you. The talk deck: real incidents where agents wrecked hosts, leaked secrets and ran commands nobody approved, then Docker Sandbox (sbx) as the boundary that stops them. Watch the talk, then do the lab."
 
 # Landing-page card. `order: 1` puts the deck ahead of the lab, so it reads as
 # "watch the workshop, then do the lab". labs.json is GENERATED from this block -
