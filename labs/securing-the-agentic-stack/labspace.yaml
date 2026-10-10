@@ -172,18 +172,14 @@ files:
 
 # Ordered instruction pages (markdown), rendered in the left-hand panel.
 sections:
-  - title: Introduction
-    contentPath: 00-introduction.md
-  - title: Setup
-    contentPath: 01-setup.md
-  - title: "An Agent Built This"
-    contentPath: 02-agent-builds-it.md
-  - title: "What Harm Can It Do?"
-    contentPath: 03-what-harm.md
-  - title: "Put the Agent in a Box"
-    contentPath: 04-sandbox-it.md
-  - title: Conclusion
-    contentPath: 07-conclusion.md
+  - title: "A Locked Box Needs Tools"
+    contentPath: 00-tools-in-the-box.md
+  - title: "Register the DHI MCP Server"
+    contentPath: 01-register-dhi-mcp.md
+  - title: "Attach and Authorize"
+    contentPath: 02-attach-and-authorize.md
+  - title: "The Agent Uses DHI"
+    contentPath: 03-agent-uses-dhi.md
 
 # $$name$$ in markdown is replaced with these values. `org` is overridden by the
 # :variableDefinition prompt in Setup.
