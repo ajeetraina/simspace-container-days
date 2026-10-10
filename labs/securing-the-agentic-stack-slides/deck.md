@@ -19,7 +19,45 @@
 
 <!-- chrome: false -->
 
-<img src="assets/slide-03.webp" alt="TODAY" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
+  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
+    <div style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">TODAY</div>
+    <div style="margin-top:12px;font:800 38px/1.06 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">What we'll cover</div>
+  </div>
+  <div style="position:absolute;left:6.5%;right:6%;top:30%;bottom:12%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 40px;align-content:start;">
+    <div>
+      <div style="font:700 19px/1.25 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;min-height:48px;">1&nbsp;&middot;&nbsp;Autonomy requires guardrails</div>
+      <ul style="margin:14px 0 0;padding-left:18px;font:400 15px/1.75 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Traditional vs agentic workflow</li>
+        <li>Agents expand your attack surface</li>
+        <li>Speed vs security &mdash; why not both?</li>
+        <li>Containerising the Product Catalog</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font:700 19px/1.25 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;min-height:48px;">2&nbsp;&middot;&nbsp;The AI Governance Stack</div>
+      <ul style="margin:14px 0 0;padding-left:18px;font:400 15px/1.75 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Layered approach to AI governance</li>
+        <li>Docker Hardened Images</li>
+        <li>Gordon</li>
+        <li>Introduction to Docker Sandboxes</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font:700 19px/1.25 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;min-height:48px;">3&nbsp;&middot;&nbsp;Securing the Agentic Stack</div>
+      <ul style="margin:14px 0 0;padding-left:18px;font:400 15px/1.75 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Sandboxing the AI coding agent</li>
+        <li>Credential isolation</li>
+        <li>Network &amp; filesystem policy</li>
+        <li>MCP protection</li>
+        <li>Audit logs &amp; visibility</li>
+      </ul>
+    </div>
+  </div>
+  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
+</div>
+
+Note: Here's how the session is structured. We start where it matters most — Autonomy requires guardrails: the traditional-versus-agentic workflow, how agents expand your attack surface, the speed-versus-security tension and why you don't have to choose, and we containerise our Product Catalog app to see it. Then the AI Governance Stack — the layered approach, Docker Hardened Images, Gordon, and an introduction to Docker Sandboxes. And finally Securing the Agentic Stack — sandboxing the coding agent, credential isolation, network and filesystem policy, MCP protection, and audit logs. Keep this map in mind as we go.
 
 ---
 
@@ -34,14 +72,6 @@
   </div>
   <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
 </div>
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-05.webp" alt="Container Days Singapore 2026" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-<div style="position:absolute;left:5.9%;top:34.4%;height:3.8%;display:flex;align-items:center;padding:0 14px 0 7px;background:#0c111d;white-space:nowrap;"><span style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;color:#8a94a8;">CONTAINER DAYS SINGAPORE 2026</span></div>
 
 ---
 
@@ -178,6 +208,81 @@ Note: This is the tension every engineering leader is facing. On the Speed side,
 <img src="assets/slide-21.webp" alt="Full-screen title slide reading 'Why not get both?' in navy and blue on a light teal background with the Docker whale logo." width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 Note: Why not get both? That's the whole thesis in four words. The false choice between speed and safety only exists when your only control is a human clicking "approve" — but that's not the only kind of control available. If the boundaries are enforced by the environment rather than by your attention, the agent can move fast because it's contained, not despite it. That's the shift from advice to enforcement — and it's exactly what the rest of this deck is about.
+
+---
+
+<!-- chrome: false -->
+
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
+  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
+    <div style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">YES &mdash; HERE'S HOW</div>
+    <div style="margin-top:12px;font:800 38px/1.06 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">One app. Three moves.</div>
+    <div style="margin-top:12px;font:400 17px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:82%;">We follow one real app &mdash; the Product Catalog &mdash; the whole way. Speed from the agent, safety from the boundary. That's both.</div>
+  </div>
+  <div style="position:absolute;left:6.5%;right:6%;top:36%;bottom:13%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 34px;align-content:start;">
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01 &middot; BUILD</div>
+      <div style="margin-top:12px;font:700 21px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">An agent containerises it</div>
+      <div style="margin-top:10px;font:400 15px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Done in seconds &mdash; then it pulls random packages and ships with CVEs.</div>
+      <div style="margin-top:16px;font:600 12px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; An Agent Built This</div>
+    </div>
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02 &middot; HARDEN</div>
+      <div style="margin-top:12px;font:700 21px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Swap in a Hardened Image</div>
+      <div style="margin-top:10px;font:400 15px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Scan with Docker Scout, move to a DHI base &mdash; the CVEs collapse to near zero.</div>
+      <div style="margin-top:16px;font:600 12px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Find the Vulnerabilities</div>
+    </div>
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03 &middot; CONTAIN</div>
+      <div style="margin-top:12px;font:700 21px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Box the agent in a sandbox</div>
+      <div style="margin-top:10px;font:400 15px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Re-run the same agent inside a microVM it can't escape.</div>
+      <div style="margin-top:16px;font:600 12px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Securing the Agentic Stack</div>
+    </div>
+  </div>
+  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
+</div>
+
+Note: Here's the answer to "why not both", as one story. We take one real app — the Product Catalog — and make three moves. BUILD: we hand it to an AI agent and it containerises it in seconds; fast, but left alone it pulls random packages and ships with CVEs. HARDEN: we scan that image with Docker Scout, swap the base to a Docker Hardened Image, and the vulnerabilities collapse to near zero. CONTAIN: we re-run the very same agent inside a sandbox — a microVM boundary it can't escape. Speed comes from the agent; safety comes from the boundary. Those three moves are the three labs you'll do.
+
+---
+
+<!-- chrome: false -->
+
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
+  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
+    <div style="font:700 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">CONTAIN &middot; CONTROL &middot; CHOICE &middot; CAPACITY</div>
+    <div style="margin-top:12px;font:800 38px/1.06 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">A sandbox gives you four things</div>
+  </div>
+  <div style="position:absolute;left:6.5%;right:6%;top:30%;bottom:13%;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0 24px;align-content:start;">
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01</div>
+      <div style="margin-top:10px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Contain</div>
+      <div style="margin-top:12px;min-height:74px;font:400 14px/1.55 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Isolate the agent in a microVM with a guarded network.</div>
+      <div style="margin-top:14px;font:600 12px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">A trusted boundary</div>
+    </div>
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02</div>
+      <div style="margin-top:10px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Control</div>
+      <div style="margin-top:12px;min-height:74px;font:400 14px/1.55 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Set what the agent can reach. Organizations add governance and audit.</div>
+      <div style="margin-top:14px;font:600 12px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">You decide where it sits</div>
+    </div>
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03</div>
+      <div style="margin-top:10px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Choice</div>
+      <div style="margin-top:12px;min-height:74px;font:400 14px/1.55 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Bring your own agent, tools, and endpoints with kits.</div>
+      <div style="margin-top:14px;font:600 12px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">You choose what's inside</div>
+    </div>
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">04</div>
+      <div style="margin-top:10px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Capacity</div>
+      <div style="margin-top:12px;min-height:74px;font:400 14px/1.55 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Reproduce the same sandbox for every developer and every run.</div>
+      <div style="margin-top:14px;font:600 12px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">Shared with the team</div>
+    </div>
+  </div>
+  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
+</div>
+
+Note: The boundary isn't just a wall — a sandbox gives you four things, the four C's. Contain: the agent runs in its own microVM with a guarded network, so the host is out of reach. Control: you decide what it can reach, and organizations layer governance and audit on top. Choice: you bring your own agent, tools, and endpoints as kits — a restricted box still has to be useful. Capacity: the same sandbox reproduces for every developer and every run, so the whole team shares one setup. We go deepest on Contain and Control next.
 
 ---
 <!-- chrome: false -->

@@ -5,12 +5,13 @@ description: >
   secrets and wipe your home directory, then re-run the identical prompts inside a Docker
   Sandbox (sbx) microVM and watch every attack simply stop being possible.
 
-# Landing-page card. Only shown when this repo has two or more labs (here: the
-# slides deck is the sibling). `order: 2` puts the hands-on lab after the deck.
+# Landing-page card. Only shown when this repo has two or more labs. `order: 4`
+# puts this sandbox payoff lab last, after the deck (1), "An Agent Built This"
+# (2), and "Find the Vulnerabilities" (3).
 # labs.json is GENERATED from this block - never edit labs.json by hand.
 catalog:
   icon: shield_lock
-  order: 2
+  order: 4
   tags: ["agentic security", "sandbox", "sbx", "agent safety"]
   estimatedMinutes: 45
 
