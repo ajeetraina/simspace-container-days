@@ -1,35 +1,29 @@
-# Define the Sandbox Once
+# Declare the Sandbox Once
 
-Everything you tuned across the earlier Cs - the hardened base, the pinned MCP
-tools, the network policy - can be captured into **one file**: `sbx.yaml`.
+Everything you tuned across the earlier Cs can be captured in **one file**:
+`sbxenv.yaml`. It declares the sandbox so `sbx env run` can recreate it anywhere.
 
-## Step 1 - Capture the sandbox
-
-```bash
-sbx template save product-catalog
-```
-
-That writes `sbx.yaml` - a single, reviewable description of the sandbox.
-
-## Step 2 - Read what it captured
+## Read the declaration
 
 ```bash
-cat sbx.yaml
+cat sbxenv.yaml
 ```
-
-Notice how the three earlier Cs are all pinned in one place:
 
 ```text no-run-button
-image:   dhi.io/node:20-hardened   # Contain  - hardened, non-root base
-mcp:     [notion]                  # Choice   - the tools, pinned
-network: profile balanced + allow  # Control  - what it may reach
+name: product-catalog
+agent: claude            # which agent runs
+workspaces: [ . ]        # what it can see
+secrets:
+  anthropic:
+    ref: anthropic       # brokered by the proxy, never written into the box
 ```
 
 The sandbox is no longer a pile of flags you remember to type. It's **data** -
-and data can be versioned, reviewed, and shared.
+the agent, its workspace mounts, and its brokered secrets, all pinned. (The file
+can also carry mixin `kits:` and declared `args:`.)
 
 > [!NOTE]
 > This is the same move as a Dockerfile or a Compose file: the environment stops
-> being tribal knowledge and becomes an artifact.
+> being tribal knowledge and becomes a reviewable artifact.
 
 Next: share it like code.

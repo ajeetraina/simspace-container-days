@@ -1,33 +1,33 @@
 # Reproduce It Anywhere
 
 This is the payoff. A new teammate clones the repo and runs **one command** - and
-gets the exact sandbox you secured, down to the image digest.
+gets the exact sandbox you declared.
 
-## Step 1 - See the shared template
-
-```bash
-sbx template list
-```
-
-`product-catalog` is there, marked **shared** - available to anyone on the team.
-
-## Step 2 - Reproduce the sandbox
+## Reproduce from the file
 
 ```bash
-sbx run --from sbx.yaml
+sbx env run
 ```
 
-Compare this to the ad-hoc run from the first section:
+`sbx env run` reads `sbxenv.yaml`, creates the sandbox if it doesn't exist
+(provisioning the brokered secrets), and attaches. Compare it to the ad-hoc run
+from the first section:
 
 ```text no-run-button
-  before (ad-hoc)                 now (from sbx.yaml)
-  local defaults, drifts     →    dhi.io/node:20-hardened, every time
-  tools vary per machine     →    mcp: notion, pinned
-  policy stays on your box    →    network: balanced, shared
+  before (ad-hoc)                 now (sbx env run)
+  local defaults, drifts     →    declared agent + workspace, every time
+  secrets vary per machine   →    anthropic brokered from ref
+  policy stays on your box    →   shipped in the repo
 ```
 
-Same image, same tools, same policy - **every developer, every run**. A new hire
-is productive and governed in one command, with nothing to remember.
+## Confirm it
+
+```bash
+sbx ls
+```
+
+The `product-catalog` sandbox is running - same agent, same workspace, same
+brokered secrets, for **every developer and every run**.
 
 > [!NOTE]
 > That's the full set. **Contain** gave the boundary, **Control** decided what it
