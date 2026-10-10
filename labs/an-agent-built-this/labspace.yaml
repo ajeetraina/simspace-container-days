@@ -1,19 +1,17 @@
 title: "Contain"
 description: >
-  Hand a real Node.js app to an AI coding agent and watch it work: Gordon
-  (docker ai) and Claude containerise the Product Catalog service in seconds -
-  multi-stage, non-root, a clean .dockerignore. Then see the other side. The
-  same agent, run ungoverned on your host, reads your .env, your cloud keys,
-  and your business logic - and nothing stops it. Fully simulated; nothing to
-  install; every learner sees the same result.
+  Run the AI coding agent inside an sbx microVM, with its credentials injected
+  from outside the box so the raw keys never enter the sandbox. Then try the
+  escape an ungoverned agent would use - and watch it stay contained. Fully
+  simulated; nothing to install; every learner sees the same result.
 
 # Landing-page card. Only shown when the repo has two or more labs. labs.json is
 # GENERATED from this block - never edit labs.json by hand.
 catalog:
   icon: smart_toy
-  description: "An AI agent containerises a real Node.js app well - then, ungoverned on your host, reads your .env, keys, and code. Fully simulated."
+  description: "Run the agent inside an sbx microVM with credentials injected from outside the box - then try the escape and watch it stay contained."
   tags:
-    ["ai agents", "coding agents", "gordon", "docker ai", "credentials", "lethal trifecta"]
+    ["sandbox", "sbx", "microvm", "isolation", "credentials", "contain"]
   estimatedMinutes: 30
   order: 2
 

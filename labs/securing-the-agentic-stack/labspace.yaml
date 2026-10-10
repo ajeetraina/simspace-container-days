@@ -1,9 +1,9 @@
 title: "Choice"
 description: >
-  An AI coding agent runs on your host with your privileges. In 45 minutes you watch the
-  same agent containerise a real Node.js app, then - with that same access - read your
-  secrets and wipe your home directory, then re-run the identical prompts inside a Docker
-  Sandbox (sbx) microVM and watch every attack simply stop being possible.
+  A locked-down sandbox still has to be useful. Give the boxed agent the tools it
+  needs - register MCP servers as kits, attach them to the sandbox, and authorize
+  just-in-time with credentials brokered outside the box. Fully simulated; nothing
+  to install.
 
 # Landing-page card. Only shown when this repo has two or more labs. `order: 4`
 # puts this sandbox payoff lab last, after the deck (1), "An Agent Built This"
@@ -12,7 +12,8 @@ description: >
 catalog:
   icon: shield_lock
   order: 4
-  tags: ["agentic security", "sandbox", "sbx", "agent safety"]
+  description: "Give the boxed agent its tools - register MCP servers as kits, attach them to the sandbox, and authorize just-in-time."
+  tags: ["sandbox", "mcp", "kits", "tools", "authorization", "choice"]
   estimatedMinutes: 45
 
 # Command behaviour lives in simulator.yaml (relative to this file).

@@ -206,19 +206,19 @@ Note: Why not get both? That's the whole thesis in four words. The false choice 
       <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01 &middot; BUILD</div>
       <div style="margin-top:14px;font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">An agent containerises it</div>
       <div style="margin-top:12px;min-height:70px;font:400 19px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Done in seconds &mdash; then it pulls random packages and ships with CVEs.</div>
-      <div style="margin-top:16px;font:600 15px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; An Agent Built This</div>
+      <div style="margin-top:16px;font:600 15px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Contain</div>
     </div>
     <div style="border-top:2px solid #26324a;padding-top:16px;">
       <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02 &middot; HARDEN</div>
       <div style="margin-top:14px;font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Swap in a Hardened Image</div>
       <div style="margin-top:12px;min-height:70px;font:400 19px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Scan with Docker Scout, move to a DHI base &mdash; the CVEs collapse to near zero.</div>
-      <div style="margin-top:16px;font:600 15px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Find the Vulnerabilities</div>
+      <div style="margin-top:16px;font:600 15px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Control</div>
     </div>
     <div style="border-top:2px solid #26324a;padding-top:16px;">
       <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03 &middot; CONTAIN</div>
       <div style="margin-top:14px;font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Box the agent in a sandbox</div>
       <div style="margin-top:12px;min-height:70px;font:400 19px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Re-run the same agent inside a microVM it can't escape.</div>
-      <div style="margin-top:16px;font:600 15px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Securing the Agentic Stack</div>
+      <div style="margin-top:16px;font:600 15px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Choice</div>
     </div>
   </div>
   <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>

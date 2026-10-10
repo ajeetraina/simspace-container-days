@@ -1,15 +1,14 @@
 title: "Control"
 description: >
-  The agent built a clean image - on a fat node:20 base. Put on your security
-  hat and measure what that base dragged in with Docker Scout: 47 CVEs, 2
-  critical, 12 high. Then swap in a Docker Hardened Image (DHI), rebuild, and
-  re-scan - and watch the vulnerabilities collapse to almost nothing. Same app,
-  a fraction of the attack surface. Fully simulated; nothing to install.
+  Decide what the boxed agent is allowed to reach. Pick a network policy profile,
+  add allow and deny rules on top, and read the policy log to see exactly what the
+  agent tried to connect to - and what the boundary stopped. Fully simulated;
+  nothing to install.
 
 catalog:
   icon: security
-  description: "Measure the agent-built image with Docker Scout, swap in a Docker Hardened Image, and watch 47 CVEs collapse to near zero."
-  tags: ["docker scout", "dhi", "hardened images", "cve", "supply chain", "sbom"]
+  description: "Decide what the agent can reach: pick a network policy profile, add allow/deny rules, and read the policy log."
+  tags: ["sandbox", "network policy", "allow-deny", "governance", "audit", "control"]
   estimatedMinutes: 25
   order: 3
 
