@@ -38,16 +38,14 @@ files:
     }
 
 sections:
-  - title: "You Can't Govern What You Can't See"
-    contentPath: 00-whats-inside.md
-  - title: "Scan It with Docker Scout"
-    contentPath: 01-scan-with-scout.md
-  - title: "Docker Hardened Images (DHI)"
-    contentPath: 02-hardened-images.md
-  - title: "Re-scan: The Collapse"
-    contentPath: 03-rescan.md
-  - title: "Enforce It: The Policy Gate"
-    contentPath: 04-enforce-the-gate.md
+  - title: "What the Agent Can Reach"
+    contentPath: 00-what-it-can-reach.md
+  - title: "Check an Endpoint"
+    contentPath: 01-check-an-endpoint.md
+  - title: "Allow and Deny"
+    contentPath: 02-allow-and-deny.md
+  - title: "Read the Policy Log"
+    contentPath: 03-policy-log.md
 
 variables:
   org: your-org

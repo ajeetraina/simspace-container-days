@@ -2,24 +2,23 @@ version: "2.0"
 
 metadata:
   id: find-vulnerabilities
-  title: "Find the Vulnerabilities"
+  title: "Control"
   summary: >
-    Scan the agent-built image with Docker Scout (47 CVEs, most from the base),
-    swap to a Docker Hardened Image, rebuild, and re-scan - the vulnerabilities
-    collapse. Same app, a fraction of the attack surface. All simulated.
+    Decide what the boxed agent can reach. Inspect the active policy, check an
+    endpoint before you run, add allow and deny rules, and read the policy log.
+    All simulated with real sbx commands (policy ls/profile/check/allow/deny/log).
 
-# `hardened` flips from false → true once the base is swapped to a DHI. Every
-# Scout scenario has a "hardened" variant (matched first) so the same commands
-# show the before and the after.
+# `net.inventoryAllowed` flips to true once an allow rule is added for the
+# internal inventory service.
 state:
   org: "your-org"
-  catalog:
-    hardened: false # image switched to a Docker Hardened Image base + rebuilt
+  net:
+    inventoryAllowed: false
 
 settings:
   pace:
-    build: 900 # simulated build step
-    scan: 1200 # simulated Scout vulnerability analysis
+    boot: 900
+    check: 400
 
 defaults:
   unmatched:
@@ -27,262 +26,123 @@ defaults:
     exit: 1
 
 scenarios:
-  # ===========================================================================
-  # Environment niceties
-  # ===========================================================================
-  - id: docker-version
+  - id: sbx-version
     when:
-      command: [docker]
-      args: { --version: { any: true } }
-    then:
-      output: ["Docker version 28.3.3, build 980b856"]
-
-  - id: docker-scout-version
-    when:
-      command: [docker, scout, version]
+      command: [sbx, version]
     then:
       output:
-        - "version: v1.15.0 (go1.23.1)"
-        - "git commit: 6f2a9c3"
+        - "Docker Sandboxes (sbx) 0.12.0"
+        - "sandboxd: running"
 
-  - id: docker-login
+  - id: sbx-run
     when:
-      command: [docker, login]
+      command: [sbx, run, claude]
     then:
       output:
-        - "Authenticating with existing credentials..."
-        - "Login Succeeded"
+        - { text: "Creating sandbox 'demo' (agent: claude)...", delay: boot }
+        - "  microVM booted. Network: every outbound request passes through the proxy,"
+        - "  which allows or blocks it against your policy."
+        - ""
+        - "✓ Sandbox 'demo' running. Inspect the policy with `sbx policy ls`."
 
   # ===========================================================================
-  # Section 1/2 - Docker Scout: quickview + full CVE list.
-  # Hardened variants match first (first-match-wins).
+  # Section 1 - What the agent can reach. Profiles + the active policy.
   # ===========================================================================
-  - id: docker-scout-quickview-hardened
+  - id: sbx-policy-profile-ls
     when:
-      command: [docker, scout, quickview]
-      state: { catalog.hardened: true }
+      command: [sbx, policy, profile, ls]
     then:
       output:
-        - { text: "    ✓ Image stored for indexing", delay: build }
-        - { text: "    ✓ Indexed 96 packages", delay: scan }
+        - "PROFILE       SOURCE       DESCRIPTION"
+        - "locked-down   governance   only what you explicitly allow"
+        - "balanced      governance   common dev endpoints allowed, everything else denied  (default)"
+        - "open          governance   outbound allowed, still logged"
         - ""
-        - "  Target             │  product-catalog:latest       │    0C     0H     1M     1L"
-        - "    digest           │  b71c0e4a9f2b                 │"
-        - "  Base image         │  dhi.io/node:20-hardened      │    0C     0H     1M     1L"
-        - ""
-        - "Nothing left to swap - you're already on the recommended hardened base."
+        - "Pick one at create time: sbx run claude --profile locked-down"
 
-  - id: docker-scout-quickview
+  - id: sbx-policy-ls
     when:
-      command: [docker, scout, quickview]
+      command: [sbx, policy, ls]
     then:
       output:
-        - { text: "    ✓ Image stored for indexing", delay: build }
-        - { text: "    ✓ Indexed 431 packages", delay: scan }
+        - "POLICY    SOURCE   APPLIES TO   SUMMARY"
+        - "global    local    all          allow: llm + common dev endpoints · deny: everything else"
         - ""
-        - "  Target             │  product-catalog:latest   │    2C    12H    20M    13L"
-        - "    digest           │  6f2a9c3b1d40             │"
-        - "  Base image         │  node:20                  │    2C    11H    18M    11L"
-        - "  Recommended base   │  dhi.io/node:20-hardened  │    0C     0H     1M     1L"
-        - "                     │                           │   -2C   -11H   -17M   -10L"
-        - ""
-        - "Almost every finding traces to the fat node:20 base. Scout is already"
-        - "pointing at the fix. Run `docker scout cves product-catalog:latest` for the detail."
-
-  - id: docker-scout-cves-hardened
-    when:
-      command: [docker, scout, cves]
-      state: { catalog.hardened: true }
-    then:
-      output:
-        - { text: "    ✓ Image stored for indexing", delay: build }
-        - { text: "    ✓ Indexed 96 packages", delay: scan }
-        - "    ✓ Detected 2 vulnerable packages with a total of 2 vulnerabilities"
-        - ""
-        - "  2 vulnerabilities found in 2 packages"
-        - "    CRITICAL  0     HIGH  0     MEDIUM  1     LOW  1"
-        - ""
-        - "The critical and high findings are gone - the hardened base ships only what"
-        - "the app needs and is patched upstream. Same app, a fraction of the attack surface."
-
-  - id: docker-scout-cves
-    when:
-      command: [docker, scout, cves]
-    then:
-      output:
-        - { text: "    ✓ Image stored for indexing", delay: build }
-        - { text: "    ✓ Indexed 431 packages", delay: scan }
-        - "    ✓ Detected 21 vulnerable packages with a total of 47 vulnerabilities"
-        - ""
-        - "## Packages and Vulnerabilities"
-        - ""
-        - "   1C     0H     0M     0L  wget 1.21"
-        - "pkg:deb/debian/wget@1.21"
-        - ""
-        - "    ✗ CRITICAL CVE-2024-38428 [Improper Handling of Values]"
-        - "      https://scout.docker.com/v/CVE-2024-38428"
-        - "      Affected range : <1.21.4"
-        - "      Fixed version  : 1.21.4"
-        - ""
-        - "   0C     1H     0M     0L  cross-spawn 7.0.3"
-        - "pkg:npm/cross-spawn@7.0.3"
-        - ""
-        - "    ✗ HIGH CVE-2024-21538 [Inefficient Regular Expression Complexity]"
-        - "      https://scout.docker.com/v/CVE-2024-21538"
-        - "      Affected range : <7.0.5"
-        - "      Fixed version  : 7.0.5"
-        - ""
-        - "  47 vulnerabilities found in 21 packages"
-        - "    CRITICAL  2     HIGH  12     MEDIUM  20     LOW  13"
-        - ""
-        - "Most trace back to the fat node:20 base - packages like wget the app never"
-        - "calls at runtime. A hardened base image cuts them sharply."
-
-  - id: docker-scout-recommendations
-    when:
-      command: [docker, scout, recommendations]
-    then:
-      output:
-        - { text: "    ✓ Analyzed base image node:20", delay: scan }
-        - ""
-        - "  Recommended base image update"
-        - "  node:20  →  dhi.io/node:20-hardened"
-        - "    removes  2 CRITICAL · 11 HIGH · 17 MEDIUM · 10 LOW"
-        - "    minimal, distroless, non-root · signed · SBOM + SLSA provenance included"
-        - ""
-        - "Apply it by swapping the FROM line, or ask the agent to do it (next section)."
-
-  # `docker scout compare` - only meaningful once a hardened image also exists.
-  - id: docker-scout-compare-hardened
-    when:
-      command: [docker, scout, compare]
-      state: { catalog.hardened: true }
-    then:
-      output:
-        - { text: "    ✓ Comparing product-catalog:latest  vs  product-catalog:node20", delay: scan }
-        - ""
-        - "  CATEGORY       node:20 base      dhi hardened      CHANGE"
-        - "  Critical       2                 0                 -2"
-        - "  High           12                0                 -12"
-        - "  Medium         20                1                 -19"
-        - "  Low            13                1                 -12"
-        - "  Packages       431               96                -335"
-        - ""
-        - "Same application. 45 fewer vulnerabilities, 335 fewer packages to attack."
-
-  - id: docker-scout-compare
-    when:
-      command: [docker, scout, compare]
-    then:
-      output:
-        - "Nothing to compare yet - only the node:20 image exists."
-        - "Switch the base to a Docker Hardened Image and rebuild first, then re-run compare."
+        - "Default posture is balanced: the agent can reach api.anthropic.com and"
+        - "registry.npmjs.org, but anything else is denied and logged. Tighten or"
+        - "loosen it with `sbx policy allow network` / `sbx policy deny network`."
 
   # ===========================================================================
-  # Section 3 - Swap the base to a Docker Hardened Image and rebuild.
-  # `docker ai "..."` (exact prompt) matches; agent-session + `docker build`
-  # fallbacks share the same effect via the YAML anchor.
+  # Section 2 - Check an endpoint before you run (read-only).
   # ===========================================================================
-  - id: docker-ai-harden
+  - id: sbx-policy-check-allowed
     when:
-      command: [docker, ai]
-      prompt: "Switch the Dockerfile to a Docker Hardened Image base and rebuild"
-    then: &harden
-      state: { catalog.hardened: true }
-      files:
-        - create: product-catalog-demo-showcase/Dockerfile
-          content: |
-            # Rewritten to a hardened, minimal base (Docker Hardened Image).
-            # syntax=docker/dockerfile:1
-
-            FROM dhi.io/node:20-dev AS build
-            WORKDIR /usr/src/app
-            COPY package*.json ./
-            RUN npm ci --omit=dev
-            COPY src ./src
-
-            FROM dhi.io/node:20-hardened AS final
-            ENV NODE_ENV=production
-            WORKDIR /usr/src/app
-            # DHI runtime is already distroless and non-root
-            COPY --from=build /usr/src/app/node_modules ./node_modules
-            COPY --from=build /usr/src/app/src ./src
-            COPY package.json ./
-            EXPOSE 3000
-            CMD ["node", "src/index.js"]
-      output:
-        - "● Swapping FROM node:20  →  FROM dhi.io/node:20-hardened (minimal, signed)."
-        - "● Building on the -dev variant, copying only node_modules into the distroless runtime."
-        - { text: "  [+] Building 5.4s  RUN npm ci --omit=dev", delay: build }
-        - { text: "  => naming to docker.io/library/product-catalog:latest", delay: build }
-        - "● Done. Re-run `docker scout cves product-catalog:latest` - the CVE count collapses."
-
-  - id: agent-harden
-    when:
-      agent: true
-      promptContains: [hardened]
-    then: *harden
-
-  # Manual path: build after the learner edits the Dockerfile themselves. Once
-  # the FROM line already reads a DHI base (state.hardened), rebuild succeeds
-  # with the hardened result; otherwise it just rebuilds the node:20 image.
-  - id: docker-build-hardened
-    when:
-      command: [docker, build]
-      state: { catalog.hardened: true }
+      command: [sbx, policy, check, network]
+      state: { net.inventoryAllowed: true }
     then:
       output:
-        - { text: "  [+] Building 5.4s", delay: build }
-        - "  => naming to docker.io/library/product-catalog:latest (hardened base)"
-
-  - id: docker-build
-    when:
-      command: [docker, build]
-    then:
-      output:
-        - { text: "  [+] Building 7.4s", delay: build }
-        - "  => naming to docker.io/library/product-catalog:latest (node:20 base)"
-
-  # ===========================================================================
-  # Section 4 - The Scout policy gate. PASSES only once the base is hardened.
-  # ===========================================================================
-  - id: docker-scout-policy-hardened
-    when:
-      command: [docker, scout, policy]
-      state: { catalog.hardened: true }
-    then:
-      output:
-        - { text: "    ✓ Evaluating policies for product-catalog:latest", delay: scan }
-        - "  no-critical-cves     PASSED   0 critical, 0 high"
-        - "  require-sbom         PASSED   sbom attestation present"
-        - "  require-provenance   PASSED   slsa-provenance present"
+        - { text: "Evaluating against the active policy...", delay: check }
+        - "  inventory.internal:8080   ALLOW   (rule: allow inventory.internal)"
         - ""
-        - "Policy status: PASSED (3 of 3 policies met) - image may be promoted."
+        - "Now permitted - your allow rule matched. The check is read-only; it runs the"
+        - "same authorizer the proxy uses at request time."
 
-  - id: docker-scout-policy
+  - id: sbx-policy-check
     when:
-      command: [docker, scout, policy]
+      command: [sbx, policy, check, network]
     then:
       output:
-        - { text: "    ✓ Evaluating policies for product-catalog:latest", delay: scan }
-        - "  no-critical-cves     FAILED   2 critical, 12 high"
-        - "  require-sbom         FAILED   no SBOM attestation present"
-        - "  require-provenance   FAILED   no SLSA provenance attestation"
+        - { text: "Evaluating against the active policy...", delay: check }
+        - "  inventory.internal:8080   DENY   (no matching allow rule, balanced default)"
         - ""
-        - "Policy status: FAILED (0 of 3 policies met) - image NOT promoted. Harden the base first."
+        - "Denied by default. The agent would be blocked reaching your internal service -"
+        - "nothing breaks, the connection is just refused and logged. Decide: allow it or not."
 
-  # An agent session (docker ai / claude) so free-form prompts stay graceful.
-  - id: docker-ai-session
+  # ===========================================================================
+  # Section 3 - Allow and deny rules.
+  # ===========================================================================
+  - id: sbx-policy-allow
     when:
-      command: [docker, ai]
+      command: [sbx, policy, allow, network]
     then:
-      session:
-        prompt: "gordon> "
-        intro:
-          - "Gordon (Docker AI) ready. Enter a task, or type /exit to leave."
-        outro:
-          - "Gordon session ended."
+      state: { net.inventoryAllowed: true }
+      output:
+        - "Added allow rule (global): inventory.internal  (TCP)"
+        - ""
+        - "The next run can reach it. Everything still-unlisted stays denied and logged."
+        - "Re-check with `sbx policy check network inventory.internal:8080`."
 
+  - id: sbx-policy-deny
+    when:
+      command: [sbx, policy, deny, network]
+    then:
+      output:
+        - "Added deny rule (global): telemetry.vendor.example  (TCP)"
+        - ""
+        - "Deny takes precedence over allow. Even if a broad allow rule would match,"
+        - "this host is now blocked - a simple way to stop known exfiltration targets."
+
+  # ===========================================================================
+  # Section 4 - The policy log.
+  # ===========================================================================
+  - id: sbx-policy-log
+    when:
+      command: [sbx, policy, log]
+    then:
+      output:
+        - "SANDBOX   HOST                        RULE                         PROXY   DECISION   COUNT"
+        - "demo      api.anthropic.com           allow default (llm)          https   allowed    5"
+        - "demo      registry.npmjs.org          allow default (dev)          https   allowed    2"
+        - "demo      inventory.internal:8080     deny default                 tcp     blocked    4"
+        - "demo      inventory.internal:8080     allow inventory.internal     tcp     allowed    1"
+        - "demo      telemetry.vendor.example    deny telemetry.vendor        https   blocked    3"
+        - ""
+        - "Every connection the agent tried - allowed or blocked, with the rule that"
+        - "decided it and how many times. This is how you see what it actually reached."
+
+  # ===========================================================================
+  # Agent sessions + filler.
+  # ===========================================================================
   - id: claude-session
     when:
       command: [claude]
@@ -299,41 +159,21 @@ scenarios:
       agent: true
     then:
       output:
-        - "● I can act on the scripted tasks in this lab. Try asking me to switch the"
-        - "  Dockerfile to a Docker Hardened Image base and rebuild."
+        - "● I run behind the proxy. Try `sbx policy check network inventory.internal:8080`,"
+        - "  then `sbx policy allow network inventory.internal`, then check again."
 
-  # ===========================================================================
-  # Filler no-ops so ordinary navigation doesn't error out.
-  # ===========================================================================
   - id: cd
     when:
       command: [cd]
     then:
       output:
         - "Note: this simulated terminal has no working directory - every command runs from the lab root."
-        - "Reference files by full path, e.g. `cat product-catalog-demo-showcase/Dockerfile`."
 
-  - id: tree-hardened
+  - id: sbx-policy-generic
     when:
-      command: [tree]
-      state: { catalog.hardened: true }
+      command: [sbx, policy]
     then:
       output:
-        - "product-catalog-demo-showcase"
-        - "├── Dockerfile        ← now FROM dhi.io/node:20-hardened"
-        - "├── package.json"
-        - "└── README.md"
-        - ""
-        - "1 directory, 3 files"
-
-  - id: tree
-    when:
-      command: [tree]
-    then:
-      output:
-        - "product-catalog-demo-showcase"
-        - "├── Dockerfile        ← FROM node:20"
-        - "├── package.json"
-        - "└── README.md"
-        - ""
-        - "1 directory, 3 files"
+        - "sbx policy manages what sandboxes can reach. Try: `sbx policy ls`,"
+        - "  `sbx policy check network <host>`, `sbx policy allow network <host>`,"
+        - "  `sbx policy deny network <host>`, or `sbx policy log`."
