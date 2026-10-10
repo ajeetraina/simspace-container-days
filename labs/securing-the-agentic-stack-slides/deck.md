@@ -115,22 +115,6 @@
 
 <!-- chrome: false -->
 
-<img src="assets/slide-16.webp" alt="Software Supply Chain Security Challenges" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: This is Sonatype’s State of Software Supply Chain data. 96% of applications include open source components, and 70-90% of the code in a typical application actually comes from open source, not from your own team. That’s a huge trust surface. And it’s being actively targeted — 454,648 new malicious packages were identified in 2025 alone, adding to over 123,000 open-source malware packages logged since 2019. Every dependency you pull in is a potential entry point, which is why we can’t just trust that a package is safe because it’s popular or looks legitimate.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-17.webp" alt="Where things can go wrong in Supply Chain?" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Let’s walk through where things can actually go wrong along the supply chain — from source, to build, to dependencies, to the final package. At each arrow in this chain, there’s a question mark: is my code really mine, is the other people’s code I depend on genuine, is my Dockerfile what I think it is, is the container image that gets built actually what was intended, did the vulnerability scan really check what it claims to have checked. Any one of these links can be compromised, and this framing is adapted from the SLSA threats overview, which we’ll come back to shortly.
-
----
-
-<!-- chrome: false -->
-
 <img src="assets/horror-title.webp" alt="Horror stories - these aren't hypothetical, they shipped and someone paid for them" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 Note: These are not hypothetical. Every one shipped, and someone paid for it. Four from Docker's "Coding Agent Horror Stories" blog series - each is a different thing an agent with no boundary can do to you: destroy your filesystem, lose your data, leak your secrets, or run a command you never approved. Hold that thought - the back half of this deck is the one thing that stops all four.
@@ -178,6 +162,22 @@ Note: Horror #3 - secrets leakage. A poisoned Nx package didn't scan for secrets
 </div>
 
 Note: Horror #4 - prompt injection and the command you already approved. A hidden instruction in a README, plus shell built-ins the allowlist never sees, turn an innocent approved command into the attacker's. Notice the last panel: inside a Docker Sandbox the same attack is contained and logged. That is exactly where this deck goes next - the one boundary that answers all four.
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-20.webp" alt="'Speed or safety? This is the tension.' Two cards side by side — Speed: 'Need autonomy but can't let agents run wild' (agents delete months of work, secrets get exposed, critical systems get damaged, one bad action with real consequences); Safety: 'Lock everything down' (approve every file read, every tool call, every action — safe, but defeats the purpose)." width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+Note: This is the tension every engineering leader is facing. On the Speed side, you need autonomy — but an agent running wild can delete months of work, expose secrets, and damage critical systems; one bad action with real consequences. On the Safety side, you can lock everything down and approve every file read, every tool call, every action — but then you've just hired a very expensive assistant you have to babysit, and you've defeated the whole purpose. Most teams feel forced to pick a corner, and both corners are bad. Hold that frustration, because the next slide asks the obvious question.
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-21.webp" alt="Full-screen title slide reading 'Why not get both?' in navy and blue on a light teal background with the Docker whale logo." width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+Note: Why not get both? That's the whole thesis in four words. The false choice between speed and safety only exists when your only control is a human clicking "approve" — but that's not the only kind of control available. If the boundaries are enforced by the environment rather than by your attention, the agent can move fast because it's contained, not despite it. That's the shift from advice to enforcement — and it's exactly what the rest of this deck is about.
 
 ---
 <!-- chrome: false -->
