@@ -1,4 +1,4 @@
-title: "Find the Vulnerabilities"
+title: "Control"
 description: >
   The agent built a clean image - on a fat node:20 base. Put on your security
   hat and measure what that base dragged in with Docker Scout: 47 CVEs, 2

@@ -267,12 +267,58 @@ Note: Here's the answer to "why not both", as one story. We take one real app �
 Note: The boundary isn't just a wall — a sandbox gives you four things, the four C's. Contain: the agent runs in its own microVM with a guarded network, so the host is out of reach. Control: you decide what it can reach, and organizations layer governance and audit on top. Choice: you bring your own agent, tools, and endpoints as kits — a restricted box still has to be useful. Capacity: the same sandbox reproduces for every developer and every run, so the whole team shares one setup. We go deepest on Contain and Control next.
 
 ---
+
 <!-- chrome: false -->
 
-<img src="assets/slide-43.webp" alt="Experimental" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
+  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
+    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">HANDS-ON · THE LABS</div>
+    <div style="margin-top:14px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Four labs, one per C</div>
+  </div>
+  <div style="position:absolute;left:6.5%;right:6%;top:34%;bottom:13%;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0 28px;align-content:start;">
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">LAB 01</div>
+      <div style="margin-top:8px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Contain</div>
+      <ul style="margin:14px 0 0;padding-left:18px;font:400 16px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Run the agent in an sbx microVM</li>
+        <li>Credentials injected outside the box</li>
+        <li>Try the escape &mdash; it stays contained</li>
+      </ul>
+    </div>
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">LAB 02</div>
+      <div style="margin-top:8px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Control</div>
+      <ul style="margin:14px 0 0;padding-left:18px;font:400 16px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Pick a network policy profile</li>
+        <li>Add allow / deny rules</li>
+        <li>Read the policy log</li>
+      </ul>
+    </div>
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">LAB 03</div>
+      <div style="margin-top:8px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Choice</div>
+      <ul style="margin:14px 0 0;padding-left:18px;font:400 16px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Register MCP servers as kits</li>
+        <li>Attach tools to the sandbox</li>
+        <li>Authorize just-in-time, revoke centrally</li>
+      </ul>
+    </div>
+    <div style="border-top:2px solid #26324a;padding-top:16px;">
+      <div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">LAB 04</div>
+      <div style="margin-top:8px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Capacity</div>
+      <ul style="margin:14px 0 0;padding-left:18px;font:400 16px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Define the sandbox once</li>
+        <li>Reproduce it for every developer</li>
+        <li>Share it like code</li>
+      </ul>
+    </div>
+  </div>
+  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
+</div>
+
+Note: Four hands-on labs, one for each C. In Contain you run the agent inside an sbx microVM and watch the escape fail. In Control you pick a network policy profile, add allow and deny rules, and read the policy log. In Choice you register MCP servers as kits and authorize them just in time. In Capacity you define the sandbox once and reproduce it for the whole team. Each pillar coming up is one of these labs.
 
 ---
-
 <!-- chrome: false -->
 
 <div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
@@ -286,6 +332,12 @@ Note: The boundary isn't just a wall — a sandbox gives you four things, the fo
 </div>
 
 Note: Pillar one — Contain. This is the always-on boundary: the agent runs in its own microVM with its own kernel, filesystem, and Docker engine, and your credentials are injected outside it so the raw keys never enter the sandbox. The next few slides show how that isolation works.
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-43.webp" alt="Experimental" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 

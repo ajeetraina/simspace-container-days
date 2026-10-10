@@ -1,0 +1,59 @@
+title: "Capacity"
+description: >
+  A secured sandbox is only useful if the whole team gets the same one. Define
+  the sandbox once - its image, agent, tools, and network policy - save it as a
+  shared template, commit it like code, and watch a teammate reproduce the
+  identical microVM with a single command. No drift, no "works on my machine".
+  Fully simulated; nothing to install.
+
+# Landing-page card. Only shown when the repo has two or more labs. labs.json is
+# GENERATED from this block - never edit labs.json by hand.
+catalog:
+  icon: groups
+  description: "Define a sandbox once, share it like code, and reproduce the identical microVM for every developer and every run - no drift."
+  tags: ["sandbox", "sbx", "reproducible", "templates", "team", "capacity"]
+  estimatedMinutes: 20
+  order: 5
+
+simulator: simulator.yaml
+
+terminals:
+  - id: host
+    title: Terminal
+    icon: terminal
+
+# Seed the workspace: the Product Catalog project and a sandbox you've already
+# secured in the earlier labs. There is no sbx.yaml yet - you'll create it.
+files:
+  README.md: |
+    # Capacity - lab workspace
+
+    You've secured one sandbox across the earlier Cs - Contain (a hardened
+    microVM), Control (a network policy), and Choice (the MCP tools). Capacity is
+    what makes it a team thing: define that sandbox once and reproduce it for
+    everyone, identically.
+
+    In this lab you'll capture the running sandbox as a shared template
+    (sbx.yaml), commit it like code, and reproduce it as a new teammate.
+
+    Everything here is scripted - no real sbx, Docker, or network - so every
+    learner gets the same result.
+  product-catalog-demo-showcase/package.json: |
+    {
+      "name": "product-catalog",
+      "version": "1.0.0",
+      "scripts": { "start": "node src/index.js" }
+    }
+
+sections:
+  - title: '"Works on My Machine" Is the Enemy'
+    contentPath: 00-the-drift-problem.md
+  - title: "Define the Sandbox Once"
+    contentPath: 01-define-once.md
+  - title: "Share It Like Code"
+    contentPath: 02-share-like-code.md
+  - title: "Reproduce It Anywhere"
+    contentPath: 03-reproduce.md
+
+variables:
+  org: your-org

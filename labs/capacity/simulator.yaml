@@ -1,0 +1,214 @@
+version: "2.0"
+
+metadata:
+  id: capacity
+  title: "Capacity"
+  summary: >
+    Capture a secured sandbox as a shared template (sbx.yaml), commit it like
+    code, and reproduce the identical microVM for every developer. All simulated.
+
+# `defined` flips false → true once the sandbox is captured to sbx.yaml.
+# `shared` flips once it is committed. The same commands show the before/after.
+state:
+  org: "your-org"
+  sandbox:
+    defined: false # captured to sbx.yaml as a shared template
+    shared: false # committed so the whole team can reproduce it
+
+settings:
+  pace:
+    boot: 800 # simulated microVM boot
+    sync: 600 # simulated template read/sync
+
+defaults:
+  unmatched:
+    stderr: ["command not found - this command isn't part of the lab."]
+    exit: 1
+
+scenarios:
+  # ===========================================================================
+  # Environment niceties
+  # ===========================================================================
+  - id: sbx-version
+    when:
+      command: [sbx]
+      args: { --version: { any: true } }
+    then:
+      output: ["sbx version 0.12.0"]
+
+  # ===========================================================================
+  # Section 1 - The drift problem. An ad-hoc `sbx run` before a template exists
+  # boots something that only lives on your machine.
+  # ===========================================================================
+  - id: sbx-run-shared
+    when:
+      command: [sbx, run]
+      state: { sandbox.defined: true }
+    then:
+      output:
+        - { text: "● Reading sbx.yaml...", delay: sync }
+        - { text: "● Booting microVM  dhi.io/node:20-hardened", delay: boot }
+        - "● agent: claude   mcp: notion   network: balanced (2 endpoints allowed)"
+        - ""
+        - "✓ Identical to every other run - same image digest, same tools, same policy."
+        - "  A new teammate is productive in one command. No drift."
+
+  - id: sbx-run-adhoc
+    when:
+      command: [sbx, run]
+    then:
+      output:
+        - { text: "● Booting an ad-hoc microVM (no shared template)...", delay: boot }
+        - "● Image, agent, tools, and policy picked from your local defaults."
+        - ""
+        - "⚠ This sandbox only exists on your machine. A teammate running the same"
+        - "  command may get a different image, different tools, a different policy."
+        - "  Capture it as a template so everyone gets the same one:"
+        - "    sbx template save product-catalog"
+
+  # ===========================================================================
+  # Section 2 - Define the sandbox once. `sbx template save` writes sbx.yaml and
+  # flips state.defined, so the built-in `cat sbx.yaml` then shows it.
+  # ===========================================================================
+  - id: sbx-template-save
+    when:
+      command: [sbx, template, save]
+    then:
+      state: { sandbox.defined: true }
+      files:
+        - create: sbx.yaml
+          content: |
+            # sbx.yaml - the sandbox, defined once and shared with the team.
+            image: dhi.io/node:20-hardened   # Contain: hardened, non-root base
+            agent: claude
+            mcp:                             # Choice: the tools, pinned
+              - notion
+            network:                         # Control: what it may reach
+              profile: balanced
+              allow:
+                - registry.npmjs.org
+                - api.anthropic.com
+      output:
+        - { text: "● Capturing the current sandbox...", delay: sync }
+        - "● Wrote sbx.yaml - image, agent, MCP tools, and network policy, all pinned."
+        - ""
+        - "This one file IS the sandbox. Commit it and the whole team gets it."
+        - "Open it with `cat sbx.yaml`."
+
+  # ===========================================================================
+  # Section 3 - Share it like code. git add is a no-op; git commit flips shared.
+  # ===========================================================================
+  - id: git-add
+    when:
+      command: [git, add]
+    then:
+      output: ["  (staged sbx.yaml)"]
+
+  - id: git-commit
+    when:
+      command: [git, commit]
+    then:
+      state: { sandbox.shared: true }
+      output:
+        - "[main 9f3c1a2] Add sbx.yaml - shared team sandbox"
+        - " 1 file changed, 11 insertions(+)"
+        - ""
+        - "The sandbox is now versioned like code - reviewed in PRs, rolled back, shared."
+
+  - id: git-push
+    when:
+      command: [git, push]
+    then:
+      output:
+        - { text: "   To github.com/your-org/product-catalog.git", delay: sync }
+        - "    main -> main"
+        - ""
+        - "Every teammate who pulls now has the exact same sandbox definition."
+
+  - id: git-status
+    when:
+      command: [git, status]
+    then:
+      output:
+        - "On branch main"
+        - "  sbx.yaml   (the shared sandbox definition)"
+
+  # ===========================================================================
+  # Section 4 - Reproduce it. The template now exists for the whole team.
+  # ===========================================================================
+  - id: sbx-template-list-shared
+    when:
+      command: [sbx, template, list]
+      state: { sandbox.defined: true }
+    then:
+      output:
+        - "NAME             IMAGE                      AGENT   SHARED"
+        - "product-catalog  dhi.io/node:20-hardened    claude  yes"
+        - ""
+        - "Anyone on the team can run `sbx run --from sbx.yaml` and get this exact setup."
+
+  - id: sbx-template-list-empty
+    when:
+      command: [sbx, template, list]
+    then:
+      output:
+        - "No templates yet. Capture one with `sbx template save <name>`."
+
+  # ===========================================================================
+  # Agent sessions so free-form prompts stay graceful.
+  # ===========================================================================
+  - id: claude-session
+    when:
+      command: [claude]
+    then:
+      session:
+        prompt: "claude> "
+        intro:
+          - "Claude Code ready. Enter a task, or type /exit to leave."
+        outro:
+          - "Claude session ended."
+
+  - id: agent-fallback
+    when:
+      agent: true
+    then:
+      output:
+        - "● I can act on the scripted tasks in this lab. Try asking me to save the"
+        - "  current sandbox as a shared template, or just run `sbx template save`."
+
+  # ===========================================================================
+  # Filler no-ops so ordinary navigation doesn't error out.
+  # ===========================================================================
+  - id: cd
+    when:
+      command: [cd]
+    then:
+      output:
+        - "Note: this simulated terminal has no working directory - every command runs from the lab root."
+        - "Reference files by full path, e.g. `cat sbx.yaml`."
+
+  - id: tree-defined
+    when:
+      command: [tree]
+      state: { sandbox.defined: true }
+    then:
+      output:
+        - "."
+        - "├── sbx.yaml            ← the shared sandbox definition"
+        - "├── README.md"
+        - "└── product-catalog-demo-showcase"
+        - "    └── package.json"
+        - ""
+        - "2 directories, 3 files"
+
+  - id: tree
+    when:
+      command: [tree]
+    then:
+      output:
+        - "."
+        - "├── README.md"
+        - "└── product-catalog-demo-showcase"
+        - "    └── package.json"
+        - ""
+        - "1 directory, 2 files  (no sbx.yaml yet)"
