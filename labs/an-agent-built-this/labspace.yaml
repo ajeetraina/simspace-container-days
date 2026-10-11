@@ -44,8 +44,8 @@ files:
     }
 
 sections:
-  - title: "The Blast Radius"
-    contentPath: 00-blast-radius.md
+  - title: "An Agent Built This"
+    contentPath: 00-an-agent-built-this.md
   - title: "Box the Agent"
     contentPath: 01-box-the-agent.md
   - title: "Credentials Stay Outside"
