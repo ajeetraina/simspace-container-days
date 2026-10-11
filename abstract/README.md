@@ -7,3 +7,13 @@ This talk is about getting out of that tradeoff. It starts with the horror stori
 We will go through it live. Credential injection through a proxy, network rules that block exfiltration before it starts, branch mode, agents running in parallel. Then the part worth staying for: Sandbox Kits, where you package tools like VS Code, Firecrawl, or Box into something your whole team can run the same safe way, instead of everyone improvising on their own machine.
 
 You will walk out knowing how to let your agents run fast, without letting them run wild.
+
+## Implementation
+
+The containerday slides starts with tradtional vs agentic workflow. Typically, when you ask agent to containerise this app, it might download pakcages randonly from container registry and download packages that are vulnerable. The first lab would be showcasing this: 
+- Clone the repo https://github.com/ajeetraina/product-catalog-demo-showcase
+- Ask Agent to containerise this app
+- Let it download packages that are vulnerable
+- Use Scout to check abd verify the vulnerabilities
+
+- 
