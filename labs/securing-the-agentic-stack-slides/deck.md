@@ -101,7 +101,7 @@ Note: Here's how the session is structured. We start where it matters most — A
 
 <!-- chrome: false -->
 
-<img src="assets/slide-10.webp" alt="Slide 10" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-10.webp" alt="Traditional Development Workflow" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
