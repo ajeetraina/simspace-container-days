@@ -48,20 +48,48 @@ scenarios:
         - "  `sbx env run` so everyone gets the same one."
 
   # ===========================================================================
-  # Section 4 - Reproduce it. `sbx env run` reads sbxenv.yaml.
+  # Section 4 - Verify, then reproduce. `sbx env plan` is the dry-run that shows
+  # what would change outside the box (kits + secrets to provision, with an
+  # approval gate); `sbx env run` applies it. Plan format verified live.
   # ===========================================================================
+  - id: sbx-env-plan
+    when:
+      command: [sbx, env, plan]
+    then:
+      output:
+        - "── LOAD ENVIRONMENT"
+        - "   reading environment file…"
+        - "     ./sbxenv.yaml"
+        - "   ✓ environment loaded"
+        - "── ENVIRONMENT PLAN"
+        - "   product-catalog"
+        - ""
+        - "   kits:"
+        - "+    - source: oci://.../gitguardian-kit@sha256:8a3ad30…"
+        - ""
+        - "   secrets:"
+        - "+    gitguardian  (ref op://Engineering/GitGuardian/api-key · snapshot)"
+        - "       resolved on your host, needs your approval — never read from the file"
+        - ""
+        - "+  sandbox:"
+        - "+    name: product-catalog"
+        - "+    agent: claude"
+        - ""
+        - "   Plan: + 3 to add, ~ 0 to change, - 0 to destroy."
+        - "   ✓ not approved yet; applying asks once"
+
   - id: sbx-env-run
     when:
       command: [sbx, env, run]
     then:
       output:
-        - { text: "Reading sbxenv.yaml...", delay: sync }
-        - { text: "Creating sandbox 'product-catalog' (agent: claude)...", delay: boot }
+        - { text: "Reading sbxenv.yaml... applying the plan...", delay: sync }
+        - "   secret 'gitguardian': resolving op://Engineering/GitGuardian/api-key on this host [approve]  ✓"
+        - { text: "Creating sandbox 'product-catalog' (agent: claude, kit: gitguardian)...", delay: boot }
         - "  workspace: .  mounted at /workspace"
-        - "  secret: anthropic  provisioned from ref (brokered by the proxy)"
         - ""
-        - "✓ Identical to every other run - same agent, same workspace, same brokered"
-        - "  secrets. A new teammate is productive in one command. No drift."
+        - "✓ Identical to every other run - same agent, workspace, and kit. The secret was"
+        - "  resolved from YOUR source, not copied from the repo. No drift, no shared keys."
 
   - id: sbx-env-rm
     when:
