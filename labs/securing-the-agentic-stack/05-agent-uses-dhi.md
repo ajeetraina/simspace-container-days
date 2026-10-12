@@ -23,8 +23,25 @@ Then it writes a multi-stage Dockerfile on that base.
 cat Dockerfile
 ```
 
-A distroless, non-root, 0-CVE base - picked by the agent because the tool was
-there. Same prompt as an ungoverned run; a completely different result.
+A distroless, non-root base - picked by the agent because the tool was there.
+
+## Prove it - scan with Scout
+
+The agent *claims* 0 CVEs. Don't take its word for it - measure the built image the
+same way you measured the ungoverned one back in **Contain**:
+
+```bash
+docker scout quickview product-catalog:dhi
+```
+
+```text no-run-button
+  Target             │  product-catalog:dhi      │    0C     0H     0M     0L
+  Base image         │  dhi.io/node:24-debian13  │    0C     0H     0M     0L
+```
+
+Same tool, same prompt as the ungoverned run. In Contain, `docker scout quickview`
+read **2C / 12H / 20M / 13L** over 431 packages; on the DHI hardened base it's
+**0 / 0 / 0 / 0** over 211. The tool in the box changed the outcome.
 
 > [!NOTE]
 > That's **Choice**: the box stays locked, but you decide which tools go inside -
