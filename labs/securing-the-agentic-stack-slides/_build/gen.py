@@ -166,7 +166,7 @@ SLIDES[47] = lab_intro("Sharing a sandbox with the team", [
     "Clone a repo that has an environment file",
     "Start a sandbox &mdash; kits and policy are already set",
     "Change one line and start again",
-], badge="LIVE DEMO")
+], badge="LAB")
 SLIDES[45] = steps("CAPACITY", "Commit it once and the whole team shares one setup", [
     "<b style='color:#fff'>Change the file</b><br>Update a kit, add a kit, or swap the harness.",
     "<b style='color:#fff'>Open a pull request</b><br>The change is reviewed like code.",
