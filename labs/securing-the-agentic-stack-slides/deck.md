@@ -78,7 +78,7 @@
 
 <!-- chrome: false -->
 
-<img src="assets/talk-14.webp" alt="The Ungoverned Agent — 2C/12H/20M/13L CVEs, 431 packages, non-root but still vulnerable" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-14.webp" alt="The ungoverned agent on a host — 2C/12H/20M/13L CVEs, 431 packages, non-root but still vulnerable" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
@@ -174,49 +174,7 @@
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#ffffff;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:5%;top:6.5%;font:800 44px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#0b1220;">Managing credentials</div>
-  <div style="position:absolute;left:5%;right:5%;top:19%;font:400 21px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#1f2733;">
-    <div style="margin-bottom:12px;">&#10140;&nbsp;&nbsp;<b style="color:#2f4fd4;">Always</b> prefer stored secrets over env vars &mdash; the keychain encrypts at rest</div>
-    <div>&#10140;&nbsp;&nbsp;<b style="color:#2f4fd4;">Never</b> set API keys manually inside the sandbox &mdash; they&apos;ll be readable by the agent</div>
-  </div>
-  <div style="position:absolute;left:5%;width:56%;top:40%;bottom:6%;background:#0d1433;border-radius:14px;padding:18px 26px;box-sizing:border-box;">
-    <div style="display:flex;align-items:center;">
-      <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;margin-right:8px;"></span>
-      <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;margin-right:8px;"></span>
-      <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-      <span style="margin-left:auto;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#8a93a8;">CLI</span>
-    </div>
-    <div style="margin-top:16px;font:500 17px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8ebf5;">
-      <div style="color:#7f8aa3;"># Store a key in the OS keychain &mdash; global by default</div>
-      <div>sbx secret set anthropic</div>
-      <div style="height:12px;"></div>
-      <div style="color:#7f8aa3;"># Scope a secret to one sandbox</div>
-      <div>sbx secret set --sandbox my-sandbox openai</div>
-      <div style="height:12px;"></div>
-      <div style="color:#7f8aa3;"># Pass a GitHub token so the agent can use the gh CLI</div>
-      <div>gh auth token | sbx secret set github</div>
-      <div style="height:12px;"></div>
-      <div style="color:#7f8aa3;"># List and remove</div>
-      <div>sbx secret ls</div>
-      <div>sbx secret rm github</div>
-    </div>
-  </div>
-  <div style="position:absolute;right:5%;width:31%;top:40%;bottom:6%;background:#eef4ff;border:1px solid #cfe0f5;border-radius:14px;padding:22px 28px;box-sizing:border-box;">
-    <div style="font:700 22px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#0b1220;">Supported services</div>
-    <ul style="margin:14px 0 0;padding-left:22px;font:400 19px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#3c4557;">
-      <li>anthropic</li>
-      <li>openai</li>
-      <li>github</li>
-      <li>google</li>
-      <li>groq</li>
-      <li>mistral</li>
-      <li>xai</li>
-      <li>bedrock</li>
-      <li>nebius &hellip; and more</li>
-    </ul>
-  </div>
-</div>
+<img src="assets/talk-30.webp" alt="Managing credentials" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
