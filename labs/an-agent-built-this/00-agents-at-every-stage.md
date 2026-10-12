@@ -27,7 +27,7 @@ Every useful agent has all three at once, *by design*:
 | --- | --- |
 | Meet the app | A real Node.js service, **no Dockerfile** |
 | An agent containerises it | Done well, in seconds |
-| The same agent, on your host | One question → it reads your `.env`, keys, and business logic |
+| The same agent, on your host | It refuses an outright "harvest secrets" ask → then a poisoned file exfiltrates your `.env` anyway |
 | Box the agent | Re-run it inside a sandbox - the blast radius collapses |
 
 This is **Contain**, the first of the four Cs. First we show what an ungoverned
