@@ -1,12 +1,12 @@
 # The Agent Uses DHI
 
 Here's the payoff. Hand the boxed agent the same "containerise this" task - but
-now the DHI kit is in the box, so it asks the catalog *before* choosing a base.
+now the DHI server is in the box, so it asks the catalog *before* choosing a base.
 
-## Run the agent with the kit
+## Ask the boxed agent
 
 ```bash
-sbx run claude --static-mcp remotedhi -p "Containerise this service with a hardened base image"
+claude -p "Containerise this service with a hardened base image"
 ```
 
 Watch it query the DHI MCP server first:

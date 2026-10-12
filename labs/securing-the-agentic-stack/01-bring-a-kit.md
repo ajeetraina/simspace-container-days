@@ -35,13 +35,14 @@ sbx run claude --name demo --kit "oci://docker.io/ajeetraina777/gitguardian-kit@
 ```
 
 sbx pins kits **by digest** (it rejects plain `:tags` at consume time) - so you
-run exactly the artifact you just inspected. Inside the box, `ggshield` is
-installed and `GITGUARDIAN_API_KEY` is a **proxy-managed placeholder**: the real
-key stays on the host and is injected by the proxy only on calls to
-`api.gitguardian.com`.
+run exactly the artifact you just inspected. `--kit` only applies when **creating**
+a sandbox; if a `demo` already exists, remove it first with `sbx rm demo` (or pick
+a new `--name`). Inside the box, `ggshield` is installed and `GITGUARDIAN_API_KEY`
+is a **proxy-managed placeholder**: the real key stays on the host and is injected
+by the proxy only on calls to `api.gitguardian.com`.
 
 > [!NOTE]
 > Same credential-isolation idea as **Contain** - now for a tool's key. The
 > scanner runs inside the box; its key never does.
 
-Next: watch the kit catch a secret in the act.
+Next: see the kit enforce it.

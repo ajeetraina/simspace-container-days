@@ -83,11 +83,16 @@ scenarios:
       command: [sbx, exec, demo, ggshield]
     then:
       output:
-        - { text: "ggshield secret scan path... (api.gitguardian.com via proxy)", delay: scan }
-        - "  src/services/StorageService.js: 0 incidents"
+        - { text: "Scanning the workspace... (api.gitguardian.com - key injected by the proxy)", delay: scan }
         - ""
-        - "No new incidents - the AI hook kept the tree clean. The scanner ran inside the"
-        - "box; the GitGuardian key was injected by the proxy and never entered the sandbox."
+        - "  .env: 2 incidents detected"
+        - "    >> AWS Keys (High)"
+        - "       8 | AWS_ACCESS_KEY_ID=AKIA..."
+        - "       9 | AWS_SECRET_ACCESS_KEY=wJal..."
+        - ""
+        - "2 incidents found. ggshield caught real keys sitting in the tree - independent of"
+        - "whether any agent was careful. The scanner ran inside the box; its API key was"
+        - "injected by the proxy on the wire and never entered the sandbox."
 
   # ===========================================================================
   # Section 2 - Register the DHI MCP server. Positional 0 = name, --url = URL.
@@ -173,10 +178,67 @@ scenarios:
   # Section 4 - The agent uses DHI. A containerise prompt makes it query the
   # catalog before writing FROM. The -p match precedes the plain run.
   # ===========================================================================
-  - id: sbx-run-dhi-build
+  # MCP into the RUNNING box. The box already exists (created with the kit), so we
+  # hot-load the DHI server into it - no restart. (--static-mcp is create-time only
+  # and can't be changed on re-attach, so for an existing sandbox you use load.)
+  - id: sbx-mcp-load
+    when:
+      command: [sbx, mcp, load]
+    then:
+      output:
+        - { text: "Loading 'remotedhi' into running sandbox 'demo'...", delay: scan }
+        - "  ✓ attached to the sandbox's MCP gateway"
+        - "  the agent sees the new tools immediately (tools/list_changed) - no restart."
+        - ""
+        - "The boxed agent can now query DHI. Ask it to containerise with a hardened base."
+
+  - id: sbx-run
     when:
       command: [sbx, run, claude]
-      args: { -p: { any: true } }
+    then:
+      output:
+        - { text: "Re-attaching to sandbox 'demo'...", delay: boot }
+        - ""
+        - "The box already exists, with the GitGuardian kit in it. Load the DHI MCP server"
+        - "with `sbx mcp load remotedhi --sandbox demo`, then ask the agent to containerise."
+
+  # ===========================================================================
+  # Agent sessions + filler.
+  # ===========================================================================
+  - id: claude-session
+    when:
+      command: [claude]
+    then:
+      session:
+        prompt: "claude> "
+        intro:
+          - "Claude Code ready. Enter a task, or type /exit to leave."
+        outro:
+          - "Claude session ended."
+
+  # HONEST: asked to hardcode a secret, a current agent REFUSES on its own. The
+  # kit isn't a backstop for the agent being careless - it's enforcement for when
+  # a secret slips through anyway (injection, a different/older agent, a paste).
+  - id: agent-refuse-hardcode
+    when:
+      agent: true
+      promptContains: [hardcode]
+    then:
+      output:
+        - "● I won't do that. Hardcoding AWS keys into source is a serious security problem,"
+        - "  not a fix: they'd land in git history (effectively permanent), build artifacts,"
+        - "  and every clone, and long-lived keys in reachable code are hard to rotate."
+        - ""
+        - "  Better: keep the proxy, use the AWS credential chain (env / profile / IAM role),"
+        - "  or hand out S3 presigned URLs so no long-lived key ever enters the code."
+        - ""
+        - "  (Good instinct from the agent - but that's its judgment, not a guarantee.)"
+
+  # The boxed agent, with DHI MCP loaded, queries the catalog before writing FROM.
+  - id: agent-dhi-build
+    when:
+      agent: true
+      promptContains: [hardened]
     then:
       files:
         - create: Dockerfile
@@ -195,7 +257,6 @@ scenarios:
             EXPOSE 3000
             CMD ["node", "src/index.js"]
       output:
-        - { text: "Creating sandbox 'demo' (agent: claude, static MCP: remotedhi)...", delay: boot }
         - "● Reading the project... Node.js service. Before I choose a base, I'll ask DHI."
         - { text: "  -> remotedhi__dhi_list_repositories { query: \"node\" }", delay: scan }
         - { text: "     ✓ dhi.io/node - hardened Node.js (distroless runtime + -dev build variant)", delay: pull }
@@ -207,60 +268,7 @@ scenarios:
         - "● The catalog answered before I wrote a line. Building multi-stage on the hardened base..."
         - { text: "  [+] Building 9.0s FROM dhi.io/node:24-debian13 (distroless)", delay: build }
         - "● Wrote Dockerfile. Same prompt as the ungoverned run - but the agent chose a"
-        - "  0-CVE, signed base, because the DHI kit was in the box. `cat Dockerfile` to see it."
-
-  - id: sbx-run-static
-    when:
-      command: [sbx, run, claude]
-      args: { --static-mcp: { any: true } }
-    then:
-      output:
-        - { text: "Creating sandbox 'demo' (agent: claude)...", delay: boot }
-        - "  static MCP set: remotedhi  (discovery off - the agent can use only this)"
-        - ""
-        - "✓ The DHI kit is attached. Ask the agent to containerise the service and it will"
-        - "  query the catalog first - try `sbx run claude --static-mcp remotedhi -p \"...\"`."
-
-  - id: sbx-run
-    when:
-      command: [sbx, run, claude]
-    then:
-      output:
-        - { text: "Creating sandbox 'demo' (agent: claude)...", delay: boot }
-        - ""
-        - "No MCP kit attached - the agent has no catalog to ask. Attach the DHI server"
-        - "with `--static-mcp remotedhi` so it can choose a hardened base."
-
-  # ===========================================================================
-  # Agent sessions + filler.
-  # ===========================================================================
-  - id: claude-session
-    when:
-      command: [claude]
-    then:
-      session:
-        prompt: "claude> "
-        intro:
-          - "Claude Code ready. Enter a task, or type /exit to leave."
-        outro:
-          - "Claude session ended."
-
-  # GitGuardian AI hook: asked to hardcode a secret, the agent's own write is
-  # scanned and BLOCKED before it lands.
-  - id: agent-ggshield-block
-    when:
-      agent: true
-      promptContains: [hardcode]
-    then:
-      output:
-        - "● Editing product-catalog-demo-showcase/src/services/StorageService.js…"
-        - { text: "● [ggshield hook] scanning the proposed change…", delay: scan }
-        - "  ✗ BLOCKED — secret detected"
-        - "      StorageService.js:4  AWS Access Key ID      AKIA…  (High)"
-        - "      StorageService.js:5  AWS Secret Access Key  wJal…  (High)"
-        - ""
-        - "● The GitGuardian hook refused the write. I won't retry or bypass it - removing the"
-        - "  hardcoded keys and reading them from the proxy instead. These two should be rotated."
+        - "  0-CVE, signed base, because the DHI server was in the box. `cat Dockerfile` to see it."
 
   - id: agent-fallback
     when:

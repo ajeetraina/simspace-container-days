@@ -137,6 +137,14 @@ files:
       ('Widget', 'WGT-001', 9.99),
       ('Gadget', 'GDG-002', 19.99)
     ON CONFLICT (sku) DO NOTHING;
+  # A developer's .env with real-looking keys, so `ggshield secret scan` has a
+  # genuine secret to catch. The app reads from the env; nothing is hardcoded.
+  .env: |
+    POSTGRES_HOST=db.internal.acme.corp
+    POSTGRES_PASSWORD=pg_S3cr3t_9f2b!
+    AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+    AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    S3_BUCKET=acme-product-images
   frontend/package.json: |
     {
       "name": "catalog-frontend",
@@ -177,7 +185,7 @@ sections:
     contentPath: 00-tools-in-the-box.md
   - title: "Bring a Mixin Kit: GitGuardian"
     contentPath: 01-bring-a-kit.md
-  - title: "The Kit Catches a Secret"
+  - title: "The Kit Enforces It"
     contentPath: 02-kit-catches-secret.md
   - title: "Register the DHI MCP Server"
     contentPath: 03-register-dhi-mcp.md

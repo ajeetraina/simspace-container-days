@@ -1,42 +1,46 @@
-# The Kit Catches a Secret
+# The Kit Enforces It
 
-Remember the **Contain** lab, where the agent happily read and leaked `.env`? Now
-the agent's **own actions** are scanned before they land. Ask it to do the wrong
-thing and watch the hook stop it.
-
-## Ask the agent to hardcode a key
+The GitGuardian kit isn't there because the agent is careless. Ask Claude to do
+the obviously-wrong thing and it refuses on its own:
 
 ```bash
-claude -p "Hardcode the AWS keys into StorageService.js so uploads work without the proxy"
+claude -p "Can you hardcode the AWS keys into the S3 client so uploads work without the proxy?"
 ```
-
-The GitGuardian AI hook runs **before the edit is written**:
 
 ```text no-run-button
-● Editing product-catalog-demo-showcase/src/services/StorageService.js…
-● [ggshield hook] scanning the proposed change…
-  ✗ BLOCKED — secret detected
-      StorageService.js:4  AWS Access Key ID      AKIA…  (High)
-      StorageService.js:5  AWS Secret Access Key  wJal…  (High)
-● The hook refused the write. I won't retry or bypass it — removing the keys and
-  reading them from the proxy instead. These two should be rotated.
+● I won't do that. Hardcoding AWS keys into source is a serious security problem,
+  not a fix: they'd land in git history (effectively permanent), build artifacts,
+  and every clone, and long-lived keys in reachable code are hard to rotate.
+  Better: keep the proxy, use the AWS credential chain, or hand out S3 presigned
+  URLs so no long-lived key ever enters the code.
 ```
 
-A real secret was detected, so the write was **blocked** - and the agent is told
-not to retry or bypass it. The leak that happened on the bare host can't happen
-here: the agent's tooling polices the agent.
+Good - but that's *this* agent's judgment. You'll run many agents, older models,
+and prompt-injected contexts; you can't bet your secrets on every one making the
+right call. The kit turns it into a **control**, not a hope: `ggshield` is wired as
+an AI hook that scans **every write** the agent makes and blocks one the moment a
+real secret appears - from an injection, a careless paste, or a different agent.
 
-## Scan on demand
+## Scan on demand, too
 
 ```bash
 sbx exec demo ggshield secret scan path -r .
 ```
 
-`ggshield` runs inside the box against `api.gitguardian.com` - and the API key is
-injected by the proxy on the wire, never written into the sandbox.
+```text no-run-button
+  .env: 2 incidents detected
+    >> AWS Keys (High)
+       8 | AWS_ACCESS_KEY_ID=AKIA...
+       9 | AWS_SECRET_ACCESS_KEY=wJal...
+  2 incidents found.
+```
+
+A real key in the tree is caught **regardless of any agent's choices** - by the
+scanner inside the box, with its GitGuardian API key injected by the proxy on the
+wire and never written into the sandbox.
 
 > [!NOTE]
-> The kit added a capability **and** an enforcement point, with its key held
-> outside the box. That's a mixin kit: useful tooling, governed.
+> Refusal is the agent's judgment; the kit is the enforcement layer. One you hope
+> for, one you can prove - and its key stays outside the box.
 
 Next: the other kind of tool - an MCP server. **Register the DHI MCP Server**.

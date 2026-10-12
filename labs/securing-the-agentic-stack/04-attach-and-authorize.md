@@ -18,18 +18,23 @@ sbx mcp auth remotedhi
 The hosted control plane runs OAuth and holds the credential. The sandbox never
 sees it - same credential-isolation idea as Contain, now for tools.
 
-## Attach it as a locked set
+## Load it into the running box
+
+Our `demo` box already exists - it was created with the GitGuardian kit. A
+sandbox's MCP set is normally fixed at creation (`sbx run claude --static-mcp
+remotedhi` for a fresh, locked-down box), but you can also **hot-load** a server
+into a box that's already running:
 
 ```bash
-sbx run claude --static-mcp remotedhi
+sbx mcp load remotedhi --sandbox demo
 ```
 
-`--static-mcp` pins the kit: discovery is off, so the agent can use **only** the
-servers you chose. That's the governed posture - you decide exactly which tools
-go in the box.
+The agent sees the new tools immediately - a `tools/list_changed` notification, no
+restart. The DHI catalog is now in the box alongside the GitGuardian kit.
 
 > [!NOTE]
-> Leave off `--static-mcp` for the experimentation posture: the agent can search
-> the registered catalog and add servers itself.
+> `--static-mcp` at create time is the locked, governed posture; `sbx mcp load`
+> adds a server to a live box. Either way the agent talks to one gateway, and
+> authorization is held centrally.
 
 Next: watch the agent actually use it.
