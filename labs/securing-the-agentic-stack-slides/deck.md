@@ -20,44 +20,50 @@
 <!-- chrome: false -->
 
 <div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
+  <div style="position:absolute;left:6.5%;right:6%;top:6.5%;">
     <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">TODAY</div>
-    <div style="margin-top:14px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">What we'll cover</div>
+    <div style="margin-top:12px;font:800 50px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Workshop &mdash; labs</div>
   </div>
-  <div style="position:absolute;left:6.5%;right:6%;top:30%;bottom:12%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 40px;align-content:start;">
+  <div style="position:absolute;left:6.5%;right:6%;top:25%;bottom:6.5%;display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:row;gap:28px 48px;align-content:start;">
     <div>
-      <div style="font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;min-height:66px;">1&nbsp;&middot;&nbsp;Autonomy requires guardrails</div>
-      <ul style="margin:16px 0 0;padding-left:20px;font:400 20px/1.7 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Traditional vs agentic workflow</li>
+      <div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 1 &middot; Prerequisite &amp; Setup <span style="color:#7f8ba3;">(2 min)</span> <span style="color:#3ad07a;">&#10003;</span></div>
+      <ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Accessing the Workshop</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 3 &middot; Contain &amp; Control <span style="color:#7f8ba3;">(45 min)</span></div>
+      <ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>3 boundaries that surround every agent</li>
+        <li>Credentials added outside the sandbox</li>
+        <li>Testing the boundaries</li>
+        <li>What the agent can reach &mdash; adjusting policies</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 2 &middot; Autonomy requires guardrails <span style="color:#7f8ba3;">(15&ndash;20 min)</span></div>
+      <ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Traditional vs agentic development workflow</li>
         <li>Agents expand your attack surface</li>
+        <li>Coding Agent Horror Stories</li>
         <li>Speed vs security &mdash; why not both?</li>
-        <li>Containerising the Product Catalog</li>
+        <li>Agent containerising the Product Catalog</li>
       </ul>
     </div>
     <div>
-      <div style="font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;min-height:66px;">2&nbsp;&middot;&nbsp;The AI Governance Stack</div>
-      <ul style="margin:16px 0 0;padding-left:20px;font:400 20px/1.7 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Layered approach to AI governance</li>
-        <li>Docker Hardened Images</li>
-        <li>Gordon</li>
-        <li>Introduction to Docker Sandboxes</li>
-      </ul>
-    </div>
-    <div>
-      <div style="font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;min-height:66px;">3&nbsp;&middot;&nbsp;Securing the Agentic Stack</div>
-      <ul style="margin:16px 0 0;padding-left:20px;font:400 20px/1.7 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Sandboxing the AI coding agent</li>
-        <li>Credential isolation</li>
-        <li>Network &amp; filesystem policy</li>
-        <li>MCP protection</li>
-        <li>Audit logs &amp; visibility</li>
+      <div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 4 &middot; Choice &amp; Capacity <span style="color:#7f8ba3;">(30 min)</span></div>
+      <ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
+        <li>Kits define what runs inside the boundary</li>
+        <li>Running kits from Docker Hub</li>
+        <li>Build your own kits</li>
+        <li>sbxenv &mdash; describing the whole sandbox</li>
       </ul>
     </div>
   </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
+  <div style="position:absolute;left:6.5%;bottom:3.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
 </div>
 
-Note: Here's how the session is structured. We start where it matters most — Autonomy requires guardrails: the traditional-versus-agentic workflow, how agents expand your attack surface, the speed-versus-security tension and why you don't have to choose, and we containerise our Product Catalog app to see it. Then the AI Governance Stack — the layered approach, Docker Hardened Images, Gordon, and an introduction to Docker Sandboxes. And finally Securing the Agentic Stack — sandboxing the coding agent, credential isolation, network and filesystem policy, MCP protection, and audit logs. Keep this map in mind as we go.
+Note: Here's the plan. Lab 1 is a two-minute setup — just getting into the workshop. Lab 2, Autonomy requires guardrails, is the "why": traditional versus agentic workflow, how agents expand your attack surface, the coding-agent horror stories, speed versus security and why you don't have to choose, and we hand the Product Catalog to an agent to containerise. Lab 3, Contain and Control, is the core 45 minutes: the three boundaries around every agent, credentials brokered outside the box, testing those boundaries, and tuning what the agent can reach. Lab 4, Choice and Capacity, is 30 minutes on kits — what runs inside the boundary, pulling kits from Docker Hub, building your own, and describing the whole sandbox with sbxenv.
 
 ---
 
