@@ -57,7 +57,7 @@ def steps(eyebrow, title, items, foot=None):
     return bg(header(eyebrow, title) +
               f'<div style="position:absolute;left:6.5%;right:6%;top:36%;">{step_cells(items)}</div>' + foothtml)
 
-def cards(eyebrow, title, items, cols=None):
+def cards(eyebrow, title, items, cols=None, callout=None, top="32%"):
     cols = cols or len(items)
     cells = ""
     for it in items:
@@ -65,11 +65,32 @@ def cards(eyebrow, title, items, cols=None):
                if it.get("tag") else "")
         cells += (f'<div style="border-top:2px solid {RULE};padding-top:16px;">'
                   f'<div style="font:700 15px/1 {MONO};letter-spacing:.16em;color:{BLUE};">{it["k"]}</div>'
-                  f'<div style="margin-top:10px;font:800 30px/1.1 {MONO};color:{WHITE};">{it["h"]}</div>'
+                  f'<div style="margin-top:10px;font:800 28px/1.12 {MONO};color:{WHITE};">{it["h"]}</div>'
                   f'<div style="margin-top:12px;min-height:84px;font:400 18px/1.5 {SANS};color:{BODY};">{it["b"]}</div>{tag}</div>')
+    co = ""
+    if callout:
+        co = (f'<div style="position:absolute;left:6.5%;right:6%;bottom:9%;background:rgba(125,162,255,0.06);'
+              f'border-left:3px solid {BLUE};border-radius:8px;padding:18px 24px;">'
+              f'<div style="font:700 13px/1 {MONO};letter-spacing:.18em;color:{BLUE};">{callout["label"]}</div>'
+              f'<div style="margin-top:8px;font:400 20px/1.45 {SANS};color:#c7d0de;">{callout["text"]}</div></div>')
     return bg(header(eyebrow, title) +
-        f'<div style="position:absolute;left:6.5%;right:6%;top:32%;bottom:12%;display:grid;'
-        f'grid-template-columns:{"1fr " * cols};gap:0 26px;align-content:start;">{cells}</div>')
+        f'<div style="position:absolute;left:6.5%;right:6%;top:{top};display:grid;'
+        f'grid-template-columns:{"1fr " * cols};gap:26px 26px;align-content:start;">{cells}</div>' + co)
+
+def agenda(labs):
+    cells = ""
+    for lb in labs:
+        items = "".join(f"<li>{x}</li>" for x in lb["items"])
+        check = f' <span style="color:#3ad07a;">&#10003;</span>' if lb.get("done") else ""
+        cells += (f'<div><div style="font:700 23px/1.3 {MONO};color:{BLUE};">{lb["name"]} '
+                  f'<span style="color:{MUTED};">({lb["time"]})</span>{check}</div>'
+                  f'<ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 {SANS};color:{BODY};">{items}</ul></div>')
+    return bg(
+        f'<div style="position:absolute;left:6.5%;right:6%;top:6.5%;">'
+        f'<div style="font:700 16px/1 {MONO};letter-spacing:.22em;color:{BLUE};">TODAY</div>'
+        f'<div style="margin-top:12px;font:800 50px/1.04 {MONO};color:{WHITE};">Workshop &mdash; labs</div></div>'
+        f'<div style="position:absolute;left:6.5%;right:6%;top:25%;bottom:6.5%;display:grid;'
+        f'grid-template-columns:1fr 1fr;gap:28px 48px;align-content:start;">{cells}</div>')
 
 def numbered(eyebrow, title, items):
     cells = ""
@@ -158,6 +179,39 @@ SLIDES[41] = big_title("CHOICE", "You can build your own kits",
 SLIDES[46] = cards("CAPACITY", "Cloud Sandboxes run the same setup remotely", [
     {"k":"LOCAL","h":"On your machine","b":"The sandbox runs on your laptop, limited by its CPU and memory."},
     {"k":"CLOUD","h":"On Docker's infrastructure","b":"The same environment file, running remotely. Start more sandboxes than one laptop can hold.","tag":"EARLY ACCESS &middot; not yet available for org use"},
+], cols=2)
+
+# ---------------------------------------------------------------- batch 3 (opening)
+SLIDES[1] = big_title("CONTAINER DAYS SINGAPORE 2026", "Run Fast Without Running Wild",
+    "AI Coding Agent Horror Stories and the microVM That Saves You", size=66)
+SLIDES[3] = agenda([
+    {"name":"Lab 1 &middot; Setup","time":"2 min","done":True,"items":["Accessing the Workshop"]},
+    {"name":"Lab 3 &middot; Contain &amp; Control","time":"45 min","items":[
+        "3 boundaries that surround every agent","Credentials added outside the sandbox",
+        "Testing the boundaries","What the agent can reach &mdash; adjusting policies"]},
+    {"name":"Lab 2 &middot; Autonomy requires guardrails","time":"15&ndash;20 min","items":[
+        "Traditional vs agentic development workflow","Agents expand your attack surface",
+        "Coding Agent Horror Stories","Speed vs security &mdash; why not both?",
+        "Agent containerising the Product Catalog"]},
+    {"name":"Lab 4 &middot; Choice &amp; Capacity","time":"30 min","items":[
+        "Kits define what runs inside the boundary","Running kits from Docker Hub",
+        "Build your own kits","sbxenv &mdash; describing the whole sandbox"]},
+])
+SLIDES[5] = cards("THE SHIFT", "AI agents are here &mdash; and doing real work", [
+    {"k":"ENGINEERING","h":"Read codebases, ship PRs","b":"Agents read context, write code, and open pull requests without an engineer in the loop."},
+    {"k":"MARKETING","h":"Pull CRM data, launch campaigns","b":"Agents move from research to creative to send, end to end."},
+    {"k":"FINANCE","h":"Reconcile reports, query live","b":"Agents close the loop between ledger, dashboard, and decision."},
+], cols=3)
+SLIDES[7] = cards("THE LETHAL TRIFECTA", "Every useful agent is built on three things", [
+    {"k":"RISK 01","h":"Access to private data","b":"Codebases, internal systems, credentials. The same data that makes it useful makes it dangerous."},
+    {"k":"RISK 02","h":"Exposure to untrusted content","b":"Web pages, emails, MCP responses. Any of it can carry instructions the agent will follow."},
+    {"k":"RISK 03","h":"Ability to act externally","b":"Send email, call APIs, touch the open internet. Once data leaves, it does not come back."},
+], cols=3, callout={"label":"THE POINT","text":"A useful agent has all three <b>by design.</b> You can't train it out, prompt it out, or policy-doc it out &mdash; the only fix is an enforcement layer at runtime."})
+SLIDES[10] = cards("IN YOUR PIPELINE", "What agents are already doing in your pipeline", [
+    {"k":"01","h":"Pulling dependencies","b":"Resolving and adding packages you never chose, from registries you never audited."},
+    {"k":"02","h":"Generating Dockerfiles","b":"Picking base images, install steps, and users &mdash; usually the first thing it saw."},
+    {"k":"03","h":"Editing infrastructure","b":"Terraform, Helm values, Compose files, IAM policy documents."},
+    {"k":"04","h":"Triggering builds","b":"Opening PRs, pushing branches, and kicking off pipelines on its own initiative."},
 ], cols=2)
 
 # ---------------------------------------------------------------- emit
