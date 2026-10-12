@@ -214,6 +214,78 @@ SLIDES[10] = cards("IN YOUR PIPELINE", "What agents are already doing in your pi
     {"k":"04","h":"Triggering builds","b":"Opening PRs, pushing branches, and kicking off pipelines on its own initiative."},
 ], cols=2)
 
+# ---------------------------------------------------------------- batch 4 (custom text)
+def chips(items, cbg="#16213b", cfg="#c7d0de"):
+    return "".join(f'<span style="display:inline-block;background:{cbg};color:{cfg};font:600 16px/1 {MONO};'
+                   f'padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">{t}</span>' for t in items)
+
+PINK = "#ff5c8a"; GOLD = "#f0a500"
+def _hrow(top, num, text):
+    return (f'<div style="position:absolute;left:6.5%;right:6%;top:{top};background:#121a2e;border-left:3px solid {PINK};'
+            f'border-radius:8px;padding:20px 26px;"><span style="font:700 20px/1 {MONO};color:{PINK};">{num}</span>'
+            f'<span style="margin-left:18px;font:400 22px/1.5 {SANS};color:#c7d0de;">{text}</span></div>')
+CODE = lambda t: f'<code style="font:700 20px/1 {MONO};color:#ff9ebf;">{t}</code>'
+SLIDES[15] = bg(
+    f'<div style="position:absolute;left:6.5%;right:6%;top:13%;">'
+    f'<div style="font:700 16px/1 {MONO};letter-spacing:.22em;color:{PINK};">FROM THE WILD</div>'
+    f'<div style="margin-top:14px;font:800 72px/1.0 {MONO};color:{WHITE};">Horror stories</div>'
+    f'<div style="margin-top:16px;font:400 23px/1.4 {SANS};color:{BODY};">These aren\'t hypothetical &mdash; they shipped, and someone paid for them.</div></div>'
+    + _hrow("50%", "01", f'&ldquo;Clean up my project folder&rdquo; &rarr; agent had root, ran {CODE("rm -rf *")} &mdash; .ssh &middot; .aws &middot; prod.db gone')
+    + _hrow("66%", "02", f'&ldquo;Organize my wife&apos;s desktop&rdquo; &rarr; {CODE("rm -rf family_photos/")} &mdash; Trash bypassed, 15 yrs of photos gone'))
+
+SLIDES[18] = bg(
+    f'<div style="position:absolute;left:6.5%;right:6%;top:11%;font:800 52px/1.12 {MONO};color:{WHITE};">Developers have to choose between speed and safety</div>'
+    f'<div style="position:absolute;left:6.5%;right:6%;top:40%;height:6px;border-radius:3px;background:linear-gradient(90deg,{BLUE},{GOLD});"></div>'
+    f'<div style="position:absolute;left:6.5%;top:46%;width:40%;">'
+    f'<div style="font:700 15px/1 {MONO};letter-spacing:.14em;color:{BLUE};">SAFE, SLOW</div>'
+    f'<div style="margin-top:12px;font:800 32px/1.1 {MONO};color:{WHITE};">Approve every action</div>'
+    f'<div style="margin-top:12px;font:400 20px/1.5 {SANS};color:{BODY};">The agent stops to ask permission. The developer becomes the bottleneck.</div></div>'
+    f'<div style="position:absolute;right:6%;top:46%;width:40%;text-align:right;">'
+    f'<div style="font:700 15px/1 {MONO};letter-spacing:.14em;color:{GOLD};">FAST, RISKY</div>'
+    f'<div style="margin-top:12px;font:800 32px/1.1 {MONO};color:{WHITE};">YOLO mode</div>'
+    f'<div style="margin-top:12px;font:400 20px/1.5 {SANS};color:{BODY};">Permissions skipped. The agent has the same access as the developer.</div></div>'
+    f'<div style="position:absolute;left:6.5%;bottom:13%;">'
+    f'<div style="font:italic 400 27px/1.4 {SANS};color:#c7d0de;">&ldquo;I&apos;m babysitting my agents.&rdquo;</div>'
+    f'<div style="margin-top:10px;font:700 14px/1 {MONO};letter-spacing:.16em;color:{MUTED};">COMMON DEVELOPER FEEDBACK</div></div>')
+
+def _layer(top, label, name, items, cbg, ncol, lcol):
+    return (f'<div style="position:absolute;left:6.5%;right:6%;top:{top};background:{cbg};border-radius:12px;'
+            f'padding:18px 26px;display:flex;align-items:center;min-height:84px;box-sizing:border-box;">'
+            f'<div style="width:26%;"><div style="font:700 13px/1 {MONO};letter-spacing:.16em;color:{lcol};">{label}</div>'
+            f'<div style="margin-top:6px;font:800 26px/1.1 {MONO};color:{ncol};">{name}</div></div>'
+            f'<div style="flex:1;line-height:0;">{items}</div></div>')
+SLIDES[34] = bg(header("CONTROL", "Organizations add governance on top") +
+    _layer("34%", "ORGANIZATION", "AI Governance",
+           chips(["Central policy","Audit logs","Approved agents and kits","Enforced across every sandbox"], "#16233f", "#cfe0ff"),
+           "#0b1a38", WHITE, BLUE) +
+    _layer("56%", "DEVELOPER", "Local policy",
+           chips(["Choose a profile","Allow and deny rules","Policy log"], "#223769", "#dfe9ff"),
+           "#17305e", "#cfe0ff", BLUE) +
+    _layer("78%", "ALWAYS ON", "Contain",
+           chips(["MicroVM","Network proxy","Credential injection"], "#1b2540", BODY),
+           "#121a2e", BODY, MUTED))
+
+def _kitrow(name, tag, active=False):
+    bgc = "#17305e" if active else "#121d38"
+    nc = WHITE if active else "#c7d0de"
+    return (f'<div style="background:{bgc};border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:center;">'
+            f'<span style="flex:1;font:700 22px/1 {MONO};color:{nc};">{name}</span>'
+            f'<span style="font:700 13px/1 {MONO};letter-spacing:.12em;color:{BLUE if active else MUTED};">{tag}</span></div>')
+def _concept(label, name, body):
+    return (f'<div style="margin-bottom:26px;"><div style="font:700 14px/1 {MONO};letter-spacing:.14em;color:{BLUE};">{label}</div>'
+            f'<div style="margin-top:8px;font:800 26px/1.1 {MONO};color:{WHITE};">{name}</div>'
+            f'<div style="margin-top:8px;font:400 19px/1.45 {SANS};color:{BODY};">{body}</div></div>')
+SLIDES[38] = bg(header("CHOICE", "Kits define what runs inside the boundary") +
+    f'<div style="position:absolute;left:6.5%;top:34%;width:42%;">'
+    + _kitrow("code-server","MIXIN KIT") + _kitrow("GitHub SSH","MIXIN KIT") + _kitrow("Project dev env","MIXIN KIT")
+    + _kitrow("Claude Code","AGENT KIT", True) + _kitrow("MicroVM + proxy","UNCHANGED")
+    + '</div>'
+    f'<div style="position:absolute;right:6%;top:34%;width:44%;">'
+    + _concept("ONE PER SANDBOX","Agent kit","The harness: which coding agent runs and how it starts.")
+    + _concept("STACK AS MANY AS NEEDED","Mixin kits","Tools, credentials, and network rules added on top of any agent.")
+    + _concept("DISTRIBUTION","Shared anywhere","Docker Hub or any registry, a Git repo, or a folder in your project.")
+    + '</div>')
+
 # ---------------------------------------------------------------- emit
 IMG = ('<img src="assets/talk-{n:02d}.webp" alt="{alt}" width="1600" height="900" loading="lazy" '
        'decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />')
