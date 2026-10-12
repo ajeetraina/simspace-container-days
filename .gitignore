@@ -11,3 +11,7 @@ labs.json
 # Personal overlay for .sbxenv.yaml — machine-specific sandbox settings, passed
 # as `sbx env run .sbxenv.yaml local.sbxenv.yaml`.
 local.sbxenv.yaml
+
+# Python cache
+__pycache__/
+*.pyc
