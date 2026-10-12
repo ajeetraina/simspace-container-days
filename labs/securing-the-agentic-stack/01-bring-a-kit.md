@@ -16,11 +16,13 @@ sbx kit inspect "oci://docker.io/ajeetraina777/gitguardian-kit@sha256:8a3ad30666
   Kind:           mixin
   Schema:         v2
   Display:        GitGuardian (ggshield) — Claude Code
+  Description:    Installs the GitGuardian CLI (ggshield) with proxy-injected API-key auth for api.gitguardian.com and wires it as a Claude Code AI hook, so the agent's own actions are scanned for hardcoded secrets automatically - the real key never enters the sandbox.
+
   Policies:
-    Network:      4 allow, 0 deny      (github.com, …, api.gitguardian.com)
-    Credentials:  1 sources            (GitGuardian API key - held on the host)
-    Environment:  1 variables
-    Commands:     2 install, 0 startup
+    Network:      4 allow, 0 deny
+    Credentials:  1 sources
+    Environment:  1 variables, 0 proxy-managed
+    Commands:     2 install, 0 startup, 0 init files
 ```
 
 A mixin declares exactly what it adds - a network allowlist, one credential, and

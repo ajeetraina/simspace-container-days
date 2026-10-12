@@ -54,6 +54,8 @@ scenarios:
         - "  Kind:           mixin"
         - "  Schema:         v2"
         - "  Display:        GitGuardian (ggshield) — Claude Code"
+        - "  Description:    Installs the GitGuardian CLI (ggshield) with proxy-injected API-key auth for api.gitguardian.com and wires it as a Claude Code AI hook, so the agent's own actions are scanned for hardcoded secrets automatically - the real key never enters the sandbox."
+        - ""
         - "  Policies:"
         - "    Network:      4 allow, 0 deny"
         - "    Credentials:  1 sources"
