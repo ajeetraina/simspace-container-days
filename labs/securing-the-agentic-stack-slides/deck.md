@@ -1,729 +1,327 @@
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;">
-    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">CONTAINER DAYS SINGAPORE 2026</div>
-    <div style="font:800 68px/1.03 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:-.015em;color:#ffffff;">Run Fast Without Running Wild</div>
-    <div style="font:400 25px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:84%;">AI Coding Agent Horror Stories and the microVM That Saves You</div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
+<img src="assets/talk-01.webp" alt="Run Fast Without Running Wild — title" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-02.webp" alt="WHALE, HELLO THERE" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-02.webp" alt="Meet your Instructor — Ajeet Singh Raina" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;right:6%;top:6.5%;">
-    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">TODAY</div>
-    <div style="margin-top:12px;font:800 50px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Workshop &mdash; labs</div>
-  </div>
-  <div style="position:absolute;left:6.5%;right:6%;top:25%;bottom:6.5%;display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:row;gap:28px 48px;align-content:start;">
-    <div>
-      <div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 1 &middot; Prerequisite &amp; Setup <span style="color:#7f8ba3;">(2 min)</span> <span style="color:#3ad07a;">&#10003;</span></div>
-      <ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Accessing the Workshop</li>
-      </ul>
-    </div>
-    <div>
-      <div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 3 &middot; Contain &amp; Control <span style="color:#7f8ba3;">(45 min)</span></div>
-      <ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>3 boundaries that surround every agent</li>
-        <li>Credentials added outside the sandbox</li>
-        <li>Testing the boundaries</li>
-        <li>What the agent can reach &mdash; adjusting policies</li>
-      </ul>
-    </div>
-    <div>
-      <div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 2 &middot; Autonomy requires guardrails <span style="color:#7f8ba3;">(15&ndash;20 min)</span></div>
-      <ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Traditional vs agentic development workflow</li>
-        <li>Agents expand your attack surface</li>
-        <li>Coding Agent Horror Stories</li>
-        <li>Speed vs security &mdash; why not both?</li>
-        <li>Agent containerising the Product Catalog</li>
-      </ul>
-    </div>
-    <div>
-      <div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 4 &middot; Choice &amp; Capacity <span style="color:#7f8ba3;">(30 min)</span></div>
-      <ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Kits define what runs inside the boundary</li>
-        <li>Running kits from Docker Hub</li>
-        <li>Build your own kits</li>
-        <li>sbxenv &mdash; describing the whole sandbox</li>
-      </ul>
-    </div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:3.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
-
-Note: Here's the plan. Lab 1 is a two-minute setup — just getting into the workshop. Lab 2, Autonomy requires guardrails, is the "why": traditional versus agentic workflow, how agents expand your attack surface, the coding-agent horror stories, speed versus security and why you don't have to choose, and we hand the Product Catalog to an agent to containerise. Lab 3, Contain and Control, is the core 45 minutes: the three boundaries around every agent, credentials brokered outside the box, testing those boundaries, and tuning what the agent can reach. Lab 4, Choice and Capacity, is 30 minutes on kits — what runs inside the boundary, pulling kits from Docker Hub, building your own, and describing the whole sandbox with sbxenv.
+<img src="assets/talk-03.webp" alt="Workshop — labs: the four-lab agenda" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;padding:0 6%;">
-    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">CONTAINER DAYS SINGAPORE 2026</div>
-    <div style="margin-top:16px;font:800 52px/1.05 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Access the Workshop</div>
-    <div style="margin-top:26px;font:700 30px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;text-decoration:underline;text-underline-offset:6px;">containerdays.dockerworkshop.com</div>
-    <div style="margin-top:18px;font:400 21px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Runs in your browser — nothing to install.</div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
+<img src="assets/talk-04.webp" alt="Access the Workshop — containerdays.dockerworkshop.com" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-06.webp" alt="AI Agents are here. And they’re doing real" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-05.webp" alt="AI Agents are here and doing real work (engineering, marketing, finance)" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-07.webp" alt="Then came Claws." width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-06.webp" alt="Coding agents act on their own — plan, act, observe, repeat; no human in the loop" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-08.webp" alt="Agents got approved. Security found out last." width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-07.webp" alt="Every useful agent is built on the lethal trifecta" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-09.webp" alt="Every useful agent is built on the" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-08.webp" alt="Traditional Development Workflow" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-10.webp" alt="Traditional Development Workflow" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-09.webp" alt="The Agentic Workflow — an agent at every stage" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-11.webp" alt="Slide 11" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-10.webp" alt="What agents are already doing in your pipeline" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-12.webp" alt="What agents are already doing in your pipeline" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-11.webp" alt="A Product Catalog Sample Demo" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-14.webp" alt="A Product Catalog Sample Demo" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-12.webp" alt="Let's try — Agent containerising the Product Catalog" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-13.webp" alt="Slide 13" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-13.webp" alt="Let's try — Coding agents exposing the API and credentials" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/lab-try-containerise.webp" alt="Let's try — Agent containerising the Product Catalog application" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/lab-agent-on-host.webp" alt="The ungoverned agent on a host — 2C/12H/20M/13L CVEs, 431 packages, non-root but still vulnerable" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/lab-try-credentials.webp" alt="Let's try — Coding agents exposing the API and credentials" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-15.webp" alt="Horror stories from the wild" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/lab-agent-on-host.webp" alt="Agent on a host system — host daemon, host credentials, no boundary; the agent runs with full permissions, picks FROM node:20 with no guidance and reaches open registries with no allowlist, producing an image with 2 Critical, 12 High, 20 Medium, 13 Low CVEs, 431 packages, no SBOM, no attestation, non-root but still vulnerable" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-16.webp" alt="Comic — 'clean up my project folder' runs rm -rf" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/horror-title.webp" alt="Horror stories - these aren't hypothetical, they shipped and someone paid for them" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: These are not hypothetical. Every one shipped, and someone paid for it. Four from Docker's "Coding Agent Horror Stories" blog series - each is a different thing an agent with no boundary can do to you: destroy your filesystem, lose your data, leak your secrets, or run a command you never approved. Hold that thought - the back half of this deck is the one thing that stops all four.
+<img src="assets/talk-17.webp" alt="Comic — Claude Cowork deletes family photos" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:#0b1533;padding:40px;box-sizing:border-box;">
-  <img src="assets/horror-1-filesystem.png" alt="Comic: a developer asks an AI agent to clean up a project folder; the agent, running with root and full filesystem access, runs rm -rf and wipes the home directory" style="max-width:84%;max-height:80%;object-fit:contain;border-radius:12px;box-shadow:0 10px 50px rgba(0,0,0,.55);" />
-  <a href="https://www.docker.com/blog/ai-coding-agent-horror-stories-security-risks/" style="color:#7da2ff;font:600 20px/1.3 ui-sans-serif,system-ui,sans-serif;text-decoration:none;">docker.com/blog &middot; AI coding agent horror stories: security risks</a>
-</div>
-
-Note: Horror #1 - unrestricted filesystem access. "Clean up my project folder" became rm -rf across the whole home directory, because the agent ran as you, with root, and nothing scoped what it could touch.
+<img src="assets/talk-18.webp" alt="Developers have to choose between speed and safety" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:#0b1533;padding:40px;box-sizing:border-box;">
-  <img src="assets/horror-2-dataloss.png" alt="Comic: Claude Cowork asked to organize a desktop deletes a family_photos folder, bypassing the Trash; 15 years of photos gone, recovered only by iCloud retention" style="max-width:84%;max-height:80%;object-fit:contain;border-radius:12px;box-shadow:0 10px 50px rgba(0,0,0,.55);" />
-  <a href="https://www.docker.com/blog/coding-agent-horror-stories-the-rm-rf-incident/" style="color:#7da2ff;font:600 20px/1.3 ui-sans-serif,system-ui,sans-serif;text-decoration:none;">docker.com/blog &middot; Coding agent horror stories: the rm -rf ~/ incident</a>
-</div>
-
-Note: Horror #2 - irreversible data loss. "Organize my desktop" deleted a family_photos folder and bypassed the Trash. 15 years of photos, saved only because iCloud happened to still have them. Permission was granted for temp files; the agent took the whole desktop.
+<img src="assets/talk-19.webp" alt="Why not containers?" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-20.webp" alt="'Speed or safety? This is the tension.' Two cards side by side — Speed: 'Need autonomy but can't let agents run wild' (agents delete months of work, secrets get exposed, critical systems get damaged, one bad action with real consequences); Safety: 'Lock everything down' (approve every file read, every tool call, every action — safe, but defeats the purpose)." width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: This is the tension every engineering leader is facing. On the Speed side, you need autonomy — but an agent running wild can delete months of work, expose secrets, and damage critical systems; one bad action with real consequences. On the Safety side, you can lock everything down and approve every file read, every tool call, every action — but then you've just hired a very expensive assistant you have to babysit, and you've defeated the whole purpose. Most teams feel forced to pick a corner, and both corners are bad. Hold that frustration, because the next slide asks the obvious question.
+<img src="assets/talk-20.webp" alt="Escaping a container — the mounted Docker socket" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-21.webp" alt="Full-screen title slide reading 'Why not get both?' in navy and blue on a light teal background with the Docker whale logo." width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Why not get both? That's the whole thesis in four words. The false choice between speed and safety only exists when your only control is a human clicking "approve" — but that's not the only kind of control available. If the boundaries are enforced by the environment rather than by your attention, the agent can move fast because it's contained, not despite it. That's the shift from advice to enforcement — and it's exactly what the rest of this deck is about.
+<img src="assets/talk-21.webp" alt="Each new capability weakens the container's isolation" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
-    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">YES &mdash; HERE'S HOW</div>
-    <div style="margin-top:14px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">One app. Three moves.</div>
-    <div style="margin-top:12px;font:400 21px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:82%;">We follow one real app &mdash; the Product Catalog &mdash; the whole way. Speed from the agent, safety from the boundary. That's both.</div>
-  </div>
-  <div style="position:absolute;left:6.5%;right:6%;top:36%;bottom:13%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 34px;align-content:start;">
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01 &middot; BUILD</div>
-      <div style="margin-top:14px;font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">An agent containerises it</div>
-      <div style="margin-top:12px;min-height:70px;font:400 19px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Done in seconds &mdash; then it pulls random packages and ships with CVEs.</div>
-      <div style="margin-top:16px;font:600 15px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Contain</div>
-    </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02 &middot; HARDEN</div>
-      <div style="margin-top:14px;font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Swap in a Hardened Image</div>
-      <div style="margin-top:12px;min-height:70px;font:400 19px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Scan with Docker Scout, move to a DHI base &mdash; the CVEs collapse to near zero.</div>
-      <div style="margin-top:16px;font:600 15px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Control</div>
-    </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03 &middot; CONTAIN</div>
-      <div style="margin-top:14px;font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Box the agent in a sandbox</div>
-      <div style="margin-top:12px;min-height:70px;font:400 19px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Re-run the same agent inside a microVM it can't escape.</div>
-      <div style="margin-top:16px;font:600 15px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;color:#7f8ba3;">LAB &middot; Choice</div>
-    </div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
-
-Note: Here's the answer to "why not both", as one story. We take one real app — the Product Catalog — and make three moves. BUILD: we hand it to an AI agent and it containerises it in seconds; fast, but left alone it pulls random packages and ships with CVEs. HARDEN: we scan that image with Docker Scout, swap the base to a Docker Hardened Image, and the vulnerabilities collapse to near zero. CONTAIN: we re-run the very same agent inside a sandbox — a microVM boundary it can't escape. Speed comes from the agent; safety comes from the boundary. Those three moves are the three labs you'll do.
+<img src="assets/talk-22.webp" alt="Hello, Sandboxes" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
-    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">CONTAIN &middot; CONTROL &middot; CHOICE &middot; CAPACITY</div>
-    <div style="margin-top:14px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">A sandbox gives you four things</div>
-  </div>
-  <div style="position:absolute;left:6.5%;right:6%;top:30%;bottom:13%;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0 24px;align-content:start;">
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01</div>
-      <div style="margin-top:10px;font:800 31px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Contain</div>
-      <div style="margin-top:12px;min-height:86px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Isolate the agent in a microVM with a guarded network.</div>
-      <div style="margin-top:14px;font:600 14px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">A trusted boundary</div>
-    </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02</div>
-      <div style="margin-top:10px;font:800 31px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Control</div>
-      <div style="margin-top:12px;min-height:86px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Set what the agent can reach. Organizations add governance and audit.</div>
-      <div style="margin-top:14px;font:600 14px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">You decide where it sits</div>
-    </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03</div>
-      <div style="margin-top:10px;font:800 31px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Choice</div>
-      <div style="margin-top:12px;min-height:86px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Bring your own agent, tools, and endpoints with kits.</div>
-      <div style="margin-top:14px;font:600 14px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">You choose what's inside</div>
-    </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">04</div>
-      <div style="margin-top:10px;font:800 31px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Capacity</div>
-      <div style="margin-top:12px;min-height:86px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Reproduce the same sandbox for every developer and every run.</div>
-      <div style="margin-top:14px;font:600 14px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">Shared with the team</div>
-    </div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
-
-Note: The boundary isn't just a wall — a sandbox gives you four things, the four C's. Contain: the agent runs in its own microVM with a guarded network, so the host is out of reach. Control: you decide what it can reach, and organizations layer governance and audit on top. Choice: you bring your own agent, tools, and endpoints as kits — a restricted box still has to be useful. Capacity: the same sandbox reproduces for every developer and every run, so the whole team shares one setup. We go deepest on Contain and Control next.
+<img src="assets/talk-23.webp" alt="A sandbox is a private machine for your agent" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
-    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">HANDS-ON · THE LABS</div>
-    <div style="margin-top:14px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Four labs, one per C</div>
-  </div>
-  <div style="position:absolute;left:6.5%;right:6%;top:34%;bottom:13%;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0 28px;align-content:start;">
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">LAB 01</div>
-      <div style="margin-top:8px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Contain</div>
-      <ul style="margin:14px 0 0;padding-left:18px;font:400 16px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Run the agent in an sbx microVM</li>
-        <li>Credentials injected outside the box</li>
-        <li>Try the escape &mdash; it stays contained</li>
-      </ul>
-    </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">LAB 02</div>
-      <div style="margin-top:8px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Control</div>
-      <ul style="margin:14px 0 0;padding-left:18px;font:400 16px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Pick a network policy profile</li>
-        <li>Add allow / deny rules</li>
-        <li>Read the policy log</li>
-      </ul>
-    </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">LAB 03</div>
-      <div style="margin-top:8px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Choice</div>
-      <ul style="margin:14px 0 0;padding-left:18px;font:400 16px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Register MCP servers as kits</li>
-        <li>Attach tools to the sandbox</li>
-        <li>Authorize just-in-time, revoke centrally</li>
-      </ul>
-    </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">LAB 04</div>
-      <div style="margin-top:8px;font:800 27px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Capacity</div>
-      <ul style="margin:14px 0 0;padding-left:18px;font:400 16px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">
-        <li>Define the sandbox once</li>
-        <li>Reproduce it for every developer</li>
-        <li>Share it like code</li>
-      </ul>
-    </div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
-
-Note: Four hands-on labs, one for each C. In Contain you run the agent inside an sbx microVM and watch the escape fail. In Control you pick a network policy profile, add allow and deny rules, and read the policy log. In Choice you register MCP servers as kits and authorize them just in time. In Capacity you define the sandbox once and reproduce it for the whole team. Each pillar coming up is one of these labs.
-
----
-<!-- chrome: false -->
-
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 01</div>
-  <div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;">
-    <div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 01 / CONTAIN</div>
-    <div style="font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Contain</div>
-    <div style="font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">The boundary that keeps the agent &mdash; and your secrets &mdash; inside the sandbox.</div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
-
-Note: Pillar one — Contain. This is the always-on boundary: the agent runs in its own microVM with its own kernel, filesystem, and Docker engine, and your credentials are injected outside it so the raw keys never enter the sandbox. The next few slides show how that isolation works.
+<img src="assets/talk-24.webp" alt="A sandbox gives you four things — Contain, Control, Choice, Capacity" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-43.webp" alt="Experimental" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-25.webp" alt="Pillar 01 — Contain" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-44.webp" alt="Sandbox architecture" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-26.webp" alt="Three boundaries surround every agent — microVM, network proxy, credential injection" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-45.webp" alt="Docker Sandbox (for code-executing agents)" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-27.webp" alt="Credentials are added outside the sandbox" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-46.webp" alt="A new gold standard for safe isolation." width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-28.webp" alt="Sandbox architecture" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-47.webp" alt="Demos" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-48.webp" alt="Install. Sign up. Go. No Docker Desktop required." width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: And now, there’s no dependency on Docker Desktop. That’s right, a developer, any developer, can install with just a command and get sandboxes in seconds without any previous history with Docker. This is huge. AI is and will make more people builders. So the TAM of builders is growing massively. Making sandboxes available to every developer expands our surface area of luck. And we’ll talk about what that means in a minute.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-49.webp" alt="Slide 49" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-50.webp" alt="Credential Isolation" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Part 4. We have secured the supply chain for traditional workloads. Now let us apply everything to the agentic stack - MCP servers, tool invocations, and the autonomous systems calling them.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-51.webp" alt="SANDBOX SECURITY · CREDENTIALS" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-52.webp" alt="Managing credentials" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-53.webp" alt="Without Sandbox - Full" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 02</div>
-  <div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;">
-    <div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 02 / CONTROL</div>
-    <div style="font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Control</div>
-    <div style="font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Decide what the agent can reach and touch &mdash; you set where the boundary sits.</div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
-
-Note: Pillar two — Control. Containment is always on; control is what you tune. You decide which network endpoints the agent may reach and which parts of the filesystem it may touch, every connection is logged, and organizations can layer policy on top. The next slides walk through network and filesystem control.
+<img src="assets/talk-29.webp" alt="Sandbox VM isolation — host system and hypervisor boundary" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
 <div style="position:absolute;inset:0;background:#ffffff;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;top:7%;font:800 24px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:-.01em;color:#0b1220;">docker</div>
-  <div style="position:absolute;right:6%;top:7.4%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#3d4fd4;">02&nbsp;&middot;&nbsp;CONTROL</div>
-
-  <div style="position:absolute;left:6.5%;right:6%;top:15%;font:800 52px/1.06 ui-sans-serif,system-ui,sans-serif;letter-spacing:-.015em;color:#0b1220;">Developers decide what the agent can reach</div>
-  <div style="position:absolute;left:6.5%;top:29%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#3d4fd4;">NETWORK POLICY PROFILES</div>
-
-  <div style="position:absolute;left:6.5%;right:6%;top:37%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 28px;">
-    <div style="border:1px solid #e4e7ef;border-radius:14px;padding:22px 26px;">
-      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#9aa3b4;">MOST RESTRICTIVE</div>
-      <div style="margin-top:14px;font:800 30px/1.1 ui-sans-serif,system-ui,sans-serif;color:#0b1220;">Locked Down</div>
-      <div style="margin-top:12px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#5a6475;">Only what you explicitly allow.</div>
-    </div>
-    <div style="border:1.5px solid #b9c2f7;background:#eef1ff;border-radius:14px;padding:22px 26px;">
-      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#3d4fd4;">DEFAULT</div>
-      <div style="margin-top:14px;font:800 30px/1.1 ui-sans-serif,system-ui,sans-serif;color:#0b1220;">Balanced</div>
-      <div style="margin-top:12px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#3c4557;">Common development endpoints allowed. Everything else denied.</div>
-    </div>
-    <div style="border:1px solid #e4e7ef;border-radius:14px;padding:22px 26px;">
-      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#9aa3b4;">LEAST RESTRICTIVE</div>
-      <div style="margin-top:14px;font:800 30px/1.1 ui-sans-serif,system-ui,sans-serif;color:#0b1220;">Open</div>
-      <div style="margin-top:12px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#5a6475;">Outbound traffic allowed, still logged.</div>
-    </div>
+  <div style="position:absolute;left:5%;top:6.5%;font:800 44px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#0b1220;">Managing credentials</div>
+  <div style="position:absolute;left:5%;right:5%;top:19%;font:400 21px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#1f2733;">
+    <div style="margin-bottom:12px;">&#10140;&nbsp;&nbsp;<b style="color:#2f4fd4;">Always</b> prefer stored secrets over env vars &mdash; the keychain encrypts at rest</div>
+    <div>&#10140;&nbsp;&nbsp;<b style="color:#2f4fd4;">Never</b> set API keys manually inside the sandbox &mdash; they&apos;ll be readable by the agent</div>
   </div>
-
-  <div style="position:absolute;left:6.5%;width:38%;bottom:11%;font:400 20px/1.55 ui-sans-serif,system-ui,sans-serif;color:#5a6475;">Add allow and deny rules on top of any profile. Every connection is logged, so you can see what the agent tried to reach.</div>
-
-  <div style="position:absolute;right:6%;width:42%;bottom:10%;background:#0d1526;border-radius:12px;padding:22px 26px;box-shadow:0 10px 40px rgba(13,21,38,.18);">
-    <div style="font:500 18px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#868fa6;"># what did the agent try to reach?</div>
-    <div style="font:500 18px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8ebf5;"><span style="color:#7da2ff;">sbx</span> policy log</div>
-  </div>
-</div>
-
-Note: This is Control in one picture. Containment is always on; Control is the dial. You start from a network policy profile — Locked Down allows only what you explicitly permit; Balanced, the default, allows common development endpoints and denies everything else; Open allows outbound traffic but still logs it. Then you layer allow and deny rules on top, and because every connection is logged, `sbx policy log` shows you exactly what the agent tried to reach. The lab has you pick a profile, add a rule, and read that log.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-54.webp" alt="Network Isolation" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Part 4. We have secured the supply chain for traditional workloads. Now let us apply everything to the agentic stack - MCP servers, tool invocations, and the autonomous systems calling them.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-55.webp" alt="Managing credentials" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-56.webp" alt="SANDBOX SECURITY · NETWORK" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-57.webp" alt="Managing network" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: There is no shared network between sandboxes or between a sandbox and your host
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-58.webp" alt="Without Sandbox - Full Network" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-59.webp" alt="Filesystem Isolation" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Part 4. We have secured the supply chain for traditional workloads. Now let us apply everything to the agentic stack - MCP servers, tool invocations, and the autonomous systems calling them.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-60.webp" alt="SANDBOX SECURITY · FILESYSTEM" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-61.webp" alt="Without Sandbox - Full" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-62.webp" alt="Key CLI Commands - Cheat sheet" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-63.webp" alt="The Sandbox TUI" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 03</div>
-  <div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;">
-    <div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 03 / CHOICE</div>
-    <div style="font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Choice</div>
-    <div style="font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">A locked box still has to be useful &mdash; bring your own agent, tools, and MCP endpoints.</div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
-
-Note: Pillar three — Choice. A sandbox that's safe but can't do anything is useless. You choose the agent (Claude Code, Codex, and others), and you plug in external tools through one governed MCP gateway — the agent talks to the gateway, the gateway talks to the servers, and that single chokepoint is where authorization and audit happen. The next slides show how.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-64.webp" alt="Protecting MCP" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Part 4. We have secured the supply chain for traditional workloads. Now let us apply everything to the agentic stack - MCP servers, tool invocations, and the autonomous systems calling them.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-65.webp" alt="LETTING AI AGENT INSIDE SANDBOX USE MCP SERVERS SAFELY" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: The one idea everything hangs onThe agent never talks to those tool-servers directly. It talks to one gateway, and the gateway talks to the servers. That single chokepoint is where authorization, credentials, and audit happen. Every command in the runbook is really just "set up that gateway path" or "manage what's behind it."
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-66.webp" alt="SBX_MCP_URL · THE GATEWAY GATEKEEPER" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-67.webp" alt="Author once in Docker Hub, enforce around the" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: The flow, start to finishFirst, turn MCP on. Nothing MCP-related exists until you set one environment variable, SBX_MCP_URL, which points the daemon at a gateway. No variable → no MCP, at all. (You restart the daemon so it picks up the value.) This is the on-switch.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-68.webp" alt="HANDS-ON · sbx mcp" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Second — register the servers you might use. You tell the system which tool-servers exist, one at a time:sbx mcp add notion --url https://mcp.notion.com/mcp # a remote serversbx mcp add playwright --command npx --args @playwright/mcp@latest # a local oneRegistering just records "this server exists." It doesn't connect anything yet, and registrations persist across sessions. You can also register a whole bundle at once from a URL — a curated list a team can share.Third — handle authorization (the genuinely clever part). Many servers (Notion, Stripe…) need OAuth. Instead of the agent holding your Notion token, the gateway runs the OAuth flow and holds the credential centrally. Two nice consequences:If a server isn't authorized yet, the gateway exposes a temporary tool called notion-authorize. When you ask the agent to "list my recent Notion docs," it calls notion-authorize first, just in time — nothing is authorized until a task actually needs it.There's a matching notion-revoke-auth, and sbx mcp auth status --all shows you exactly which servers are authorized. So it's grant-when-needed, revoke-centrally, audit-anytime. This is credential isolation, but for tools.Fourth — attach servers to a sandbox, in one of two modes (chosen once, when the sandbox is created):Static (--static-mcp notion,playwright): a fixed, locked set. Discovery is off; the agent can only use those. This is the governed posture.Dynamic (no flag): the agent can search the whole registered catalog and add/authorize servers itself. This is the experimentation posture.sbx run claude --static-mcp notion # locked setsbx run claude # dynamic, discovery onYou can also hot-attach a server to an already-running sandbox with sbx mcp load — no restart, the agent just gets a "tools changed" nudge.Fifth — under the hood. At create time the CLI spins up a per-sandbox gateway and injects its URL (MCP_GATEWAY_URL) into the container; each agent writes that into its own config. That's why, inside the agent, /mcp shows one mcp-gateway with all the tools aggregated behind it.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-69.webp" alt="HANDS-ON · sbx mcp" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Second — register the servers you might use. You tell the system which tool-servers exist, one at a time:sbx mcp add notion --url https://mcp.notion.com/mcp # a remote serversbx mcp add playwright --command npx --args @playwright/mcp@latest # a local oneRegistering just records "this server exists." It doesn't connect anything yet, and registrations persist across sessions. You can also register a whole bundle at once from a URL — a curated list a team can share.Third — handle authorization (the genuinely clever part). Many servers (Notion, Stripe…) need OAuth. Instead of the agent holding your Notion token, the gateway runs the OAuth flow and holds the credential centrally. Two nice consequences:If a server isn't authorized yet, the gateway exposes a temporary tool called notion-authorize. When you ask the agent to "list my recent Notion docs," it calls notion-authorize first, just in time — nothing is authorized until a task actually needs it.There's a matching notion-revoke-auth, and sbx mcp auth status --all shows you exactly which servers are authorized. So it's grant-when-needed, revoke-centrally, audit-anytime. This is credential isolation, but for tools.Fourth — attach servers to a sandbox, in one of two modes (chosen once, when the sandbox is created):Static (--static-mcp notion,playwright): a fixed, locked set. Discovery is off; the agent can only use those. This is the governed posture.Dynamic (no flag): the agent can search the whole registered catalog and add/authorize servers itself. This is the experimentation posture.sbx run claude --static-mcp notion # locked setsbx run claude # dynamic, discovery onYou can also hot-attach a server to an already-running sandbox with sbx mcp load — no restart, the agent just gets a "tools changed" nudge.Fifth — under the hood. At create time the CLI spins up a per-sandbox gateway and injects its URL (MCP_GATEWAY_URL) into the container; each agent writes that into its own config. That's why, inside the agent, /mcp shows one mcp-gateway with all the tools aggregated behind it.
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-70.webp" alt="GOVERN IT · MCP ACCESS POLICY" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-71.webp" alt="One feature: agents in a sandbox, using external" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: All about runbook….It's the operations guide for one feature: letting an AI agent running inside a Docker sandbox use MCP servers (external tools — Notion, Stripe, GitHub, a browser, etc.) safely. It answers four practical questions: what tool-servers are supported, how you register them, how the sandbox connects to them, and how you manage their credentials. That's the whole scope.
-
----
-
-<!-- chrome: false -->
-
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 04</div>
-  <div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;">
-    <div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 04 / CAPACITY</div>
-    <div style="font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Capacity</div>
-    <div style="font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Reproduce the same sandbox for every developer and every run.</div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
-
-Note: Pillar four — Capacity. Contain, Control, and Choice describe one sandbox; Capacity is what makes it a team thing. The same microVM, tools, and policy are defined once and reproduced for every developer and every run, so what you just secured isn't a one-off on your laptop — it's the same boundary everyone gets.
-
----
-
-<!-- chrome: false -->
-
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
-    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">04 &middot; CAPACITY</div>
-    <div style="margin-top:14px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">One sandbox, shared by the team</div>
-  </div>
-  <div style="position:absolute;left:6.5%;right:6%;top:36%;bottom:13%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 34px;align-content:start;">
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;min-height:66px;">Reproducible</div>
-      <div style="margin-top:12px;min-height:70px;font:400 19px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The same microVM, tools, and network policy for every developer.</div>
+  <div style="position:absolute;left:5%;width:56%;top:40%;bottom:6%;background:#0d1433;border-radius:14px;padding:18px 26px;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;">
+      <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;margin-right:8px;"></span>
+      <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;margin-right:8px;"></span>
+      <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+      <span style="margin-left:auto;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#8a93a8;">CLI</span>
     </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;min-height:66px;">Versioned</div>
-      <div style="margin-top:12px;min-height:70px;font:400 19px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The sandbox is defined once and shared like code.</div>
-    </div>
-    <div style="border-top:2px solid #26324a;padding-top:16px;">
-      <div style="font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;min-height:66px;">Fast onboarding</div>
-      <div style="margin-top:12px;min-height:70px;font:400 19px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">New teammates get the exact setup in minutes &mdash; no drift.</div>
+    <div style="margin-top:16px;font:500 17px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8ebf5;">
+      <div style="color:#7f8aa3;"># Store a key in the OS keychain &mdash; global by default</div>
+      <div>sbx secret set anthropic</div>
+      <div style="height:12px;"></div>
+      <div style="color:#7f8aa3;"># Scope a secret to one sandbox</div>
+      <div>sbx secret set --sandbox my-sandbox openai</div>
+      <div style="height:12px;"></div>
+      <div style="color:#7f8aa3;"># Pass a GitHub token so the agent can use the gh CLI</div>
+      <div>gh auth token | sbx secret set github</div>
+      <div style="height:12px;"></div>
+      <div style="color:#7f8aa3;"># List and remove</div>
+      <div>sbx secret ls</div>
+      <div>sbx secret rm github</div>
     </div>
   </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
-
-Note: Capacity in practice: because the sandbox is defined once, it reproduces identically for everyone. Reproducible — the same microVM, tools, and network policy for every developer. Versioned — defined once and shared like code. Fast onboarding — new teammates get the exact setup in minutes, with no drift.
-
----
-
-<!-- chrome: false -->
-
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;">
-    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">HANDS-ON · YOUR TURN</div>
-    <div style="font:800 52px/1.05 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Box the agent</div>
-    <div style="margin-top:2px;font:700 32px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">containerdays.dockerworkshop.com</div>
-    <div style="font:400 21px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:84%;">Re-run the same agent inside an sbx microVM and watch the blast radius vanish.</div>
+  <div style="position:absolute;right:5%;width:31%;top:40%;bottom:6%;background:#eef4ff;border:1px solid #cfe0f5;border-radius:14px;padding:22px 28px;box-sizing:border-box;">
+    <div style="font:700 22px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#0b1220;">Supported services</div>
+    <ul style="margin:14px 0 0;padding-left:22px;font:400 19px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#3c4557;">
+      <li>anthropic</li>
+      <li>openai</li>
+      <li>github</li>
+      <li>google</li>
+      <li>groq</li>
+      <li>mistral</li>
+      <li>xai</li>
+      <li>bedrock</li>
+      <li>nebius &hellip; and more</li>
+    </ul>
   </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
 </div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-73.webp" alt="Two paths - same agent, same prompt" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Two paths. Left: agent picks random packages, introduces vulnerabilities automatically. Right: agent runs inside sbx, queries DHI MCP before choosing a base, gets a hardened recommendation, builds with 0 CVEs. Same agent, same prompt, completely different outcome.
+<img src="assets/talk-31.webp" alt="Lab — Testing the boundaries" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-74.webp" alt="The complete agentic supply chain" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: The complete picture - from DHI base to running agent. Every step is verifiable. Every artifact is trusted. This is what secure by default looks like at the stack level.
+<img src="assets/talk-32.webp" alt="Pillar 02 — Control" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/slide-75.webp" alt="Your security framework - try these steps" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
-Note: Your takeaway. Five things to do this week. These are not aspirational - you have the tools and knowledge to do all five today.
+<img src="assets/talk-33.webp" alt="Developers decide what the agent can reach — network policy profiles" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
-  <div style="position:absolute;left:6.5%;right:6%;top:8.5%;">
-    <div style="font:700 16px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#7da2ff;">WRAP-UP</div>
-    <div style="margin-top:14px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Resources &amp; next steps</div>
-  </div>
-  <div style="position:absolute;left:6.5%;right:6%;top:34%;bottom:13%;display:grid;grid-template-columns:1fr 1fr;gap:0 48px;align-content:start;">
-    <div>
-      <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.18em;color:#7da2ff;">FROM THIS WORKSHOP</div>
-      <div style="margin-top:18px;border-top:2px solid #26324a;padding-top:18px;">
-        <div style="font:700 24px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Lab repo</div>
-        <div style="margin-top:8px;font:400 19px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">github.com/ajeetraina/simspace-container-days</div>
-      </div>
-    </div>
-    <div>
-      <div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.18em;color:#7da2ff;">DOCKER DOCS</div>
-      <div style="margin-top:18px;border-top:2px solid #26324a;padding-top:18px;display:flex;flex-direction:column;gap:20px;">
-        <div>
-          <div style="font:700 21px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Docker Hardened Images</div>
-          <div style="margin-top:5px;font:400 16px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">hub.docker.com &middot; Trusted Content &rarr; Hardened Images</div>
-        </div>
-        <div>
-          <div style="font:700 21px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Docker Scout</div>
-          <div style="margin-top:5px;font:400 16px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">docs.docker.com/scout</div>
-        </div>
-        <div>
-          <div style="font:700 21px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">MCP Catalog</div>
-          <div style="margin-top:5px;font:400 16px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">hub.docker.com/mcp</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div>
-</div>
+<img src="assets/talk-34.webp" alt="Organizations add governance on top" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
-Note: All the links. The lab repo at github.com/ajeetraina/simspace-container-days has every Dockerfile, GitHub Actions workflow, and policy config from today. Docker Scout is free for public images; DHI needs a Docker subscription. Questions?
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-35.webp" alt="Lab — Adjusting policy" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-36.webp" alt="Pillar 03 — Choice" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-37.webp" alt="Security tools usually trade away flexibility" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-38.webp" alt="Kits define what runs inside the boundary" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-39.webp" alt="Swap the agent, add the tools" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-40.webp" alt="Lab — Running kits from Docker Hub" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-41.webp" alt="You can build your own kits" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-42.webp" alt="Pillar 04 — Capacity" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-43.webp" alt="Scaling up starts with reproducibility" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-44.webp" alt="An environment file describes the whole sandbox — sbxenv.yaml" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-45.webp" alt="Commit it once and the whole team shares one setup" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-46.webp" alt="Cloud Sandboxes run the same setup remotely" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-47.webp" alt="Live demo — Sharing a sandbox with the team" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/talk-48.webp" alt="Recap — Contain & Control, Choice, Capacity" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
