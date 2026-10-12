@@ -78,7 +78,7 @@
 
 <!-- chrome: false -->
 
-<img src="assets/lab-agent-on-host.webp" alt="The ungoverned agent on a host — 2C/12H/20M/13L CVEs, 431 packages, non-root but still vulnerable" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-14.webp" alt="The Ungoverned Agent — 2C/12H/20M/13L CVEs, 431 packages, non-root but still vulnerable" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
