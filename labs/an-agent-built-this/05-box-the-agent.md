@@ -1,7 +1,9 @@
 # Box the Agent
 
-One command puts the agent inside a **microVM** - its own kernel, filesystem, and
-Docker daemon. The host is on the other side of the wall.
+Same agent, same prompts - one thing changes: it runs inside a box now. One
+command puts the agent inside a **microVM** - its own kernel, filesystem, and
+Docker daemon. The host, your `.env`, and your keys are on the other side of the
+wall.
 
 ## Run the agent in a sandbox
 

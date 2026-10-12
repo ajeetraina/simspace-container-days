@@ -143,7 +143,7 @@ Note: Here's how the session is structured. We start where it matters most — A
 
 <!-- chrome: false -->
 
-<img src="assets/lab-agent-on-host.webp" alt="Agent on a host system — host daemon, host credentials, no boundary; the agent runs with full permissions, picks FROM node:20 with no guidance and reaches open registries with no allowlist, producing an image with 0 Critical, 8 High, 41 Medium, 93 Low CVEs, 431 packages, no SBOM, no attestation, running as root" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/lab-agent-on-host.webp" alt="Agent on a host system — host daemon, host credentials, no boundary; the agent runs with full permissions, picks FROM node:20 with no guidance and reaches open registries with no allowlist, producing an image with 2 Critical, 12 High, 20 Medium, 13 Low CVEs, 431 packages, no SBOM, no attestation, non-root but still vulnerable" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
