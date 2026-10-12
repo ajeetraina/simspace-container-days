@@ -9,8 +9,9 @@ sandbox, secrets live on the host and the proxy injects them on the way out.
 sbx secret ls
 ```
 
-Your `anthropic` key is stored on the **host**, scoped globally, and injected
-**by the proxy** - "never exposed to sandbox".
+The `anthropic` key is a **service** secret, scoped `(global)`, stored on the
+**host** (`(stored)`). When the agent makes a request, the proxy authenticates it
+with this secret - it's never exposed to the sandbox directly.
 
 ## Look for it inside the box
 
@@ -18,14 +19,14 @@ Your `anthropic` key is stored on the **host**, scoped globally, and injected
 sbx exec demo printenv ANTHROPIC_API_KEY
 ```
 
-Empty. The key isn't in the sandbox's environment.
+Prints **nothing** - the key isn't in the sandbox's environment at all.
 
 ```bash
 sbx exec demo cat ~/.ssh/id_rsa
 ```
 
-`No such file or directory` - host home is read-only and your secret files were
-never copied in.
+`No such file or directory` - host home was never copied in, so your secret files
+simply aren't there.
 
 > [!NOTE]
 > The agent still makes authenticated calls - the proxy adds the key as the

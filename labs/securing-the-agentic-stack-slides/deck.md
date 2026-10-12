@@ -423,6 +423,45 @@ Note: Pillar two — Control. Containment is always on; control is what you tune
 
 <!-- chrome: false -->
 
+<div style="position:absolute;inset:0;background:#ffffff;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;">
+  <div style="position:absolute;left:6.5%;top:7%;font:800 24px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:-.01em;color:#0b1220;">docker</div>
+  <div style="position:absolute;right:6%;top:7.4%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#3d4fd4;">02&nbsp;&middot;&nbsp;CONTROL</div>
+
+  <div style="position:absolute;left:6.5%;right:6%;top:15%;font:800 52px/1.06 ui-sans-serif,system-ui,sans-serif;letter-spacing:-.015em;color:#0b1220;">Developers decide what the agent can reach</div>
+  <div style="position:absolute;left:6.5%;top:29%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#3d4fd4;">NETWORK POLICY PROFILES</div>
+
+  <div style="position:absolute;left:6.5%;right:6%;top:37%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 28px;">
+    <div style="border:1px solid #e4e7ef;border-radius:14px;padding:22px 26px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#9aa3b4;">MOST RESTRICTIVE</div>
+      <div style="margin-top:14px;font:800 30px/1.1 ui-sans-serif,system-ui,sans-serif;color:#0b1220;">Locked Down</div>
+      <div style="margin-top:12px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#5a6475;">Only what you explicitly allow.</div>
+    </div>
+    <div style="border:1.5px solid #b9c2f7;background:#eef1ff;border-radius:14px;padding:22px 26px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#3d4fd4;">DEFAULT</div>
+      <div style="margin-top:14px;font:800 30px/1.1 ui-sans-serif,system-ui,sans-serif;color:#0b1220;">Balanced</div>
+      <div style="margin-top:12px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#3c4557;">Common development endpoints allowed. Everything else denied.</div>
+    </div>
+    <div style="border:1px solid #e4e7ef;border-radius:14px;padding:22px 26px;">
+      <div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#9aa3b4;">LEAST RESTRICTIVE</div>
+      <div style="margin-top:14px;font:800 30px/1.1 ui-sans-serif,system-ui,sans-serif;color:#0b1220;">Open</div>
+      <div style="margin-top:12px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#5a6475;">Outbound traffic allowed, still logged.</div>
+    </div>
+  </div>
+
+  <div style="position:absolute;left:6.5%;width:38%;bottom:11%;font:400 20px/1.55 ui-sans-serif,system-ui,sans-serif;color:#5a6475;">Add allow and deny rules on top of any profile. Every connection is logged, so you can see what the agent tried to reach.</div>
+
+  <div style="position:absolute;right:6%;width:42%;bottom:10%;background:#0d1526;border-radius:12px;padding:22px 26px;box-shadow:0 10px 40px rgba(13,21,38,.18);">
+    <div style="font:500 18px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#868fa6;"># what did the agent try to reach?</div>
+    <div style="font:500 18px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8ebf5;"><span style="color:#7da2ff;">sbx</span> policy log</div>
+  </div>
+</div>
+
+Note: This is Control in one picture. Containment is always on; Control is the dial. You start from a network policy profile — Locked Down allows only what you explicitly permit; Balanced, the default, allows common development endpoints and denies everything else; Open allows outbound traffic but still logs it. Then you layer allow and deny rules on top, and because every connection is logged, `sbx policy log` shows you exactly what the agent tried to reach. The lab has you pick a profile, add a rule, and read that log.
+
+---
+
+<!-- chrome: false -->
+
 <img src="assets/slide-54.webp" alt="Network Isolation" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 Note: Part 4. We have secured the supply chain for traditional workloads. Now let us apply everything to the agentic stack - MCP servers, tool invocations, and the autonomous systems calling them.

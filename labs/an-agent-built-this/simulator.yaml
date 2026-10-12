@@ -323,20 +323,33 @@ scenarios:
   # injects credentials from outside; the classic Docker-socket escape is
   # contained. These sbx scenarios are the "fix" for everything above.
   # ===========================================================================
+  # Output below mirrors real `sbx` v0.45.x (verified live). Machine-specific
+  # values (workspace path, cpu/memory) are shown as representative, fixed values
+  # so every learner sees the same result.
   - id: sbx-run
     when:
       command: [sbx, run, claude]
     then:
       state: { sandbox.running: true }
       output:
-        - { text: "Creating sandbox 'demo' (agent: claude)...", delay: boot }
-        - "  microVM booted: own kernel, own filesystem, own Docker daemon."
-        - "  workspace: ~/product-catalog-demo-showcase mounted at /workspace (read-write)"
-        - "  host home: mounted read-only at /host (secrets not copied in)"
-        - "  user: agent (uid 10001, non-root)"
+        - "── RESOLVE SETUP"
+        - "   resolving configuration…"
+        - "     sandbox    demo"
+        - "     agent      claude"
+        - "     workspace  ~/product-catalog-demo-showcase (rw)"
+        - "     skills     agent-skills → /home/agent/.claude/skills · 5 folders · (ro)"
+        - "     image      docker/sandbox-templates:claude-code-docker"
+        - "     cpu        8"
+        - "     memory     8 GiB"
+        - { text: "   ✓ configuration resolved", delay: call }
+        - "── PREPARE IMAGE"
+        - "   → pull docker/sandbox-templates:claude-code-docker"
+        - { text: "   ✓ image ready", delay: boot }
+        - "── CREATE SANDBOX"
+        - "   ✓ Created sandbox demo"
         - ""
-        - "✓ Sandbox 'demo' running. Inspect it with `sbx ls`, or run a command with"
-        - "  `sbx exec demo <cmd>`."
+        - "Starting claude agent in sandbox 'demo'..."
+        - "Workspace: ~/product-catalog-demo-showcase"
 
   - id: sbx-ls-running
     when:
@@ -344,84 +357,58 @@ scenarios:
       state: { sandbox.running: true }
     then:
       output:
-        - "NAME   AGENT    STATUS    PORTS   WORKSPACE"
-        - "demo   claude   running   -       ~/product-catalog-demo-showcase"
+        - "SANDBOX   AGENT    STATUS    PORTS   WORKSPACE"
+        - "demo      claude   running           ~/product-catalog-demo-showcase"
 
   - id: sbx-ls
     when:
       command: [sbx, ls]
     then:
       output:
-        - "NAME   AGENT   STATUS   PORTS   WORKSPACE"
-        - "(no sandboxes)"
-        - ""
-        - "Nothing is boxed yet. Run the agent in a sandbox with: sbx run claude --name demo"
+        - "SANDBOX   AGENT   STATUS   PORTS   WORKSPACE"
 
   - id: sbx-secret-ls
     when:
       command: [sbx, secret, ls]
     then:
       output:
-        - "SERVICE     SCOPE    STORED ON   INJECTED"
-        - "anthropic   global   host        by proxy (never exposed to sandbox)"
-        - ""
-        - "The key lives on the host. The proxy adds it to outbound requests - the"
-        - "agent uses it without ever holding it."
+        - "SCOPE      TYPE      NAME        SECRET"
+        - "(global)   service   anthropic   (stored)"
 
+  # printenv of an unset var prints nothing - which is the whole point: the key is
+  # not in the sandbox's environment at all.
   - id: sbx-exec-printenv
     when:
       command: [sbx, exec, demo, printenv]
     then:
-      output:
-        - "(empty)"
-        - ""
-        - "No credential variables inside the sandbox. $ANTHROPIC_API_KEY is unset here;"
-        - "it stays on the host and is injected by the proxy."
-
-  - id: sbx-exec-env
-    when:
-      command: [sbx, exec, demo, env]
-    then:
-      output:
-        - "PATH=/usr/local/bin:/usr/bin:/bin"
-        - "HOME=/home/agent"
-        - ""
-        - "No API keys, tokens, or cloud credentials in the environment."
+      output: []
 
   - id: sbx-exec-cat
     when:
       command: [sbx, exec, demo, cat]
     then:
       output:
-        - "cat: /host/home/dev/.ssh/id_rsa: No such file or directory"
-        - ""
-        - "Host home is mounted read-only and your secret files were never copied in."
-        - "Nothing to read, nothing to leak."
+        - "cat: /home/agent/.ssh/id_rsa: No such file or directory"
 
   - id: sbx-exec-docker
     when:
       command: [sbx, exec, demo, docker]
     then:
       output:
-        - "CONTAINER ID   IMAGE   COMMAND   STATUS"
-        - "(none)"
-        - ""
-        - "This is the sandbox's OWN Docker daemon, not your host's. The classic escape -"
-        - "mounting /var/run/docker.sock and launching a --privileged container - writes"
-        - "into this throwaway daemon and dies with the sandbox. The host socket is not"
-        - "mounted. Attack contained."
+        - "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES"
 
   - id: sbx-policy-log
     when:
       command: [sbx, policy, log]
     then:
       output:
-        - "SANDBOX   HOST                   RULE                  PROXY   DECISION   COUNT"
-        - "demo      api.anthropic.com      allow default (llm)   https   allowed    3"
-        - "demo      169.254.169.254        deny default          http    blocked    1"
+        - "Blocked requests:"
+        - "SANDBOX   TYPE      HOST                 PROXY     RULE   REASON                                  LAST SEEN         COUNT"
+        - "demo      network   169.254.169.254:80   forward   -      No matching allow rule (default deny)   06:43:43 12-Oct   1"
         - ""
-        - "Every connection the agent tried, allowed or blocked by the proxy, with the"
-        - "matching rule. The metadata endpoint was denied by default."
+        - "Allowed requests:"
+        - "SANDBOX   TYPE      HOST                    PROXY     RULE   REASON   LAST SEEN         COUNT"
+        - "demo      network   api.anthropic.com:443   forward   -               06:43:43 12-Oct   17"
 
   - id: sbx-exec-generic
     when:

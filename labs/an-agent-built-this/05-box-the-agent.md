@@ -11,21 +11,21 @@ wall.
 sbx run claude --name demo
 ```
 
-Read what it mounted - and what it didn't:
+`sbx` resolves the configuration and boots the box: your **workspace** is mounted
+read-write (`rw`), the agent **skills** are mounted read-only (`ro`), and it starts
+from the `docker/sandbox-templates:claude-code-docker` image with its own CPU and
+memory. Then it launches the `claude` agent inside.
 
-- **Workspace:** your project, mounted read-write at `/workspace`.
-- **Host home:** mounted **read-only** at `/host` - your secrets are not copied in.
-- **Credentials:** brokered by a proxy, never handed to the agent.
-- **User:** `agent`, non-root.
-
-## Confirm it's running and isolated
+## Confirm it's running
 
 ```bash
 sbx ls
 ```
 
 The `demo` sandbox is `running`, on the `claude` agent, scoped to your project
-workspace.
+workspace. What the resolve step **didn't** pull in - your host home, your
+secrets, root on the host - is exactly what the next two sections prove is out of
+reach.
 
 > [!NOTE]
 > A container shares the host kernel; a **microVM** brings its own. That's what

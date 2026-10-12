@@ -19,9 +19,10 @@ dies with it. The host socket is not mounted, so the host daemon is unreachable.
 sbx policy log
 ```
 
-Every connection the agent tried is logged with the rule that decided it - the
-LLM endpoint was `allowed`, the cloud metadata endpoint (`169.254.169.254`) was
-`blocked` by default.
+The log splits into **Blocked** and **Allowed** requests. The agent's calls to
+`api.anthropic.com` were allowed; a request with no matching allow rule - like the
+cloud metadata endpoint (`169.254.169.254`) - is blocked by **default deny**. Every
+attempt is recorded with the proxy, rule, and reason that decided it.
 
 ```text no-run-button
   on the host              in the sandbox
