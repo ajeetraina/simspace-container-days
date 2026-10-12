@@ -1,285 +1,285 @@
 <!-- chrome: false -->
 
-<img src="assets/talk-01.webp" alt="Run Fast Without Running Wild — title" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-01.webp" alt="Slide 1" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-02.webp" alt="Meet your Instructor — Ajeet Singh Raina" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-02.webp" alt="Slide 2" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-03.webp" alt="Workshop — labs: the four-lab agenda" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-03.webp" alt="Slide 3" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-04.webp" alt="Access the Workshop — containerdays.dockerworkshop.com" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">LAB 1 &middot; SETUP</div><div style="margin-top:14px;font:800 64px/1.03 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Access the Workshop</div><div style="margin-top:20px;font:400 24px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">containerdays.dockerworkshop.com &mdash; runs in your browser, nothing to install.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-05.webp" alt="AI Agents are here and doing real work (engineering, marketing, finance)" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-05.webp" alt="Slide 5" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-06.webp" alt="Coding agents act on their own — plan, act, observe, repeat; no human in the loop" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-06.webp" alt="Slide 6" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-07.webp" alt="Every useful agent is built on the lethal trifecta" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-07.webp" alt="Slide 7" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-08.webp" alt="Traditional Development Workflow" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-08.webp" alt="Slide 8" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-09.webp" alt="The Agentic Workflow — an agent at every stage" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-09.webp" alt="Slide 9" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-10.webp" alt="What agents are already doing in your pipeline" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-10.webp" alt="Slide 10" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-11.webp" alt="A Product Catalog Sample Demo" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-11.webp" alt="Slide 11" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-12.webp" alt="Let's try — Agent containerising the Product Catalog" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-12.webp" alt="Slide 12" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-13.webp" alt="Let's try — Coding agents exposing the API and credentials" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-13.webp" alt="Slide 13" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-14.webp" alt="The ungoverned agent on a host — 2C/12H/20M/13L CVEs, 431 packages, non-root but still vulnerable" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-14.webp" alt="Slide 14" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-15.webp" alt="Horror stories from the wild" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-15.webp" alt="Slide 15" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-16.webp" alt="Comic — 'clean up my project folder' runs rm -rf" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-16.webp" alt="Slide 16" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-17.webp" alt="Comic — Claude Cowork deletes family photos" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-17.webp" alt="Slide 17" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-18.webp" alt="Developers have to choose between speed and safety" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-18.webp" alt="Slide 18" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-19.webp" alt="Why not containers?" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">A FALSE START</div><div style="margin-top:14px;font:800 74px/1.03 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Why not containers?</div><div style="margin-top:20px;font:400 24px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Containers isolate applications well. Agents need more access than applications do.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-20.webp" alt="Escaping a container — the mounted Docker socket" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-20.webp" alt="Slide 20" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-21.webp" alt="Each new capability weakens the container's isolation" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-21.webp" alt="Slide 21" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-22.webp" alt="Hello, Sandboxes" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">THE FIX</div><div style="margin-top:14px;font:800 74px/1.03 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Hello, Sandboxes</div><div style="margin-top:20px;font:400 24px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Give the agent everything it needs, inside a boundary it can't cross.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-23.webp" alt="A sandbox is a private machine for your agent" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-23.webp" alt="Slide 23" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-24.webp" alt="A sandbox gives you four things — Contain, Control, Choice, Capacity" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CONTAIN &middot; CONTROL &middot; CHOICE &middot; CAPACITY</div><div style="margin-top:14px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">A sandbox gives you four things</div></div><div style="position:absolute;left:6.5%;right:6%;top:32%;bottom:12%;display:grid;grid-template-columns:1fr 1fr 1fr 1fr ;gap:0 26px;align-content:start;"><div style="border-top:2px solid #26324a;padding-top:16px;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01</div><div style="margin-top:10px;font:800 30px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Contain</div><div style="margin-top:12px;min-height:84px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Isolate the agent in a microVM with a guarded network.</div></div><div style="border-top:2px solid #26324a;padding-top:16px;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02</div><div style="margin-top:10px;font:800 30px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Control</div><div style="margin-top:12px;min-height:84px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Set what the agent can reach. Organizations add governance and audit.</div></div><div style="border-top:2px solid #26324a;padding-top:16px;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03</div><div style="margin-top:10px;font:800 30px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Choice</div><div style="margin-top:12px;min-height:84px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Bring your own agent, tools, and endpoints with kits.</div></div><div style="border-top:2px solid #26324a;padding-top:16px;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">04</div><div style="margin-top:10px;font:800 30px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Capacity</div><div style="margin-top:12px;min-height:84px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Reproduce the same sandbox for every developer and every run.</div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-25.webp" alt="Pillar 01 — Contain" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 01</div><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 01 / CONTAIN</div><div style="margin-top:14px;font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Contain</div><div style="margin-top:18px;font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">The boundary that keeps the agent &mdash; and your secrets &mdash; inside the sandbox.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-26.webp" alt="Three boundaries surround every agent — microVM, network proxy, credential injection" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-26.webp" alt="Slide 26" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-27.webp" alt="Credentials are added outside the sandbox" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-27.webp" alt="Slide 27" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-28.webp" alt="Sandbox architecture" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-28.webp" alt="Slide 28" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-29.webp" alt="Sandbox VM isolation — host system and hypervisor boundary" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-29.webp" alt="Slide 29" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-30.webp" alt="Managing credentials" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-30.webp" alt="Slide 30" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-31.webp" alt="Lab — Testing the boundaries" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="display:inline-block;background:#7da2ff;color:#0a1019;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;padding:8px 16px;border-radius:999px;">&bull; LAB</div><div style="margin-top:20px;font:800 68px/1.05 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Testing the boundaries</div><div style="margin-top:30px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 28px;"><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">01</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 20px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Try the same escape &mdash; the socket belongs to the sandbox</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">02</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 20px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Look for host keys and other projects</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">03</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 20px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Call a model API without ever seeing the key</div></div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-32.webp" alt="Pillar 02 — Control" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 02</div><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 02 / CONTROL</div><div style="margin-top:14px;font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Control</div><div style="margin-top:18px;font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Decide what the agent can reach and touch &mdash; you set where the boundary sits.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-33.webp" alt="Developers decide what the agent can reach — network policy profiles" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-33.webp" alt="Slide 33" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-34.webp" alt="Organizations add governance on top" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-34.webp" alt="Slide 34" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-35.webp" alt="Lab — Adjusting policy" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-35.webp" alt="Slide 35" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-36.webp" alt="Pillar 03 — Choice" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 03</div><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 03 / CHOICE</div><div style="margin-top:14px;font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Choice</div><div style="margin-top:18px;font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">A locked box still has to be useful &mdash; bring your own agent, tools, and MCP endpoints.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-37.webp" alt="Security tools usually trade away flexibility" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-37.webp" alt="Slide 37" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-38.webp" alt="Kits define what runs inside the boundary" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-38.webp" alt="Slide 38" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-39.webp" alt="Swap the agent, add the tools" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-39.webp" alt="Slide 39" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-40.webp" alt="Lab — Running kits from Docker Hub" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-40.webp" alt="Slide 40" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-41.webp" alt="You can build your own kits" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-41.webp" alt="Slide 41" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-42.webp" alt="Pillar 04 — Capacity" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 04</div><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 04 / CAPACITY</div><div style="margin-top:14px;font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Capacity</div><div style="margin-top:18px;font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Reproduce the same sandbox for every developer and every run.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-43.webp" alt="Scaling up starts with reproducibility" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-43.webp" alt="Slide 43" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-44.webp" alt="An environment file describes the whole sandbox — sbxenv.yaml" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-44.webp" alt="Slide 44" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-45.webp" alt="Commit it once and the whole team shares one setup" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-45.webp" alt="Slide 45" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-46.webp" alt="Cloud Sandboxes run the same setup remotely" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-46.webp" alt="Slide 46" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-47.webp" alt="Live demo — Sharing a sandbox with the team" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/talk-47.webp" alt="Slide 47" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-48.webp" alt="Recap — Contain & Control, Choice, Capacity" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">WRAP-UP</div><div style="margin-top:14px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Recap</div></div><div style="position:absolute;left:6.5%;right:6%;top:32%;bottom:12%;display:grid;grid-template-columns:1fr 1fr 1fr ;gap:0 26px;align-content:start;"><div style="border-top:2px solid #26324a;padding-top:16px;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01</div><div style="margin-top:10px;font:800 30px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">A trusted boundary</div><div style="margin-top:12px;min-height:84px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">A microVM, a network proxy, and credentials the agent never holds.</div><div style="margin-top:14px;font:600 14px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">CONTAIN &middot; CONTROL</div></div><div style="border-top:2px solid #26324a;padding-top:16px;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02</div><div style="margin-top:10px;font:800 30px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Your choice inside it</div><div style="margin-top:12px;min-height:84px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Agent and mixin kits for your harness, tools, and endpoints.</div><div style="margin-top:14px;font:600 14px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">CHOICE</div></div><div style="border-top:2px solid #26324a;padding-top:16px;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03</div><div style="margin-top:10px;font:800 30px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Shared with the team</div><div style="margin-top:12px;min-height:84px;font:400 18px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">One environment file in the repo. Update once, everyone follows.</div><div style="margin-top:14px;font:600 14px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">CAPACITY</div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
