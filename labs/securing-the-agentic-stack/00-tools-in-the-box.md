@@ -2,25 +2,21 @@
 
 **Contain** gave the agent a boundary. **Control** decided what it can reach. But
 a sandbox that's safe and can't do anything is useless - the boxed agent still
-needs **your tools**. In sbx, those tools arrive as **MCP servers** (kits).
+needs **your tools**. sbx has two distinct ways to put them in the box:
 
-In this lab the tool is the **Docker Hardened Images (DHI) MCP server**: a catalog
-the agent can query to pick a minimal, signed, 0-CVE base image - *before* it
-writes a single `FROM` line.
+- **Mixin kits** - package tooling *into* the sandbox: a CLI, its credentials, and
+  its network rules, as one signed artifact you pull from Docker Hub. Here, the
+  **GitGuardian** kit, so the agent's own actions are scanned for secrets.
+- **MCP servers** - external tool *servers* the agent calls through one governed
+  gateway. Here, the **Docker Hardened Images (DHI)** server, so the agent picks a
+  0-CVE base *before* it writes a single `FROM` line.
 
-```text no-run-button
-  agent in a box          DHI MCP kit
-  "containerise this"  →  dhi_list_repositories
-                          dhi_get_image_cves      → 0 critical / 0 high
-                          dhi_get_image_attestations → SBOM + SLSA, signed
-                       ←  "use dhi.io/node:24-debian13"
-```
-
-The agent talks to **one gateway**, the gateway talks to the servers, and that
-chokepoint is where authorization and policy apply.
+Two problems from Contain, two tools: the **kit** catches the secrets the agent
+tried to leak; the **MCP server** fixes the CVEs it shipped. Different mechanisms,
+same idea - give the boxed agent what it needs, with the credentials held outside.
 
 > [!NOTE]
 > This is **Choice**, the third C: you bring your own agent, tools, and endpoints -
 > safely, inside the box.
 
-Next: register the DHI MCP server.
+Next: bring a mixin kit.

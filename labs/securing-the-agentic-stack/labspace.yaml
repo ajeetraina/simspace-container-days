@@ -1,9 +1,10 @@
 title: "Choice"
 description: >
-  A locked-down sandbox still has to be useful. Give the boxed agent the tools it
-  needs - register MCP servers as kits, attach them to the sandbox, and authorize
-  just-in-time with credentials brokered outside the box. Fully simulated; nothing
-  to install.
+  A locked-down sandbox still has to be useful. Give the boxed agent its tools two
+  ways: a GitGuardian mixin kit from Docker Hub that scans the agent's own actions
+  for secrets, and the Docker Hardened Images (DHI) MCP server so it picks a 0-CVE
+  base before it writes FROM - both with credentials brokered outside the box.
+  Fully simulated; nothing to install.
 
 # Landing-page card. Only shown when this repo has two or more labs. `order: 4`
 # puts this sandbox payoff lab last, after the deck (1), "An Agent Built This"
@@ -174,12 +175,16 @@ files:
 sections:
   - title: "A Locked Box Needs Tools"
     contentPath: 00-tools-in-the-box.md
+  - title: "Bring a Mixin Kit: GitGuardian"
+    contentPath: 01-bring-a-kit.md
+  - title: "The Kit Catches a Secret"
+    contentPath: 02-kit-catches-secret.md
   - title: "Register the DHI MCP Server"
-    contentPath: 01-register-dhi-mcp.md
+    contentPath: 03-register-dhi-mcp.md
   - title: "Attach and Authorize"
-    contentPath: 02-attach-and-authorize.md
+    contentPath: 04-attach-and-authorize.md
   - title: "The Agent Uses DHI"
-    contentPath: 03-agent-uses-dhi.md
+    contentPath: 05-agent-uses-dhi.md
 
 # $$name$$ in markdown is replaced with these values. `org` is overridden by the
 # :variableDefinition prompt in Setup.
