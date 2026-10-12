@@ -63,16 +63,17 @@ def cards(eyebrow, title, items, cols=None, callout=None, top="32%"):
     for it in items:
         tag = (f'<div style="margin-top:14px;font:600 14px/1.3 {SANS};letter-spacing:.03em;color:{MUTED};">{it["tag"]}</div>'
                if it.get("tag") else "")
-        cells += (f'<div style="border-top:2px solid {RULE};padding-top:16px;">'
+        cells += (f'<div style="background:#101a30;border:1px solid #223354;border-top:3px solid {BLUE};'
+                  f'border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);">'
                   f'<div style="font:700 15px/1 {MONO};letter-spacing:.16em;color:{BLUE};">{it["k"]}</div>'
-                  f'<div style="margin-top:10px;font:800 28px/1.12 {MONO};color:{WHITE};">{it["h"]}</div>'
-                  f'<div style="margin-top:12px;min-height:84px;font:400 18px/1.5 {SANS};color:{BODY};">{it["b"]}</div>{tag}</div>')
+                  f'<div style="margin-top:11px;font:800 26px/1.1 {MONO};color:{WHITE};">{it["h"]}</div>'
+                  f'<div style="margin-top:11px;min-height:60px;font:400 18px/1.45 {SANS};color:{BODY};">{it["b"]}</div>{tag}</div>')
     co = ""
     if callout:
-        co = (f'<div style="position:absolute;left:6.5%;right:6%;bottom:9%;background:rgba(125,162,255,0.06);'
-              f'border-left:3px solid {BLUE};border-radius:8px;padding:18px 24px;">'
+        co = (f'<div style="position:absolute;left:6.5%;right:6%;bottom:8.5%;background:rgba(125,162,255,0.08);'
+              f'border-left:3px solid {BLUE};border-radius:8px;padding:14px 22px;">'
               f'<div style="font:700 13px/1 {MONO};letter-spacing:.18em;color:{BLUE};">{callout["label"]}</div>'
-              f'<div style="margin-top:8px;font:400 20px/1.45 {SANS};color:#c7d0de;">{callout["text"]}</div></div>')
+              f'<div style="margin-top:7px;font:400 19px/1.4 {SANS};color:#c7d0de;">{callout["text"]}</div></div>')
     return bg(header(eyebrow, title) +
         f'<div style="position:absolute;left:6.5%;right:6%;top:{top};display:grid;'
         f'grid-template-columns:{"1fr " * cols};gap:26px 26px;align-content:start;">{cells}</div>' + co)
@@ -197,7 +198,7 @@ SLIDES[3] = agenda([
         "Kits define what runs inside the boundary","Running kits from Docker Hub",
         "Build your own kits","sbxenv &mdash; describing the whole sandbox"]},
 ])
-SLIDES[5] = cards("THE SHIFT", "AI agents are here &mdash; and doing real work", [
+SLIDES[5] = cards("THE SHIFT", 'AI agents are here &mdash; <span style="color:#f0a500;">and doing real work</span>', [
     {"k":"ENGINEERING","h":"Read codebases, ship PRs","b":"Agents read context, write code, and open pull requests without an engineer in the loop."},
     {"k":"MARKETING","h":"Pull CRM data, launch campaigns","b":"Agents move from research to creative to send, end to end."},
     {"k":"FINANCE","h":"Reconcile reports, query live","b":"Agents close the loop between ledger, dashboard, and decision."},
