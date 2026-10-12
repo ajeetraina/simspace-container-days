@@ -21,7 +21,7 @@ def bg(inner):
 def header(eyebrow, title, size=56):
     return (f'<div style="position:absolute;left:6.5%;right:6%;top:8.5%;">'
             f'<div style="font:700 16px/1 {MONO};letter-spacing:.22em;color:{BLUE};">{eyebrow}</div>'
-            f'<div style="margin-top:14px;font:800 {size}px/1.04 {MONO};color:{WHITE};">{title}</div></div>')
+            f'<div style="margin-top:20px;font:800 {size}px/1.04 {MONO};color:{WHITE};">{title}</div></div>')
 
 def divider(num, name, sub):
     up = name.upper()
@@ -29,7 +29,7 @@ def divider(num, name, sub):
         f'<div style="position:absolute;right:6%;top:9%;font:700 15px/1 {MONO};letter-spacing:.22em;color:{BLUE};">PILLAR {num}</div>'
         f'<div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);">'
         f'<div style="font:700 16px/1 {MONO};letter-spacing:.22em;color:{BLUE};">&sect; {num} / {up}</div>'
-        f'<div style="margin-top:14px;font:800 82px/1.0 {MONO};color:{WHITE};">{name}</div>'
+        f'<div style="margin-top:20px;font:800 82px/1.0 {MONO};color:{WHITE};">{name}</div>'
         f'<div style="margin-top:18px;font:400 24px/1.4 {SANS};color:{BODY};max-width:74%;">{sub}</div></div>')
 
 def big_title(eyebrow, title, sub, size=74, link=None, link_label=None):
@@ -40,7 +40,7 @@ def big_title(eyebrow, title, sub, size=74, link=None, link_label=None):
     return bg(
         f'<div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);">'
         f'<div style="font:700 16px/1 {MONO};letter-spacing:.22em;color:{BLUE};">{eyebrow}</div>'
-        f'<div style="margin-top:14px;font:800 {size}px/1.03 {MONO};color:{WHITE};">{title}</div>'
+        f'<div style="margin-top:20px;font:800 {size}px/1.03 {MONO};color:{WHITE};">{title}</div>'
         f'<div style="margin-top:20px;font:400 24px/1.45 {SANS};color:{BODY};max-width:74%;">{sub}</div>{linkhtml}</div>')
 
 def step_cells(items):
@@ -57,7 +57,7 @@ def steps(eyebrow, title, items, foot=None):
     return bg(header(eyebrow, title) +
               f'<div style="position:absolute;left:6.5%;right:6%;top:36%;">{step_cells(items)}</div>' + foothtml)
 
-def cards(eyebrow, title, items, cols=None, callout=None, top="32%"):
+def cards(eyebrow, title, items, cols=None, callout=None, top="38%"):
     cols = cols or len(items)
     cells = ""
     for it in items:
@@ -89,7 +89,7 @@ def agenda(labs):
     return bg(
         f'<div style="position:absolute;left:6.5%;right:6%;top:6.5%;">'
         f'<div style="font:700 16px/1 {MONO};letter-spacing:.22em;color:{BLUE};">TODAY</div>'
-        f'<div style="margin-top:12px;font:800 50px/1.04 {MONO};color:{WHITE};">Workshop &mdash; labs</div></div>'
+        f'<div style="margin-top:18px;font:800 50px/1.04 {MONO};color:{WHITE};">Workshop &mdash; labs</div></div>'
         f'<div style="position:absolute;left:6.5%;right:6%;top:25%;bottom:6.5%;display:grid;'
         f'grid-template-columns:1fr 1fr;gap:28px 48px;align-content:start;">{cells}</div>')
 
@@ -139,7 +139,7 @@ SLIDES[48] = cards("WRAP-UP", "Recap", [
     {"k":"01","h":"A trusted boundary","b":"A microVM, a network proxy, and credentials the agent never holds.","tag":"CONTAIN &middot; CONTROL"},
     {"k":"02","h":"Your choice inside it","b":"Agent and mixin kits for your harness, tools, and endpoints.","tag":"CHOICE"},
     {"k":"03","h":"Shared with the team","b":"One environment file in the repo. Update once, everyone follows.","tag":"CAPACITY"},
-], cols=3)
+], cols=3, top="31%")
 
 # ---------------------------------------------------------------- batch 2
 SLIDES[20] = steps("WHY NOT CONTAINERS", "Escaping a container", [
@@ -229,7 +229,7 @@ CODE = lambda t: f'<code style="font:700 20px/1 {MONO};color:#ff9ebf;">{t}</code
 SLIDES[15] = bg(
     f'<div style="position:absolute;left:6.5%;right:6%;top:13%;">'
     f'<div style="font:700 16px/1 {MONO};letter-spacing:.22em;color:{PINK};">FROM THE WILD</div>'
-    f'<div style="margin-top:14px;font:800 72px/1.0 {MONO};color:{WHITE};">Horror stories</div>'
+    f'<div style="margin-top:20px;font:800 72px/1.0 {MONO};color:{WHITE};">Horror stories</div>'
     f'<div style="margin-top:16px;font:400 23px/1.4 {SANS};color:{BODY};">These aren\'t hypothetical &mdash; they shipped, and someone paid for them.</div></div>'
     + _hrow("50%", "01", f'&ldquo;Clean up my project folder&rdquo; &rarr; agent had root, ran {CODE("rm -rf *")} &mdash; .ssh &middot; .aws &middot; prod.db gone')
     + _hrow("66%", "02", f'&ldquo;Organize my wife&apos;s desktop&rdquo; &rarr; {CODE("rm -rf family_photos/")} &mdash; Trash bypassed, 15 yrs of photos gone'))
@@ -334,7 +334,7 @@ DECK = os.path.join(HERE, "..", "deck.md")
 SLIDES_DHI = bg(
     f'<div style="position:absolute;left:6.5%;right:6%;top:8.5%;">'
     f'<div style="font:700 16px/1 {MONO};letter-spacing:.22em;color:{BLUE};">CHOICE &middot; DHI MCP</div>'
-    f'<div style="margin-top:14px;font:800 48px/1.05 {MONO};color:{WHITE};">Same agent, same prompt &mdash; a 0-CVE base</div></div>'
+    f'<div style="margin-top:20px;font:800 48px/1.05 {MONO};color:{WHITE};">Same agent, same prompt &mdash; a 0-CVE base</div></div>'
     f'<div style="position:absolute;left:6.5%;width:41%;top:33%;border-top:2px solid {RULE};padding-top:18px;">'
     f'<div style="font:700 15px/1 {MONO};letter-spacing:.14em;color:{MUTED};">UNGOVERNED</div>'
     f'<div style="margin-top:14px;font:400 19px/1.55 {SANS};color:{BODY};">claude -p &ldquo;containerise this&rdquo;<br>&rarr; picks <b style="color:#fff">FROM node:20</b>, blind</div>'
