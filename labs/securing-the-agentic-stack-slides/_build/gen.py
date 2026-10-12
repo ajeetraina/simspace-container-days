@@ -307,9 +307,9 @@ def _anno(name, body):
     return (f'<div style="margin-bottom:22px;"><div style="font:800 26px/1.1 {MONO};color:{WHITE};">{name}</div>'
             f'<div style="margin-top:7px;font:400 19px/1.45 {SANS};color:{BODY};">{body}</div></div>')
 SLIDES[44] = bg(header("CAPACITY", "An environment file describes the whole sandbox", size=44) +
-    f'<div style="position:absolute;left:6.5%;top:30%;width:45%;background:#0d1526;border:1px solid #1e2a44;'
+    f'<div style="position:absolute;left:6.5%;top:30%;width:47%;background:#0d1526;border:1px solid #1e2a44;'
     f'border-radius:14px;padding:26px 30px;box-sizing:border-box;">'
-    f'<pre style="margin:0;font:600 20px/1.7 {MONO};color:{BODY};white-space:pre;">{_YAML}</pre></div>'
+    f'<pre style="margin:0;font:600 18px/1.7 {MONO};color:{BODY};white-space:pre;">{_YAML}</pre></div>'
     f'<div style="position:absolute;right:6%;top:30%;width:40%;">'
     + _anno("Agent", "Which harness the sandbox runs")
     + _anno("Workspace", "The project folder the agent can see")
