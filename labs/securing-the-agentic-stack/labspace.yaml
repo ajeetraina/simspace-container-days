@@ -13,7 +13,7 @@ description: >
 catalog:
   icon: shield_lock
   order: 4
-  description: "Give the boxed agent its tools - register MCP servers as kits, attach them to the sandbox, and authorize just-in-time."
+  description: "Kits for your agents, tools, and endpoints"
   tags: ["sandbox", "mcp", "kits", "tools", "authorization", "choice"]
   estimatedMinutes: 45
 

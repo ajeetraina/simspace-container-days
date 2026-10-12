@@ -286,6 +286,39 @@ SLIDES[38] = bg(header("CHOICE", "Kits define what runs inside the boundary") +
     + _concept("DISTRIBUTION","Shared anywhere","Docker Hub or any registry, a Git repo, or a folder in your project.")
     + '</div>')
 
+# An environment file describes the whole sandbox - was a distorted webp (talk-44).
+GREEN = "#8fe3b0"
+def _ckey(t):  return f'<span style="color:{BLUE};">{t}</span>'
+def _cval(t):  return f'<span style="color:{GREEN};">{t}</span>'
+def _ccom(t):  return f'<span style="color:{MUTED};">{t}</span>'
+_YAML = "\n".join([
+    _ccom("# sbxenv.yaml &mdash; committed to the repo"),
+    _ckey("schemaVersion") + ": " + _cval('"1"'),
+    _ckey("name") + ": " + _cval("web-app"),
+    _ckey("agent") + ": " + _cval("claude"),
+    _ckey("workspace") + ": " + _cval("./web-app"),
+    _ckey("kits") + ":",
+    "  - " + _cval("sbx/playwright-kit:latest"),
+    _ckey("sandboxOptions") + ":",
+    "  " + _ckey("cpus") + ": " + _cval("4"),
+    "  " + _ckey("memory") + ": " + _cval("8g"),
+])
+def _anno(name, body):
+    return (f'<div style="margin-bottom:22px;"><div style="font:800 26px/1.1 {MONO};color:{WHITE};">{name}</div>'
+            f'<div style="margin-top:7px;font:400 19px/1.45 {SANS};color:{BODY};">{body}</div></div>')
+SLIDES[44] = bg(header("CAPACITY", "An environment file describes the whole sandbox", size=44) +
+    f'<div style="position:absolute;left:6.5%;top:30%;width:45%;background:#0d1526;border:1px solid #1e2a44;'
+    f'border-radius:14px;padding:26px 30px;box-sizing:border-box;">'
+    f'<pre style="margin:0;font:600 20px/1.7 {MONO};color:{BODY};white-space:pre;">{_YAML}</pre></div>'
+    f'<div style="position:absolute;right:6%;top:30%;width:40%;">'
+    + _anno("Agent", "Which harness the sandbox runs")
+    + _anno("Workspace", "The project folder the agent can see")
+    + _anno("Kits", "Tools, credentials, and network rules come with each kit")
+    + _anno("Resources", "CPU and memory for the sandbox")
+    + '</div>'
+    f'<div style="position:absolute;left:6.5%;right:6%;bottom:9%;font:700 14px/1 {MONO};letter-spacing:.14em;'
+    f'color:{MUTED};">START IT WITH sbx env run &middot; EXPERIMENTAL, FORMAT MAY CHANGE</div>')
+
 # ---------------------------------------------------------------- emit
 IMG = ('<img src="assets/talk-{n:02d}.webp" alt="{alt}" width="1600" height="900" loading="lazy" '
        'decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />')
