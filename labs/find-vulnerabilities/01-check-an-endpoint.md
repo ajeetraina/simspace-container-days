@@ -16,9 +16,10 @@ sbx run claude --name demo
 sbx policy check network inventory.internal:8080
 ```
 
-`DENY` - no allow rule matches, so the balanced default blocks it. The check runs
-the **same authorizer the proxy uses** at request time, so what you see here is
-exactly what the agent would hit.
+`Denied` - `Reason: no matching allow rule (default deny)`. The check runs the
+**same authorizer the proxy uses** at request time, so what you see here is exactly
+what the agent would hit; it also prints the governance source and context (here,
+your local policy at global scope).
 
 Nothing broke: the connection would simply be refused and logged. Now it's a
 decision - allow it, or leave it blocked.

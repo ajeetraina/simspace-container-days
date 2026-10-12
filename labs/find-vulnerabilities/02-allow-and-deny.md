@@ -1,7 +1,7 @@
 # Allow and Deny
 
-Two rule types sit on top of the profile: **allow** opens a host, **deny** closes
-one - and deny always wins.
+Two rule types sit on top of the default posture: **allow** opens a host, **deny**
+closes one - and deny always wins.
 
 ## Allow the internal service
 
@@ -9,13 +9,14 @@ one - and deny always wins.
 sbx policy allow network inventory.internal
 ```
 
-Rule added, globally. Re-check and watch the decision flip:
+`Rule added to policy local (scope: global)` - with a rule id and the resource
+(`inventory.internal [tcp]`). Re-check and watch the decision flip:
 
 ```bash
 sbx policy check network inventory.internal:8080
 ```
 
-`ALLOW` now - the agent can reach exactly what you decided, and nothing else new.
+`Allowed` now - the agent can reach exactly what you decided, and nothing else new.
 
 ## Block a known-bad host
 
@@ -23,11 +24,11 @@ sbx policy check network inventory.internal:8080
 sbx policy deny network telemetry.vendor.example
 ```
 
-Deny takes precedence over any allow, so even a broad allow rule can't re-open it -
-a simple way to stop a known exfiltration target.
+Another rule added (`[tcp,udp]`). Deny takes precedence over any allow, so even a
+broad allow rule can't re-open it - a simple way to stop a known exfiltration target.
 
 > [!NOTE]
-> Rules are global by default; add `--sandbox demo` to scope a rule to one
-> sandbox instead of all of them.
+> Rules are global by default; add `--sandbox demo` to scope a rule to one sandbox
+> instead of all of them. Remove one with `sbx policy rm network --resource <host>`.
 
 Next: see every decision in the log.
