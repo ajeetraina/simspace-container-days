@@ -1,7 +1,7 @@
 # Try the Escape
 
-The classic container breakout: reach the Docker socket, launch a privileged
-container, and you own the host. Let's try it - from inside the sandbox.
+In a plain container, that mounted socket was the escape hatch - you just watched
+it hand over the host. Try the **same** breakout here, from inside the microVM.
 
 ## Reach for the Docker daemon
 

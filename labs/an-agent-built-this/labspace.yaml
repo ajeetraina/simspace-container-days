@@ -183,12 +183,14 @@ sections:
     contentPath: 03-agent-on-the-host.md
   - title: "What Can Go Wrong"
     contentPath: 04-what-can-go-wrong.md
+  - title: "Why Not a Container?"
+    contentPath: 05-why-not-a-container.md
   - title: "Box the Agent"
-    contentPath: 05-box-the-agent.md
+    contentPath: 06-box-the-agent.md
   - title: "Credentials Stay Outside"
-    contentPath: 06-credentials-outside.md
+    contentPath: 07-credentials-outside.md
   - title: "Try the Escape"
-    contentPath: 07-try-the-escape.md
+    contentPath: 08-try-the-escape.md
 
 # $$org$$ substitution in markdown.
 variables:

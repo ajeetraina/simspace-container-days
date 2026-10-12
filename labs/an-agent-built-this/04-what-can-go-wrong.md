@@ -34,8 +34,7 @@ one bad action has real consequences.
 | Agent can be injected, read, and delete anything | **Docker Sandboxes** (microVM, governed network/fs/creds) | **next, in this lab** |
 | Vulnerable base image | **Docker Scout + Hardened Images** | a later lab |
 
-The rest of this lab is the first fix. You just watched the agent run wild on your
-host; now re-run that **same** agent inside a sandbox it cannot escape, and watch
-the blast radius collapse.
+Before the fix, one detour. The obvious answer at a Docker talk is *"just put it
+in a container"* - so let's try exactly that, and see why it isn't enough.
 
-Next: put a wall around the agent - **Box the Agent**.
+Next: **Why Not a Container?**
