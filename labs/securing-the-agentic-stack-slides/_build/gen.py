@@ -296,14 +296,34 @@ ALT = {4:"Access the Workshop",19:"Why not containers?",22:"Hello, Sandboxes",
 HERE = os.path.dirname(os.path.abspath(__file__))
 DECK = os.path.join(HERE, "..", "deck.md")
 
+# DHI MCP payoff slide - same agent/prompt, 0 CVEs, proven with the same Scout scan.
+SLIDES_DHI = bg(
+    f'<div style="position:absolute;left:6.5%;right:6%;top:8.5%;">'
+    f'<div style="font:700 16px/1 {MONO};letter-spacing:.22em;color:{BLUE};">CHOICE &middot; DHI MCP</div>'
+    f'<div style="margin-top:14px;font:800 48px/1.05 {MONO};color:{WHITE};">Same agent, same prompt &mdash; a 0-CVE base</div></div>'
+    f'<div style="position:absolute;left:6.5%;width:41%;top:33%;border-top:2px solid {RULE};padding-top:18px;">'
+    f'<div style="font:700 15px/1 {MONO};letter-spacing:.14em;color:{MUTED};">UNGOVERNED</div>'
+    f'<div style="margin-top:14px;font:400 19px/1.55 {SANS};color:{BODY};">claude -p &ldquo;containerise this&rdquo;<br>&rarr; picks <b style="color:#fff">FROM node:20</b>, blind</div>'
+    f'<div style="margin-top:20px;font:600 14px/1 {MONO};letter-spacing:.1em;color:{MUTED};">docker scout quickview</div>'
+    f'<div style="margin-top:8px;font:800 34px/1.1 {MONO};color:#ff7a7a;">2C &middot; 12H &middot; 20M &middot; 13L</div>'
+    f'<div style="margin-top:6px;font:400 17px/1.4 {SANS};color:{MUTED};">431 packages &middot; no SBOM</div></div>'
+    f'<div style="position:absolute;left:48.5%;top:47%;font:700 20px/1 {MONO};color:{MUTED};">VS</div>'
+    f'<div style="position:absolute;right:6%;width:41%;top:33%;border-top:2px solid {BLUE};padding-top:18px;">'
+    f'<div style="font:700 15px/1 {MONO};letter-spacing:.14em;color:{BLUE};">WITH DHI MCP</div>'
+    f'<div style="margin-top:14px;font:400 19px/1.55 {SANS};color:{BODY};">same prompt &rarr; queries DHI first<br>&rarr; <b style="color:#fff">FROM dhi.io/node:24-debian13</b></div>'
+    f'<div style="margin-top:20px;font:600 14px/1 {MONO};letter-spacing:.1em;color:{MUTED};">docker scout quickview</div>'
+    f'<div style="margin-top:8px;font:800 34px/1.1 {MONO};color:#6ee7a8;">0C &middot; 0H &middot; 0M &middot; 0L</div>'
+    f'<div style="margin-top:6px;font:400 17px/1.4 {SANS};color:{MUTED};">211 packages &middot; SBOM &middot; signed</div></div>'
+    f'<div style="position:absolute;left:6.5%;right:6%;bottom:11%;font:italic 400 23px/1.4 {SANS};color:#c7d0de;">The tool in the box changed the outcome &mdash; not the prompt.</div>')
+
 def main():
-    parts = []
-    for n in range(1, 49):
-        body = SLIDES.get(n) or IMG.format(n=n, alt=f"Slide {n}")
-        parts.append("<!-- chrome: false -->\n\n" + body + "\n")
+    bodies = [SLIDES.get(n) or IMG.format(n=n, alt=ALT.get(n, f"Slide {n}")) for n in range(1, 49)]
+    bodies.insert(41, SLIDES_DHI)  # after slide 41 "You can build your own kits"
+    parts = ["<!-- chrome: false -->\n\n" + b + "\n" for b in bodies]
     with open(DECK, "w") as f:
         f.write("\n---\n\n".join(parts))
-    print(f"wrote deck.md: {len(SLIDES)} HTML slides, {48-len(SLIDES)} image slides")
+    html = sum(1 for b in bodies if b.startswith("<div"))
+    print(f"wrote deck.md: {len(bodies)} slides, {html} HTML, {len(bodies)-html} image")
 
 if __name__ == "__main__":
     # render a few HTML slides to /tmp for visual QA when asked
