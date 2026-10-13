@@ -1,300 +1,381 @@
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CONTAINER DAYS SINGAPORE 2026</div><div style="margin-top:20px;font:800 66px/1.03 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Run Fast Without Running Wild</div><div style="margin-top:20px;font:400 24px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">AI Coding Agent Horror Stories and the microVM That Saves You</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-01.webp" alt="Slide 1" width="1600" height="900" loading="eager" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-02.webp" alt="Slide 2" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-02.webp" alt="Slide 2" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:6.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">TODAY</div><div style="margin-top:18px;font:800 50px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Workshop &mdash; labs</div></div><div style="position:absolute;left:6.5%;right:6%;top:25%;bottom:6.5%;display:grid;grid-template-columns:1fr 1fr;gap:28px 48px;align-content:start;"><div><div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 1 &middot; Setup <span style="color:#7f8ba3;">(2 min)</span> <span style="color:#3ad07a;">&#10003;</span></div><ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><li>Accessing the Workshop</li></ul></div><div><div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 3 &middot; Contain &amp; Control <span style="color:#7f8ba3;">(45 min)</span></div><ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><li>3 boundaries that surround every agent</li><li>Credentials added outside the sandbox</li><li>Testing the boundaries</li><li>What the agent can reach &mdash; adjusting policies</li></ul></div><div><div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 2 &middot; Autonomy requires guardrails <span style="color:#7f8ba3;">(15&ndash;20 min)</span></div><ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><li>Traditional vs agentic development workflow</li><li>Agents expand your attack surface</li><li>Coding Agent Horror Stories</li><li>Speed vs security &mdash; why not both?</li><li>Agent containerising the Product Catalog</li></ul></div><div><div style="font:700 23px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">Lab 4 &middot; Choice &amp; Capacity <span style="color:#7f8ba3;">(30 min)</span></div><ul style="margin:12px 0 0;padding-left:20px;font:400 19px/1.6 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><li>Kits define what runs inside the boundary</li><li>Running kits from Docker Hub</li><li>Build your own kits</li><li>sbxenv &mdash; describing the whole sandbox</li></ul></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-03.webp" alt="Slide 3" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">LAB 1 &middot; SETUP</div><div style="margin-top:20px;font:800 64px/1.03 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Access the Workshop</div><div style="margin-top:20px;font:400 24px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">containerdays.dockerworkshop.com &mdash; runs in your browser, nothing to install.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-04.webp" alt="Slide 4" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">THE SHIFT</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">AI agents are here &mdash; <span style="color:#f0a500;">and doing real work</span></div></div><div style="position:absolute;left:6.5%;right:6%;top:38%;display:grid;grid-template-columns:1fr 1fr 1fr ;gap:26px 26px;align-content:start;"><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">ENGINEERING</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Read codebases, ship PRs</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Agents read context, write code, and open pull requests without an engineer in the loop.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">MARKETING</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Pull CRM data, launch campaigns</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Agents move from research to creative to send, end to end.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">FINANCE</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Reconcile reports, query live</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Agents close the loop between ledger, dashboard, and decision.</div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-05.webp" alt="Slide 5" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-06.webp" alt="Slide 6" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-06.webp" alt="Slide 6" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">THE LETHAL TRIFECTA</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Every useful agent is built on three things</div></div><div style="position:absolute;left:6.5%;right:6%;top:38%;display:grid;grid-template-columns:1fr 1fr 1fr ;gap:26px 26px;align-content:start;"><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">RISK 01</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Access to private data</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Codebases, internal systems, credentials. The same data that makes it useful makes it dangerous.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">RISK 02</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Exposure to untrusted content</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Web pages, emails, MCP responses. Any of it can carry instructions the agent will follow.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">RISK 03</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Ability to act externally</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Send email, call APIs, touch the open internet. Once data leaves, it does not come back.</div></div></div><div style="position:absolute;left:6.5%;right:6%;bottom:8.5%;background:rgba(125,162,255,0.08);border-left:3px solid #7da2ff;border-radius:8px;padding:14px 22px;"><div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.18em;color:#7da2ff;">THE POINT</div><div style="margin-top:7px;font:400 19px/1.4 ui-sans-serif,system-ui,sans-serif;color:#c7d0de;">A useful agent has all three <b>by design.</b> You can't train it out, prompt it out, or policy-doc it out &mdash; the only fix is an enforcement layer at runtime.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-07.webp" alt="Slide 7" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-08.webp" alt="Slide 8" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-08.webp" alt="Slide 8" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-09.webp" alt="Slide 9" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-09.webp" alt="Slide 9" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">IN YOUR PIPELINE</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">What agents are already doing in your pipeline</div></div><div style="position:absolute;left:6.5%;right:6%;top:38%;display:grid;grid-template-columns:1fr 1fr ;gap:26px 26px;align-content:start;"><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Pulling dependencies</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Resolving and adding packages you never chose, from registries you never audited.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Generating Dockerfiles</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Picking base images, install steps, and users &mdash; usually the first thing it saw.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Editing infrastructure</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Terraform, Helm values, Compose files, IAM policy documents.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">04</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Triggering builds</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Opening PRs, pushing branches, and kicking off pipelines on its own initiative.</div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-10.webp" alt="Slide 10" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-11.webp" alt="Slide 11" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-11.webp" alt="Slide 11" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-12.webp" alt="Slide 12" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-12.webp" alt="Slide 12" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-13.webp" alt="Slide 13" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-13.webp" alt="Slide 13" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-14.webp" alt="Slide 14" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-14.webp" alt="Slide 14" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:13%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#ff5c8a;">FROM THE WILD</div><div style="margin-top:20px;font:800 72px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Horror stories</div><div style="margin-top:16px;font:400 23px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">These aren't hypothetical &mdash; they shipped, and someone paid for them.</div></div><div style="position:absolute;left:6.5%;right:6%;top:50%;background:#121a2e;border-left:3px solid #ff5c8a;border-radius:8px;padding:20px 26px;"><span style="font:700 20px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ff5c8a;">01</span><span style="margin-left:18px;font:400 22px/1.5 ui-sans-serif,system-ui,sans-serif;color:#c7d0de;">&ldquo;Clean up my project folder&rdquo; &rarr; agent had root, ran <code style="font:700 20px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ff9ebf;">rm -rf *</code> &mdash; .ssh &middot; .aws &middot; prod.db gone</span></div><div style="position:absolute;left:6.5%;right:6%;top:66%;background:#121a2e;border-left:3px solid #ff5c8a;border-radius:8px;padding:20px 26px;"><span style="font:700 20px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ff5c8a;">02</span><span style="margin-left:18px;font:400 22px/1.5 ui-sans-serif,system-ui,sans-serif;color:#c7d0de;">&ldquo;Organize my wife&apos;s desktop&rdquo; &rarr; <code style="font:700 20px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ff9ebf;">rm -rf family_photos/</code> &mdash; Trash bypassed, 15 yrs of photos gone</span></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-15.webp" alt="Slide 15" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-16.webp" alt="Slide 16" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-16.webp" alt="Slide 16" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-17.webp" alt="Slide 17" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-17.webp" alt="Slide 17" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:11%;font:800 52px/1.12 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Developers have to choose between speed and safety</div><div style="position:absolute;left:6.5%;right:6%;top:40%;height:6px;border-radius:3px;background:linear-gradient(90deg,#7da2ff,#f0a500);"></div><div style="position:absolute;left:6.5%;top:46%;width:40%;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7da2ff;">SAFE, SLOW</div><div style="margin-top:12px;font:800 32px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Approve every action</div><div style="margin-top:12px;font:400 20px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The agent stops to ask permission. The developer becomes the bottleneck.</div></div><div style="position:absolute;right:6%;top:46%;width:40%;text-align:right;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#f0a500;">FAST, RISKY</div><div style="margin-top:12px;font:800 32px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">YOLO mode</div><div style="margin-top:12px;font:400 20px/1.5 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Permissions skipped. The agent has the same access as the developer.</div></div><div style="position:absolute;left:6.5%;bottom:13%;"><div style="font:italic 400 27px/1.4 ui-sans-serif,system-ui,sans-serif;color:#c7d0de;">&ldquo;I&apos;m babysitting my agents.&rdquo;</div><div style="margin-top:10px;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7f8ba3;">COMMON DEVELOPER FEEDBACK</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-18.webp" alt="Slide 18" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">A FALSE START</div><div style="margin-top:20px;font:800 74px/1.03 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Why not containers?</div><div style="margin-top:20px;font:400 24px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Containers isolate applications well. Agents need more access than applications do.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-19.webp" alt="Slide 19" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">WHY NOT CONTAINERS</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Escaping a container</div></div><div style="position:absolute;left:6.5%;right:6%;top:36%;"><div style="display:grid;grid-template-columns:1fr 1fr 1fr ;gap:0 28px;"><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">01</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">A coding agent runs in a container</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">02</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The Docker socket is mounted so it can build and test</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">03</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The agent uses the socket to reach the host</div></div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-20.webp" alt="Slide 20" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-21.webp" alt="Slide 21" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-21.webp" alt="Slide 21" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">THE FIX</div><div style="margin-top:20px;font:800 74px/1.03 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Hello, Sandboxes</div><div style="margin-top:20px;font:400 24px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Give the agent everything it needs, inside a boundary it can't cross.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-22.webp" alt="Slide 22" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-23.webp" alt="Slide 23" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-23.webp" alt="Slide 23" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CONTAIN &middot; CONTROL &middot; CHOICE &middot; CAPACITY</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">A sandbox gives you four things</div></div><div style="position:absolute;left:6.5%;right:6%;top:38%;display:grid;grid-template-columns:1fr 1fr 1fr 1fr ;gap:26px 26px;align-content:start;"><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Contain</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Isolate the agent in a microVM with a guarded network.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Control</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Set what the agent can reach. Organizations add governance and audit.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Choice</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Bring your own agent, tools, and endpoints with kits.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">04</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Capacity</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Reproduce the same sandbox for every developer and every run.</div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-24.webp" alt="Slide 24" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 01</div><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 01 / CONTAIN</div><div style="margin-top:20px;font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Contain</div><div style="margin-top:18px;font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">The boundary that keeps the agent &mdash; and your secrets &mdash; inside the sandbox.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-25.webp" alt="Slide 25" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-26.webp" alt="Slide 26" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-26.webp" alt="Slide 26" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CONTAIN</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Credentials are added outside the sandbox</div></div><div style="position:absolute;left:6.5%;right:6%;top:36%;"><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr ;gap:0 28px;"><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">01</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><b style='color:#fff'>Agent calls an API</b><br>The request has no key attached.</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">02</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><b style='color:#fff'>Policy check</b><br>Is this destination allowed? If not, the request stops here.</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">03</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><b style='color:#fff'>Key injected</b><br>The proxy adds the credential stored on the host.</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">04</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><b style='color:#fff'>API responds</b><br>The agent gets the result, never the key.</div></div></div></div><div style="position:absolute;left:6.5%;right:6%;bottom:16%;font:italic 400 23px/1.4 ui-sans-serif,system-ui,sans-serif;color:#7da2ff;">The raw key never enters the sandbox.</div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-27.webp" alt="Slide 27" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-28.webp" alt="Slide 28" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-28.webp" alt="Slide 28" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-29.webp" alt="Slide 29" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-29.webp" alt="Slide 29" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-30.webp" alt="Slide 30" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-30.webp" alt="Slide 30" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="display:inline-block;background:#7da2ff;color:#0a1019;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;padding:8px 16px;border-radius:999px;">&bull; LAB</div><div style="margin-top:20px;font:800 68px/1.05 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Testing the boundaries</div><div style="margin-top:30px;"><div style="display:grid;grid-template-columns:1fr 1fr 1fr ;gap:0 28px;"><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">01</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Try the same escape &mdash; the socket belongs to the sandbox</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">02</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Look for host keys and other projects</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">03</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Call a model API without ever seeing the key</div></div></div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-31.webp" alt="Slide 31" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 02</div><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 02 / CONTROL</div><div style="margin-top:20px;font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Control</div><div style="margin-top:18px;font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Decide what the agent can reach and touch &mdash; you set where the boundary sits.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-32.webp" alt="Slide 32" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-33.webp" alt="Slide 33" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-33.webp" alt="Slide 33" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CONTROL</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Organizations add governance on top</div></div><div style="position:absolute;left:6.5%;right:6%;top:34%;background:#0b1a38;border-radius:12px;padding:18px 26px;display:flex;align-items:center;min-height:84px;box-sizing:border-box;"><div style="width:26%;"><div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">ORGANIZATION</div><div style="margin-top:6px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">AI Governance</div></div><div style="flex:1;line-height:0;"><span style="display:inline-block;background:#16233f;color:#cfe0ff;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">Central policy</span><span style="display:inline-block;background:#16233f;color:#cfe0ff;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">Audit logs</span><span style="display:inline-block;background:#16233f;color:#cfe0ff;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">Approved agents and kits</span><span style="display:inline-block;background:#16233f;color:#cfe0ff;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">Enforced across every sandbox</span></div></div><div style="position:absolute;left:6.5%;right:6%;top:56%;background:#17305e;border-radius:12px;padding:18px 26px;display:flex;align-items:center;min-height:84px;box-sizing:border-box;"><div style="width:26%;"><div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">DEVELOPER</div><div style="margin-top:6px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#cfe0ff;">Local policy</div></div><div style="flex:1;line-height:0;"><span style="display:inline-block;background:#223769;color:#dfe9ff;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">Choose a profile</span><span style="display:inline-block;background:#223769;color:#dfe9ff;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">Allow and deny rules</span><span style="display:inline-block;background:#223769;color:#dfe9ff;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">Policy log</span></div></div><div style="position:absolute;left:6.5%;right:6%;top:78%;background:#121a2e;border-radius:12px;padding:18px 26px;display:flex;align-items:center;min-height:84px;box-sizing:border-box;"><div style="width:26%;"><div style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7f8ba3;">ALWAYS ON</div><div style="margin-top:6px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#aeb8c9;">Contain</div></div><div style="flex:1;line-height:0;"><span style="display:inline-block;background:#1b2540;color:#aeb8c9;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">MicroVM</span><span style="display:inline-block;background:#1b2540;color:#aeb8c9;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">Network proxy</span><span style="display:inline-block;background:#1b2540;color:#aeb8c9;font:600 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:9px 15px;border-radius:8px;margin:0 10px 10px 0;">Credential injection</span></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-34.webp" alt="Slide 34" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="display:inline-block;background:#7da2ff;color:#0a1019;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;padding:8px 16px;border-radius:999px;">&bull; LAB</div><div style="margin-top:20px;font:800 68px/1.05 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Adjusting policy</div><div style="margin-top:30px;"><div style="display:grid;grid-template-columns:1fr 1fr 1fr ;gap:0 28px;"><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">01</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The agent hits a blocked endpoint</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">02</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Find it in the policy log</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">03</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Allow it and keep working</div></div></div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-35.webp" alt="Slide 35" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 03</div><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 03 / CHOICE</div><div style="margin-top:20px;font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Choice</div><div style="margin-top:18px;font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">A locked box still has to be useful &mdash; bring your own agent, tools, and MCP endpoints.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-36.webp" alt="Slide 36" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-37.webp" alt="Slide 37" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-37.webp" alt="Slide 37" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CHOICE</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Kits define what runs inside the boundary</div></div><div style="position:absolute;left:6.5%;top:34%;width:42%;"><div style="background:#121d38;border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:center;"><span style="flex:1;font:700 22px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#c7d0de;">code-server</span><span style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;color:#7f8ba3;">MIXIN KIT</span></div><div style="background:#121d38;border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:center;"><span style="flex:1;font:700 22px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#c7d0de;">GitHub SSH</span><span style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;color:#7f8ba3;">MIXIN KIT</span></div><div style="background:#121d38;border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:center;"><span style="flex:1;font:700 22px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#c7d0de;">Project dev env</span><span style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;color:#7f8ba3;">MIXIN KIT</span></div><div style="background:#17305e;border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:center;"><span style="flex:1;font:700 22px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Claude Code</span><span style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;color:#7da2ff;">AGENT KIT</span></div><div style="background:#121d38;border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:center;"><span style="flex:1;font:700 22px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#c7d0de;">MicroVM + proxy</span><span style="font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;color:#7f8ba3;">UNCHANGED</span></div></div><div style="position:absolute;right:6%;top:34%;width:44%;"><div style="margin-bottom:26px;"><div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7da2ff;">ONE PER SANDBOX</div><div style="margin-top:8px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Agent kit</div><div style="margin-top:8px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The harness: which coding agent runs and how it starts.</div></div><div style="margin-bottom:26px;"><div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7da2ff;">STACK AS MANY AS NEEDED</div><div style="margin-top:8px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Mixin kits</div><div style="margin-top:8px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Tools, credentials, and network rules added on top of any agent.</div></div><div style="margin-bottom:26px;"><div style="font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7da2ff;">DISTRIBUTION</div><div style="margin-top:8px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Shared anywhere</div><div style="margin-top:8px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Docker Hub or any registry, a Git repo, or a folder in your project.</div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-38.webp" alt="Slide 38" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-39.webp" alt="Slide 39" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-39.webp" alt="Slide 39" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="display:inline-block;background:#7da2ff;color:#0a1019;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;padding:8px 16px;border-radius:999px;">&bull; LAB</div><div style="margin-top:20px;font:800 68px/1.05 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Running kits from Docker Hub</div><div style="margin-top:30px;"><div style="display:grid;grid-template-columns:1fr 1fr 1fr ;gap:0 28px;"><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">01</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Start a sandbox with one agent kit</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">02</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Swap the harness, keep the project</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">03</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Add mixins for GitHub, signing, and the dev env</div></div></div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-40.webp" alt="Slide 40" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CHOICE</div><div style="margin-top:20px;font:800 74px/1.03 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">You can build your own kits</div><div style="margin-top:20px;font:400 24px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Kits follow an open specification. Package your own agent or tooling the same way the Hub kits are built.</div><div style="margin-top:30px;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.18em;color:#7f8ba3;">SANDBOX KIT SPECIFICATION</div><div style="margin-top:8px;font:700 26px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;text-decoration:underline;text-underline-offset:5px;">github.com/docker/sandbox-kit-spec</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-41.webp" alt="Slide 41" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CHOICE &middot; DHI MCP</div><div style="margin-top:20px;font:800 48px/1.05 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Same agent, same prompt &mdash; a 0-CVE base</div></div><div style="position:absolute;left:6.5%;width:41%;top:33%;border-top:2px solid #26324a;padding-top:18px;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">UNGOVERNED</div><div style="margin-top:14px;font:400 19px/1.55 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">claude -p &ldquo;containerise this&rdquo;<br>&rarr; picks <b style="color:#fff">FROM node:20</b>, blind</div><div style="margin-top:20px;font:600 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;color:#7f8ba3;">docker scout quickview</div><div style="margin-top:8px;font:800 34px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ff7a7a;">2C &middot; 12H &middot; 20M &middot; 13L</div><div style="margin-top:6px;font:400 17px/1.4 ui-sans-serif,system-ui,sans-serif;color:#7f8ba3;">431 packages &middot; no SBOM</div></div><div style="position:absolute;left:48.5%;top:47%;font:700 20px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7f8ba3;">VS</div><div style="position:absolute;right:6%;width:41%;top:33%;border-top:2px solid #7da2ff;padding-top:18px;"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7da2ff;">WITH DHI MCP</div><div style="margin-top:14px;font:400 19px/1.55 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">same prompt &rarr; queries DHI first<br>&rarr; <b style="color:#fff">FROM dhi.io/node:24-debian13</b></div><div style="margin-top:20px;font:600 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;color:#7f8ba3;">docker scout quickview</div><div style="margin-top:8px;font:800 34px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#6ee7a8;">0C &middot; 0H &middot; 0M &middot; 0L</div><div style="margin-top:6px;font:400 17px/1.4 ui-sans-serif,system-ui,sans-serif;color:#7f8ba3;">211 packages &middot; SBOM &middot; signed</div></div><div style="position:absolute;left:6.5%;right:6%;bottom:11%;font:italic 400 23px/1.4 ui-sans-serif,system-ui,sans-serif;color:#c7d0de;">The tool in the box changed the outcome &mdash; not the prompt.</div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-42.webp" alt="Slide 42" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;right:6%;top:9%;font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">PILLAR 04</div><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">&sect; 04 / CAPACITY</div><div style="margin-top:20px;font:800 82px/1.0 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Capacity</div><div style="margin-top:18px;font:400 24px/1.4 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;max-width:74%;">Reproduce the same sandbox for every developer and every run.</div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-43.webp" alt="Slide 43" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<img src="assets/talk-43.webp" alt="Slide 43" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/slide-44.webp" alt="Slide 44" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CAPACITY</div><div style="margin-top:20px;font:800 44px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">An environment file describes the whole sandbox</div></div><div style="position:absolute;left:6.5%;top:30%;width:47%;background:#0d1526;border:1px solid #1e2a44;border-radius:14px;padding:26px 30px;box-sizing:border-box;"><pre style="margin:0;font:600 18px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#aeb8c9;white-space:pre;"><span style="color:#7f8ba3;"># sbxenv.yaml &mdash; committed to the repo</span>
-<span style="color:#7da2ff;">schemaVersion</span>: <span style="color:#8fe3b0;">"1"</span>
-<span style="color:#7da2ff;">name</span>: <span style="color:#8fe3b0;">web-app</span>
-<span style="color:#7da2ff;">agent</span>: <span style="color:#8fe3b0;">claude</span>
-<span style="color:#7da2ff;">workspace</span>: <span style="color:#8fe3b0;">./web-app</span>
-<span style="color:#7da2ff;">kits</span>:
-  - <span style="color:#8fe3b0;">sbx/playwright-kit:latest</span>
-<span style="color:#7da2ff;">sandboxOptions</span>:
-  <span style="color:#7da2ff;">cpus</span>: <span style="color:#8fe3b0;">4</span>
-  <span style="color:#7da2ff;">memory</span>: <span style="color:#8fe3b0;">8g</span></pre></div><div style="position:absolute;right:6%;top:30%;width:40%;"><div style="margin-bottom:22px;"><div style="font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Agent</div><div style="margin-top:7px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Which harness the sandbox runs</div></div><div style="margin-bottom:22px;"><div style="font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Workspace</div><div style="margin-top:7px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The project folder the agent can see</div></div><div style="margin-bottom:22px;"><div style="font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Kits</div><div style="margin-top:7px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Tools, credentials, and network rules come with each kit</div></div><div style="margin-bottom:22px;"><div style="font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Resources</div><div style="margin-top:7px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">CPU and memory for the sandbox</div></div></div><div style="position:absolute;left:6.5%;right:6%;bottom:9%;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;color:#7f8ba3;">START IT WITH sbx env run &middot; EXPERIMENTAL, FORMAT MAY CHANGE</div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-45.webp" alt="Slide 45" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CAPACITY</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Commit it once and the whole team shares one setup</div></div><div style="position:absolute;left:6.5%;right:6%;top:36%;"><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr ;gap:0 28px;"><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">01</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><b style='color:#fff'>Change the file</b><br>Update a kit, add a kit, or swap the harness.</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">02</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><b style='color:#fff'>Open a pull request</b><br>The change is reviewed like code.</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">03</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><b style='color:#fff'>Merge</b><br>The repo holds the new definition.</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">04</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;"><b style='color:#fff'>Everyone pulls</b><br>The next sandbox each person starts matches.</div></div></div></div><div style="position:absolute;left:6.5%;right:6%;bottom:16%;font:italic 400 23px/1.4 ui-sans-serif,system-ui,sans-serif;color:#7da2ff;">Update once. Every sandbox follows.</div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-46.webp" alt="Slide 46" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">CAPACITY</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Cloud Sandboxes run the same setup remotely</div></div><div style="position:absolute;left:6.5%;right:6%;top:38%;display:grid;grid-template-columns:1fr 1fr ;gap:26px 26px;align-content:start;"><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">LOCAL</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">On your machine</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The sandbox runs on your laptop, limited by its CPU and memory.</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">CLOUD</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">On Docker's infrastructure</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">The same environment file, running remotely. Start more sandboxes than one laptop can hold.</div><div style="margin-top:14px;font:600 14px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">EARLY ACCESS &middot; not yet available for org use</div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-47.webp" alt="Slide 47" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:50%;transform:translateY(-50%);"><div style="display:inline-block;background:#7da2ff;color:#0a1019;font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;padding:8px 16px;border-radius:999px;">&bull; LAB</div><div style="margin-top:20px;font:800 68px/1.05 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Sharing a sandbox with the team</div><div style="margin-top:30px;"><div style="display:grid;grid-template-columns:1fr 1fr 1fr ;gap:0 28px;"><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">01</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Clone a repo that has an environment file</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">02</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Start a sandbox &mdash; kits and policy are already set</div></div><div><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#7da2ff;">03</div><div style="margin-top:10px;border-top:2px solid #26324a;"></div><div style="margin-top:14px;font:400 19px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Change one line and start again</div></div></div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-48.webp" alt="Slide 48" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
-<div style="position:absolute;inset:0;background:#0a1019;background-image:radial-gradient(rgba(125,162,255,0.06) 1.3px, transparent 1.3px);background-size:26px 26px;overflow:hidden;font-family:ui-sans-serif,system-ui,sans-serif;"><div style="position:absolute;left:6.5%;right:6%;top:8.5%;"><div style="font:700 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.22em;color:#7da2ff;">WRAP-UP</div><div style="margin-top:20px;font:800 56px/1.04 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Recap</div></div><div style="position:absolute;left:6.5%;right:6%;top:31%;display:grid;grid-template-columns:1fr 1fr 1fr ;gap:26px 26px;align-content:start;"><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">01</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">A trusted boundary</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">A microVM, a network proxy, and credentials the agent never holds.</div><div style="margin-top:14px;font:600 14px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">CONTAIN &middot; CONTROL</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">02</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Your choice inside it</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">Agent and mixin kits for your harness, tools, and endpoints.</div><div style="margin-top:14px;font:600 14px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">CHOICE</div></div><div style="background:#101a30;border:1px solid #223354;border-top:3px solid #7da2ff;border-radius:14px;padding:20px 24px 22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);"><div style="font:700 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;color:#7da2ff;">03</div><div style="margin-top:11px;font:800 26px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#ffffff;">Shared with the team</div><div style="margin-top:11px;min-height:60px;font:400 18px/1.45 ui-sans-serif,system-ui,sans-serif;color:#aeb8c9;">One environment file in the repo. Update once, everyone follows.</div><div style="margin-top:14px;font:600 14px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.03em;color:#7f8ba3;">CAPACITY</div></div></div><div style="position:absolute;left:6.5%;bottom:6.5%;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.32em;color:#566071;">DOCKER&nbsp;&nbsp;/&nbsp;&nbsp;N&nbsp;E&nbsp;X&nbsp;T</div></div>
+<img src="assets/slide-49.webp" alt="Slide 49" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-50.webp" alt="Slide 50" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-51.webp" alt="Slide 51" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-52.webp" alt="Slide 52" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-53.webp" alt="Slide 53" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-54.webp" alt="Slide 54" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-55.webp" alt="Slide 55" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-56.webp" alt="Slide 56" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-57.webp" alt="Slide 57" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-58.webp" alt="Slide 58" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-59.webp" alt="Slide 59" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-60.webp" alt="Slide 60" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-61.webp" alt="Slide 61" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-62.webp" alt="Slide 62" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-63.webp" alt="Slide 63" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-64.webp" alt="Slide 64" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
