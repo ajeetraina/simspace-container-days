@@ -114,12 +114,14 @@ making genuine judgment calls on your behalf. Stage five, it drives its own
 agenda and coordinates work around the clock. And stage six, the top rung, it
 sets its own goals within ethical bounds.
 
-Now, here's the honest and slightly reassuring part. Most enterprises in this
-room are living at stage one or two. Silicon Valley is poking cautiously at
-stage three. So when I start telling you horror stories in a few minutes, I am
-not talking about some runaway stage-six superintelligence. Every piece of damage
-you're about to see came from a stage-two or stage-three agent — the kind that is
-already running in your pipeline today.
+Now, here's the honest part — and it has moved fast. A year ago, most
+enterprises in a room like this were living at stage one or two. That has already
+changed. Today the mainstream is actively deploying stage three — bounded-autonomy
+agents that act on their own within the rules you set — and the frontier is pushing
+into stage four. So when I start telling you horror stories in a few minutes, I am
+not talking about some runaway stage-six superintelligence. I'm talking about the
+stage-three agent that is now the median deployment — the kind that is almost
+certainly already running in your pipeline today.
 
 ## Slide 8 — Autonomy is a change of control
 
