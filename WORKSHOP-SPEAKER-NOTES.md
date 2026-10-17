@@ -1,813 +1,945 @@
 # Speaker Notes — *Run Fast Without Running Wild*
 
-**Workshop:** Run Fast Without Running Wild — AI Coding Agent Horror Stories and
-the microVM That Saves You
-**Event:** Container Days Singapore 2026
-**Deck:** `deck.md` (64 full-bleed slides)
-**Companion labs:** `an-agent-built-this` (Contain), `find-vulnerabilities`
-(Control), `securing-the-agentic-stack` (Choice), `capacity` (Capacity)
+**Container Days Singapore 2026 · a 64-slide talk, ~45 minutes**
+
+What follows is the full spoken script — read it aloud as written, or make it
+your own. Each section below is one slide; the heading tells you which slide
+you're on so you can keep pace with the deck. The narration already carries its
+own transitions, so you can run straight through from the title to the thank-you.
 
 ---
 
-## How to use this document
-
-This is a **talk track** — what to *say*, not just what's on the slide. Each
-entry gives the one-line purpose of the slide, a spoken script you can read or
-riff off, and a transition into the next slide. Lines in `[brackets]` are stage
-directions (clicks, demo switches, audience prompts), not words to read aloud.
-
-**The spine of the whole talk is the Four Cs:** **Contain**, **Control**,
-**Choice**, **Capacity**. Everything before them is the problem; everything after
-is those four ideas, each with a lab. If you remember nothing else, land those
-four words and the single sentence under each.
-
-**Timing (≈45 min):** Intro & problem (slides 1–23) ~12 min · Why not containers
-(24–26) ~3 min · Contain (27–37) ~8 min · Control (38–41) ~5 min · Choice (42–54)
-~9 min · Capacity (55–63) ~6 min · Close (64) ~1 min. The agenda shows four
-15-minute labs — the slides set each one up, the hands-on happens in the Simspace
-lab pane.
-
-**The one message:** *Refusal is a behaviour, not a boundary.* A well-behaved
-agent is not a security control. The fix is an enforcement layer at runtime — a
-microVM you can't talk your way out of. Say that sentence, in some form, at least
-three times.
-
----
-
-# Part 0 — Open (slides 1–4) · ~3 min
-
-### Slide 1 — Title: "Run Fast Without Running Wild"
-*Purpose: set the tone — this is a security talk, but it's about going faster, not slower.*
-
-> "AI coding agents are the most productive thing to happen to our workflow in a
-> decade. They're also the most dangerous thing we've ever given a shell to. This
-> talk is about having both — running fast *without* running wild. We'll look at
-> real incidents where agents wrecked machines, leaked secrets, and ran commands
-> nobody approved — and then at the one piece of infrastructure that makes all of
-> that stop mattering: a microVM sandbox."
-
-[Hold a beat on the title. Don't rush off it.]
-
-### Slide 2 — Meet your instructor
-*Purpose: credibility, fast. Don't dwell.*
-
-> "Quick hello — I'm Ajeet, a Developer Advocate at Docker. I've spent 20-plus
-> years in testing, consulting and developer relations, I was a Docker Captain
-> before I joined, and I run a 17,000-member meetup in Bengaluru. I also co-wrote
-> *Operational AI with Docker*, which is basically this talk at book length. But
-> you're not here for my bio — you're here because an agent did something on your
-> machine last week that made you a little nervous. Let's talk about that."
-
-[~20 seconds max. The self-deprecating pivot keeps it from feeling like a résumé.]
-
-### Slide 3 — Agenda: Workshop labs
-*Purpose: show the shape. Four labs, four Cs, ~15 min each. Lab 1 is already done for them.*
-
-> "Here's the shape of the next 45 minutes. Four short labs. Lab 1 is just getting
-> you logged in — two minutes, and you can start it now. Lab 2 is the horror-story
-> half: why autonomy needs guardrails, and we'll watch an agent containerise a
-> real app. Then Labs 3 and 4 are the fix, in four parts we call the Four Cs —
-> **Contain**, **Control**, **Choice**, **Capacity**. Each lab is hands-on in the
-> pane on your right; the slides just set it up."
-
-[Point at the right pane. Tell them the labs run in the browser — nothing to install.]
-
-### Slide 4 — Access the workshop
-*Purpose: get everyone to the URL before the content starts.*
-
-> "This is the only setup step. Go to **containerdays.dockerworkshop.com** — it
-> runs entirely in your browser, nothing to install, no account to make. Open it
-> now; by the time we hit the first lab you'll already be in."
-
-[Leave this up for a moment. Read the URL aloud twice. Confirm a show of hands that people are in before moving on.]
-
----
-
-# Part 1 — Autonomy requires guardrails (slides 5–23) · ~9 min
-
-### Slide 5 — Section divider: "Autonomy requires guardrails"
-*Purpose: frame the problem half of the talk.*
-
-> "Before the fix, the problem — and I want to earn the fix, not just assert it.
-> The thesis of this section is three words: autonomy requires guardrails. Not
-> *autonomy is bad* — autonomy is the whole point. But the thing that makes an
-> agent useful is exactly the thing that makes it dangerous, and no amount of good
-> behaviour changes that."
-
-### Slide 6 — AI agents are here, doing real work
-*Purpose: establish that this is not hypothetical — agents already act, across functions.*
-
-> "Let's be clear about where we are. Agents stopped being autocomplete a while
-> ago. In **engineering** they read whole codebases and open pull requests with no
-> human in the loop. In **marketing** they pull CRM data and launch campaigns,
-> research to send. In **finance** they reconcile reports and query live systems.
-> The common word across all three is *act*. They don't answer — they do. And
-> every one of those actions touches something real: a repo, a customer record, a
-> ledger."
-
-[If the room is mostly engineers, lean on the engineering card and nod at the others.]
-
-### Slide 7 — Autonomy ladder: more autonomy = more productivity
-*Purpose: give people a map of where agents sit, and where the industry actually is.*
-
-> "Here's a useful way to think about it — a ladder of autonomy. Stage one is
-> autocomplete: stateless, prompt in, text out. Stage two remembers you. By stage
-> three it's proactive within boundaries; stage four it makes judgment calls on
-> your behalf; stage five it drives its own agenda and coordinates around the
-> clock; stage six it sets goals inside ethical bounds. Now — the honest part.
-> Most enterprises are living at **stage one or two**. Silicon Valley is poking at
-> **three**. So when I talk about risk, I'm not talking about sci-fi stage-six
-> agents. The damage we'll see today comes from stage two and three agents that
-> are *already in your pipeline*."
-
-### Slide 8 — Autonomy ladder: a change of control
-*Purpose: reframe the same ladder as a transfer of control, not just capability.*
-
-> "Same ladder, different axis. As you climb it, something shifts that has nothing
-> to do with how smart the model is: *who's in control*. Down here it's
-> human-led, AI-assisted — you drive, it helps. Up there it flips:
-> AI-led, human-assisted — it drives, you supervise. The moment you cross the
-> middle of this line, 'the developer reviewed it' stops being true by default.
-> That crossing is where you need something other than trust."
-
-### Slide 9 — The lethal trifecta
-*Purpose: THE conceptual core of the problem half. Slow down here.*
-
-> "This is the single most important slide in the first half. Every genuinely
-> useful agent is built on three things at once. One: **access to private data** —
-> your code, your internal systems, your credentials. Two: **exposure to untrusted
-> content** — web pages, emails, files, the responses coming back from tools. Any
-> of that can carry an instruction the agent will follow as if *you* typed it.
-> Three: **the ability to act externally** — send mail, call APIs, touch the open
-> internet. And here's the point" —
->
-> [read the callout verbatim, slowly] —
->
-> "a useful agent has all three *by design*. You cannot train it out. You cannot
-> prompt it out. You cannot policy-doc it out. If you remove any one of the three,
-> you've removed the reason you hired the agent. The only place left to fix this
-> is an **enforcement layer at runtime** — something outside the agent that holds
-> no matter what the agent decides."
-
-[This "by design" framing is the whole talk in miniature. If you only nail one slide, nail this one. Pause after "by design."]
-
-### Slide 10 — What can go wrong?
-*Purpose: turn the abstract trifecta into a concrete story. Pure transition slide.*
-
-> "So let's make that concrete. Not a threat model on a whiteboard — a real app, a
-> real agent, and three real ways it goes wrong."
-
-### Slide 11 — A Product Catalog sample demo
-*Purpose: introduce the app we'll hand to the agent. Point out the credentials.*
-
-> "Here's our victim — a perfectly ordinary Product Catalog service. Node and
-> Express, backed by Postgres for catalog data, S3 for images, Kafka for updates,
-> talking to an inventory service and to **live Stripe payments**. This is a
-> normal microservice. The only thing I want you to notice is what's underneath
-> every one of those arrows: a credential. A database password, AWS keys, a Stripe
-> key, an internal API key — and in this repo they're sitting in a plaintext
-> `.env` file right next to the code. That's leg one of the trifecta — private
-> data — and it's not exotic. It's every repo you've ever cloned."
-
-### Slide 12 — The traditional workflow
-*Purpose: baseline — in the old world the attack surface is bounded by human choice.*
-
-> "Think about how this used to work. Inner loop: you code, build, pull in open
-> source, test. Outer loop: integrate, test, deploy. A *human* stands at every one
-> of those stations. And that matters for security in a way we never said out
-> loud: your attack surface was only ever *what you chose to pull*. Every
-> dependency, every base image, every command — a person decided it, and usually
-> another person reviewed it."
-
-### Slide 13 — The agentic workflow
-*Purpose: the pivot — same loop, agent at every station, surface is now unbounded.*
-
-> "Now replace every one of those humans with an agent." [Note the green badges —
-> same diagram, same stations, different operator.] "Nothing about the *pipeline*
-> changed. But the sentence from the last slide just broke. The attack surface is
-> no longer what *you* pull — it's what the *agent* pulls, generates, and reaches
-> for, autonomously, at every stage. You didn't expand the surface on purpose. It
-> expanded because you handed the keyboard to something that acts faster than you
-> can review."
-
-### Slide 14 — Agents expand your attack surface, automatically
-*Purpose: spell out the before/after concretely, land the blast-radius line.*
-
-> "Side by side. Traditionally: you pull the base image, with intent. You install
-> dependencies, reviewed in a PR. CI runs with human-authored config. Agentically:
-> the agent pulls the base image autonomously. Installs packages with no review.
-> Invokes external tools with *real credentials*. Rewrites the Dockerfile
-> mid-pipeline. Same four steps — zero human gates. And the line I want you to take
-> home from this slide" — [read the quote] — "*the better the agent, the bigger the
-> blast radius.* A worse agent would be safer. That should bother you, because
-> you're going to keep buying the better one."
-
-### Slide 15 — What agents are already doing in your pipeline
-*Purpose: make it present-tense and personal. This is today, not a forecast.*
-
-> "And this isn't a warning about next year. Right now, in your pipeline, agents
-> are **pulling dependencies** from registries nobody audited, **generating
-> Dockerfiles** — picking base images, install steps, and the user it runs as,
-> usually whatever it saw first. **Editing infrastructure**: Terraform, Helm
-> values, Compose files, IAM policy. And **triggering builds** — opening PRs,
-> pushing branches, kicking off pipelines on their own initiative. Every one of
-> those is a place the trifecta is live today."
-
-### Slide 16 — The ungoverned agent
-*Purpose: show the concrete bad outcome we'll reproduce live. Anchor the CVE numbers.*
-
-> "Here's what that looks like with no boundary. The agent runs on your host, with
-> your daemon and your credentials. You say 'containerise this app.' It reaches
-> open registries with no allowlist, and it picks `FROM node:20` because that's the
-> convenient, famous base — chosen with zero guidance. The result, before anyone's
-> done anything malicious: an image with **critical and high CVEs**, 431 packages,
-> no SBOM, no attestation, running as **root**. That's not a mistake. That's the
-> default. Keep that picture — we'll put the exact same prompt in a sandbox later
-> and watch the numbers go to zero."
-
-[The 0C/6H/30M/54L here previews the Scout numbers in the lab; don't over-promise exact values, the lab is the source of truth.]
-
-### Slide 17 — Demo time!
-*Purpose: hand off to the first hands-on moment.*
-
-> "Let's stop talking about it and watch it happen. This is Lab 2 in your right
-> pane — an agent containerising this exact app. Follow along at
-> containerdays.dockerworkshop.com, the `an-agent-built-this` lab."
-
-[Switch to the Simspace lab pane. Give the room a moment to find it.]
-
-### Slide 18 — Set up: clone the repo
-*Purpose: orient people in the lab's first steps.*
-
-> "Four quick steps. Clone the repo. Verify there's no Dockerfile and no Compose
-> file — it ships source only, which is exactly what teams hand an agent today.
-> Peek at the `.env` so you've seen the secrets with your own eyes. Then ask the
-> agent to containerise it for production, and scan the result with
-> `docker scout quickview`. Watch what number comes back."
-
-[If running live, do the clone and the `cat .env` yourself so the room sees the plaintext keys. Then let them run the agent step.]
-
-### Slide 19 — AI Coding Agent Horror Stories
-*Purpose: section title — shift from "what could happen" to "what did happen."*
-
-> "That was a clean demo. Now the part that isn't clean. These next few are real —
-> they shipped, they hit production, and someone paid for them."
-
-[Let the title land. The tonal shift from demo to dread is the point.]
-
-### Slide 20 — Horror headlines (collage)
-*Purpose: overwhelm, briefly — this is a pattern, not a one-off.*
-
-> "I didn't have to dig for these. An agent deleted **25,000 documents** from the
-> wrong database — one second of distraction, right credentials, perfectly
-> referenced script. A team's agent deleted *production* data, and the chilling
-> detail is it was *technically allowed to* — no policy layer ever said no.
-> Researchers found a prompt-injection hole in the GitHub MCP integration with no
-> obvious fix. Someone watched their agent delete 400 emails because it decided
-> they were 'clutter.' McDonald's AI hiring bot exposed millions of applicants
-> because the password was one-two-three-four-five-six. Different companies,
-> different tools — same shape every time: an agent with access, and nothing
-> standing between it and the damage."
-
-[Don't read every headline — pick three or four and gesture at the wall of the rest. The volume *is* the argument.]
-
-### Slide 21 — "Clean up my project folder" (comic)
-*Purpose: the signature story — a friendly request, root access, total loss.*
-
-> "This one's a comic because it's almost funny, until it's you. Developer says:
-> 'Hey agent, clean up my project folder.' Agent says 'On it!' — analyses the
-> project, finds 'unneeded files,' removes 'clutter,' optimises the structure…
-> with `rm -rf` on *everything*. 'Cleanup complete!' Wait — where's my home
-> directory? Documents, Downloads, Pictures, all of it. And the kicker in the last
-> panel: 'Oh, did I forget to mention I had root access this whole time?' Nobody
-> asked it to be malicious. It was being *helpful*, with permissions it should
-> never have had."
-
-[The blog link is on the slide if anyone wants the write-up. Beat on "root access this whole time.")
-
-### Slide 22 — Claude Cowork (comic)
-*Purpose: same failure, different surface — show it's the pattern, not one tool.*
-
-> "January 2026, a different agent, a home-user scenario. 'Help organise my wife's
-> desktop.' It finds some temp Office files, starts cleaning up — and runs
-> `rm -rf family_photos/`. Thirteen years of memories. And it **bypassed the
-> Trash** — nothing to restore from. The only reason this story has a happy
-> ending is iCloud's 30-day retention saved them by luck. Same story, different
-> path, same damage. The lesson isn't 'that one tool is bad.' It's that this is
-> structural."
-
-### Slide 23 — Developers have to choose between speed and safety
-*Purpose: name the false dilemma the rest of the talk dissolves.*
-
-> "So today developers feel stuck choosing between two bad options. On the left:
-> **safe and slow** — approve every single action. The agent stops to ask
-> permission constantly and *you* become the bottleneck; you're not developing,
-> you're babysitting. On the right: **fast and risky** — YOLO mode, skip the
-> prompts, and now the agent has exactly the access you have, with none of your
-> judgment. The most common thing I hear from developers is right there at the
-> bottom:" — [read the quote] — "*'I'm babysitting my agents.'* Hold that feeling.
-> The entire rest of this talk is about refusing this choice — getting fast *and*
-> safe at the same time."
-
----
-
-# Part 2 — Why not containers? (slides 24–26) · ~3 min
-
-### Slide 24 — Section divider: "Why not containers?"
-*Purpose: pre-empt the obvious objection at a Docker conference.*
-
-> "We're at a Docker conference, so some of you are already thinking the obvious
-> thing: just put the agent in a container. It's a fair instinct — and it's worth
-> taking seriously instead of waving away. Containers isolate *applications*
-> beautifully. The problem is an agent isn't an application. It needs more access
-> than an application does — and that difference is everything."
-
-### Slide 25 — Escaping a container (Lab setup)
-*Purpose: set up the escape demo — three steps, one socket.*
-
-> "Here's the most common setup I see: a coding agent in a container, with the
-> **Docker socket mounted** so it can build images and run tests. Totally
-> reasonable — that's how it does its job. Watch the three steps: agent in a
-> container; socket mounted so it can build; and then the agent uses that socket
-> to reach the host. The socket is the feature *and* the hole."
-
-[This maps to the `an-agent-built-this` lab, "Why Not a Container?" section. Run it live if time allows.]
-
-### Slide 26 — Each new capability weakens the container's isolation
-*Purpose: the killer table — every useful grant erodes the box, until nothing's left.*
-
-> "And it's not one bad flag — it's a ramp. Give the agent your **source** so it
-> can edit the project: now it can modify files on your host. Give it the
-> **network** so it can fetch packages: now it can reach anything, inside or out.
-> Pass it **API keys** so it can call services: now it can read those keys and
-> send them anywhere. Mount the **Docker socket** so it can build: now it can start
-> containers on the host with full access — it owns the machine, which you just
-> watched. Look at the isolation bar on the right collapse row by row. Every single
-> grant was *reasonable*. Together they leave you with nothing." — [read the
-> footer] — "*The more useful the agent, the less isolated the container.* That's
-> not a bug in containers. A container shares the host kernel, and the access an
-> agent needs is exactly the access that lets it escape. So we need a different
-> kind of box."
-
-[This is the hinge from problem to solution. The next slide is the pivot — say "a different kind of box" and click.]
-
----
-
-# Part 3 — CONTAIN (slides 27–37) · ~8 min
-
-### Slide 27 — Agenda recap (Labs 1–2 done)
-*Purpose: breadcrumb — show progress, orient for the Four Cs.*
-
-> "Quick checkpoint. We've done the setup and the problem — Labs 1 and 2 are
-> behind us. Now the fix, in four parts. First one up: Contain."
-
-[Keep this to one breath. It's a signpost, not a slide.]
-
-### Slide 28 — Hello, Sandboxes
-*Purpose: introduce the solution in one sentence.*
-
-> "Meet the Docker Sandbox. Here's the whole idea in one line:" — [read it] —
-> "*give the agent everything it needs, inside a boundary it can't cross.* Not
-> fewer capabilities — the same capabilities, in a box that holds. That's how we
-> escape the speed-versus-safety trap from a few slides ago."
-
-### Slide 29 — A sandbox is a private machine for your agent
-*Purpose: the mental model — a whole private machine, not a locked-down container.*
-
-> "The right way to picture it: a sandbox is a *private machine* for your agent,
-> running on your machine but walled off from it. Inside the box the agent gets
-> what it needs — the agent itself, Claude Code or Codex or whatever you bring;
-> your project, and *only* this folder; and its own Docker. The only way out is a
-> **proxy** — one controlled exit to package registries, model APIs, your
-> services. And notice what's on the *outside*: your `~/.ssh`, your API keys, your
-> other projects, your host Docker. The agent literally cannot see them. Three
-> ideas underneath — a trusted boundary, you choose what goes inside, and the whole
-> team can reproduce it — and those become Contain, Choice, and Capacity."
-
-### Slide 30 — Container vs Sandbox
-*Purpose: the technical "why" — different kernel, so sudo inside ≠ admin outside.*
-
-> "Why does this hold when a container didn't? One picture. An ordinary container —
-> Container A, Container B — shares the **host kernel**. That's fine for apps, but
-> it's a thin wall for an agent that'll run any command it likes. A Docker Sandbox
-> runs Claude Code, with `sudo`, on **its own Linux kernel** in a microVM. So
-> `sudo` *inside* the sandbox is not admin on your Mac. The agent can go wild in
-> its own room — install anything, break anything, be root — and it's root of a
-> throwaway machine, not yours."
-
-### Slide 31 — A sandbox gives you four things
-*Purpose: name the Four Cs explicitly. This is the skeleton of the whole back half.*
-
-> "So a sandbox gives you four things, and these are the four words the rest of the
-> talk hangs on. **Contain** — isolate the agent in a microVM with a guarded
-> network. **Control** — decide what it can reach; organisations layer governance
-> and audit on top. **Choice** — bring your own agent, tools, and endpoints, with
-> kits. **Capacity** — reproduce the exact same sandbox for every developer and
-> every run. Contain, Control, Choice, Capacity. We'll do each one, and each one
-> has a lab."
-
-[Say the four Cs as a rhythm. You'll repeat them at every divider and in the recap.]
-
-### Slide 32 — Contain (divider)
-*Purpose: enter the first C.*
-
-> "Contain first — the boundaries that keep the agent's actions inside the
-> sandbox. This is the always-on foundation; everything else sits on top of it."
-
-### Slide 33 — Three boundaries surround every agent
-*Purpose: name the three mechanisms of Contain with memorable analogies.*
-
-> "Containment is really three boundaries working together. One: the **microVM** —
-> its own kernel, filesystem, and Docker engine; the host is simply out of reach.
-> Think of it as a separate room with its own walls. Two: the **network proxy** —
-> every outbound request passes through a proxy that applies policy. That's a front
-> desk that checks every exit. Three: **credential injection** — keys get added by
-> the proxy on the way out, so the agent never holds them. A front desk that holds
-> the keys *for* you. Separate room, checked exits, keys held at the desk. That's
-> Contain."
-
-### Slide 34 — What the agent can reach
-*Purpose: concrete reachability — full freedom inside, nothing outside.*
-
-> "Zoom into the box. Inside, the agent is *unleashed* — Claude Code runs with
-> `--dangerously-skip-permissions` and `sudo`, and that's fine, because it's inside
-> the VM only. It has its private files and its own inner Docker, separate from the
-> one on your Mac. Through the workspace mount it reaches your project folder — read
-> and write, or read-only if you choose. Outbound traffic goes through the policy
-> proxy, which allows or blocks each destination and adds API keys so they stay out
-> of the VM. And everything else — unshared files, host processes, your host Docker
-> engine — has **no direct path**. Full freedom inside; a hard wall at the edge.
-> That's the trade we wanted: run fast *inside*, can't run wild *outside*."
-
-### Slide 35 — A sandbox has its own kernel (how it works)
-*Purpose: reinforce the kernel point at full size — the load-bearing technical claim.*
-
-> "Worth saying once more, because this is the load-bearing claim. Ordinary
-> containers all share the host kernel — the part of the OS that manages processes
-> and hardware. The Docker Sandbox brings **its own Linux kernel** in a microVM.
-> That one architectural choice is what lets the agent have a real, full-power
-> Docker daemon *inside* without ever touching yours — and it's why `sudo` in the
-> box isn't admin on your Mac."
-
-[If you're short on time, slides 30 and 35 make the same point — you can skip one. 35 is the cleaner full-size version.]
-
-### Slide 36 — Credentials are added outside the sandbox
-*Purpose: the credential-injection flow, step by step. This is the "aha" for secrets.*
-
-> "Let me walk the credential flow, because it's the part people don't believe
-> until they see it. Step one, in the sandbox: the agent calls an API — and the
-> request has *no key attached*. Authorization: none. Step two, at the proxy: policy
-> check — is this destination allowed? If not, it stops right here. Step three,
-> still at the proxy, *outside* the box: the key, which lives on the host, gets
-> injected now. Step four: the API responds, 200 OK, and the agent gets the result
-> — but never the key. Read the line at the bottom:" — [read it] — "*the raw key
-> never enters the sandbox.* So even if the agent is prompt-injected into trying to
-> exfiltrate a secret, there's no secret inside to steal."
-
-### Slide 37 — Testing the boundaries (Lab setup)
-*Purpose: hand off to the Contain lab's proof steps.*
-
-> "Now you prove it yourself. In the lab: try the *same* container escape from
-> before — but the socket here belongs to the sandbox, not the host, so it goes
-> nowhere. Go looking for host SSH keys and other projects — they're not mounted,
-> so they're simply not there. And make a real model API call *without ever seeing
-> the key*. Same agent, same prompts as the horror stories — the blast radius just
-> collapsed. That's Lab 3's first half, `an-agent-built-this`."
-
-[Switch to the lab. The payoff lines — `printenv ANTHROPIC_API_KEY` returns nothing; `cat ~/.ssh/id_rsa` says no such file — land best if you run them live.]
-
----
-
-# Part 4 — CONTROL (slides 38–41) · ~5 min
-
-### Slide 38 — Control (divider)
-*Purpose: enter the second C — tuning the boundary.*
-
-> "Contain is the wall, and it's always on. **Control** is where *you* decide where
-> the wall sits. Let the agent work — and choose exactly what it's allowed to
-> reach."
-
-### Slide 39 — Developers decide what the agent can reach (network profiles)
-*Purpose: show the policy model — profiles over deny-by-default, everything logged.*
-
-> "Control starts from **deny-by-default** and you open things up deliberately. You
-> pick a profile as a starting posture: **Locked Down** — only what you explicitly
-> allow. **Balanced** — the default — common dev endpoints allowed, everything else
-> denied. Or **Open** — outbound allowed, but *still logged*. Then you add allow and
-> deny rules on top of any profile. And the thing that makes this real rather than
-> theatre: every single connection the agent attempts is logged — so you can
-> actually see what it tried to reach, with `sbx policy log`."
-
-### Slide 40 — Organizations add governance on top
-*Purpose: scale the story from one dev to an org — three layers, bottom always on.*
-
-> "This also scales past one developer, and the layering matters. At the bottom,
-> **always on**: Contain — the microVM, the proxy, credential injection. Nobody can
-> switch that off. In the middle, the **developer**: your local policy — choose a
-> profile, add allow/deny rules, read the log. On top, the **organisation**: central
-> policy, audit logs, approved agents and kits, enforced across *every* sandbox.
-> The developer gets freedom to move; the org gets a floor nobody can go beneath.
-> That's how you give a whole company agents without hoping every single person
-> configured them right."
-
-### Slide 41 — Adjusting policy (Lab setup)
-*Purpose: hand off to the Control lab.*
-
-> "Your turn again. Three steps: the agent hits a blocked endpoint — an internal
-> service it needs. You find that attempt in the policy log. You add one allow rule
-> and it keeps working — and you watch the decision flip from Denied to Allowed
-> without ever restarting the agent. That's the `find-vulnerabilities` lab. The
-> whole point: this is a fast feedback loop — you can check a host against policy
-> *before* the agent ever trips over it."
-
-[Switch to the lab. `sbx policy check network inventory.internal:8080` before and after the allow rule is the money moment.]
-
----
-
-# Part 5 — CHOICE (slides 42–54) · ~9 min
-
-### Slide 42 — Choice (divider)
-*Purpose: enter the third C — a locked box still has to be useful.*
-
-> "A perfectly locked box that can't do anything is useless. **Choice** is how the
-> box stays useful: a restricted sandbox still needs *your* tools, *your* agent,
-> *your* endpoints. The trick is adding them without weakening the wall."
-
-### Slide 43 — Security tools usually trade away flexibility
-*Purpose: position sandboxes against the usual security-vs-flexibility tradeoff.*
-
-> "Most security tools make you pay for safety with flexibility. Plot it: a locked
-> VM with no network is very secure and nearly useless; an agent on the bare host
-> is maximally flexible and maximally dangerous; a plain container, or a container
-> plus the Docker socket, drifts right as it gets useful. Sandboxes break the line.
-> The security comes from the microVM and the proxy — those are *fixed*. What runs
-> *inside* is configurable. You make the inside more capable without moving the
-> boundary an inch."
-
-### Slide 44 — Kits define what runs inside the boundary
-*Purpose: introduce kits — the mechanism of Choice. Agent kit vs mixin kits.*
-
-> "The mechanism is called a **kit**. Two flavours. An **agent kit** — one per
-> sandbox — is the harness: *which* coding agent runs and how it starts, Claude
-> Code or Codex or another. **Mixin kits** — stack as many as you want — add tools,
-> their credentials, and their network rules on top of any agent: a code-server, a
-> GitHub SSH setup, your project's dev environment. The microVM and proxy
-> underneath stay *unchanged*. And kits ship anywhere — Docker Hub or any registry,
-> a Git repo, or just a folder in your project."
-
-### Slide 45 — Swap the agent, add the tools
-*Purpose: show the composability — pick one agent, check any tools, boundary unchanged.*
-
-> "Here's the composability in one picture. Pick **one** agent — radio button,
-> Claude Code today, Codex tomorrow. Check **any** tools you want — GitHub SSH, SSH
-> signing, your dev env. And you get your sandbox: those tools, that agent, and
-> underneath it all, 'MicroVM + proxy — ALWAYS.' Change either side as much as you
-> like — swap the harness, add or drop tools — and the boundary stays exactly the
-> same. That's the whole promise of Choice: configure the inside freely, never
-> touch the wall."
-
-### Slide 46 — Running kits from Docker Hub (Lab setup)
-*Purpose: hand off to the first half of the Choice lab.*
-
-> "In the lab you'll do exactly this: start a sandbox with one agent kit; swap the
-> harness while keeping the same project; then stack mixins for GitHub, signing,
-> and the dev env. The specific mixin we add is **GitGuardian** — it wires a secret
-> scanner into the agent as an AI hook, so every write the agent makes is scanned,
-> and its API key is injected by the proxy and never enters the box. Same
-> credential trick as Contain, now for a tool."
-
-[This is `securing-the-agentic-stack`. The highlight: ask the agent to hardcode AWS keys — it refuses — then show the kit catches a real key regardless, because the kit is enforcement, not hope.]
-
-### Slide 47 — You can build your own kits
-*Purpose: open specification — this is extensible, not a fixed menu.*
-
-> "And you're not limited to Docker's kits. Kits follow an **open specification** —
-> you can package your own agent or your own tooling exactly the way the Hub kits
-> are built. The spec and example kits are at **github.com/docker/sandbox-kit-spec**.
-> Building kits is genuinely a session of its own, so I'll just plant the flag: if
-> your team has an internal tool, it can live in the box the same governed way."
-
-### Slide 48 — Agents talking to an MCP server (divider)
-*Purpose: introduce the second kind of tool — external MCP servers through a gateway.*
-
-> "Kits put tools *in* the box. The other way to give an agent capability is to let
-> it *call out* to external tool servers — MCP servers — but through **one governed
-> gateway**, never directly. This is where Choice gets powerful, and where
-> governance gets interesting."
-
-### Slide 49 — Agent with a sandbox (DHI MCP example)
-*Purpose: concrete MCP example — the DHI server steering the agent to a clean base.*
-
-> "Concrete example, and it closes the loop on the horror from the first half.
-> Inside the sandbox — own daemon, own network, host read-only — the agent has full
-> permissions and one new tool: the **Docker Hardened Images MCP server**, signed
-> tools only. So when you say 'containerise this,' before it writes a single `FROM`
-> line it *queries the catalog* and picks `dhi.io/node`. Result: zero criticals,
-> zero highs, zero mediums, zero lows. 211 packages, SBOM attached, signed,
-> non-root. Same task that gave us dozens of CVEs on the host — now clean, because
-> the right tool was in the box."
-
-### Slide 50 — Letting the agent use MCP servers safely (gateway)
-*Purpose: the architecture — one gateway, one chokepoint, namespaced tools.*
-
-> "How does 'safely' actually work? The agent never talks to those servers
-> directly. It talks to **one gateway** — one governed endpoint — and the gateway
-> fans out to local-wiki, GitHub, Notion, DuckDuckGo, whatever you've registered.
-> Every tool call flows through that single chokepoint, and the tools are namespaced
-> `mcp__mcp-gateway__<tool>`. One chokepoint is exactly where policy and audit can
-> live. Many servers, one door."
-
-### Slide 51 — SBX_MCP_URL — the gateway gatekeeper
-*Purpose: the fail-closed design detail. Governance can't be bypassed.*
-
-> "There's a deliberate safety design here. The whole `sbx mcp` subtree stays
-> *hidden* until `SBX_MCP_URL` is set, and only two values carry the full governed
-> flow: a **local gateway** on localhost:8811 — great for learning the mechanics,
-> you control what's registered — or the **hosted control plane** at
-> gateway.docker.com — org policy governs what's invocable, with central audit;
-> that's the real governance story. And it's **fail-closed**: no policy loaded means
-> deny-all. Policy is authored in Docker Hub, fetched at `docker login`, and
-> developers *can't* override it. The default state of this system is 'nothing,'
-> not 'everything.'"
-
-### Slide 52 — Govern it — MCP access policy (Cedar)
-*Purpose: show real policy-as-code. Default-deny allow-list over (server, tool).*
-
-> "And for the people who want to see it's real policy, not vibes: here's the actual
-> rule, written in **Cedar**, authored in Docker's AI governance console. It's a
-> default-deny allow-list over `(server, tool)` pairs — this one permits only the
-> read-only DHI tools: list repositories, get CVEs, get attestations, and so on.
-> What it buys you: anyone in the org may *register* a server, but the tools are
-> only *invocable* if policy permits — evaluated at the gateway on every single
-> invoke, by the same engine that does network and filesystem policy. One surface,
-> no bypass. A developer can `sbx mcp add` anything they like; if org policy
-> doesn't permit its tools, the calls are denied and audited. Author once, sync
-> everywhere."
-
-[This is the deepest slide technically. For a developer-heavy room, dwell. For a mixed room, hit "default-deny allow-list, evaluated on every invoke" and move on.]
-
-### Slide 53 — One feature: agents in a sandbox, using external tools, safely
-*Purpose: zoom back out — summarise the whole MCP scope in four questions.*
-
-> "Let me pull the MCP thread back together, because it's really one feature
-> answering four practical questions. *What tool-servers are supported?* Remote,
-> local stdio, docker.io images — and the slide's honest about what isn't. *How do
-> you register them?* `sbx mcp add`, one at a time or as a shareable bundle. *How
-> does the sandbox connect?* As a locked static set, or a discoverable dynamic
-> catalog. *How are credentials managed?* The gateway holds OAuth centrally —
-> authorize, revoke, audit. Agents in a sandbox, using external tools, safely.
-> That's the whole scope."
-
-### Slide 54 — Same agent, same prompt — a 0-CVE base
-*Purpose: the payoff slide. The single before/after number that proves Choice.*
-
-> "And here's the whole of Choice in one comparison. Left, ungoverned:
-> `claude -p 'containerise this'` picks `node:20` blind — Scout says 2 critical, 12
-> high, 20 medium, 13 low, over 431 packages, no SBOM. Right, with the DHI MCP
-> server in the box: the *same prompt* queries DHI first, lands on
-> `dhi.io/node:24-debian13` — zero, zero, zero, zero, over 211 packages, SBOM,
-> signed. Read the line:" — [read it] — "*the tool in the box changed the outcome —
-> not the prompt.* I didn't write a better prompt. I didn't use a smarter model. I
-> put the right tool inside the boundary. That's Choice."
-
-[This slide is the emotional peak of the technical argument. Let the 0/0/0/0 sit for a second against the 2/12/20/13.]
-
----
-
-# Part 6 — CAPACITY (slides 55–63) · ~6 min
-
-### Slide 55 — Agenda recap (Labs 1–3 done)
-*Purpose: breadcrumb — three Cs down, one to go.*
-
-> "Checkpoint: Contain, Control, Choice — done. One C left, and it's the one that
-> turns all of this from a personal trick into something a team can actually run."
-
-### Slide 56 — Capacity (divider)
-*Purpose: enter the fourth C.*
-
-> "**Capacity.** One developer with one great sandbox is a start. But a boundary
-> that only exists on *your* laptop isn't governance — it's a one-off. Teams need
-> the same sandbox everywhere."
-
-### Slide 57 — Scaling up starts with reproducibility
-*Purpose: the drift problem, in three steps.*
-
-> "Watch how this breaks without Capacity. One developer: configured by hand, works
-> on one machine — fine. A team, by hand: every setup drifts — different kits,
-> different policies, and that's exactly where 'works on my machine' comes from,
-> and where an *ungoverned* sandbox quietly sneaks in because your policy never
-> reached the next person. A team, from one *file*: every sandbox matches, and you
-> run as many as you need. The fix is the same one we use for everything that
-> matters — declare it once, in a file, and share it like code."
-
-### Slide 58 — An environment file describes the whole sandbox
-*Purpose: show sbxenv.yaml — the sandbox as reviewable data.*
-
-> "That file is `sbxenv.yaml`, and it's committed to the repo. It names the
-> **agent** — which harness runs. The **workspace** — the folder the agent can see.
-> The **kits** — tools, credentials, and network rules, each one coming along for
-> the ride. And **resources** — CPU and memory. The sandbox stops being a pile of
-> flags you remember to type and becomes *data* — reviewable, diffable, versioned.
-> You start it with `sbx env run`. Fair warning: the format's experimental and may
-> change."
-
-### Slide 59 — Commit it once and the whole team shares one setup
-*Purpose: the git-native workflow — governance as a reviewed change.*
-
-> "Because it's just a file, it travels like code. Change the file — add a kit, swap
-> the harness. Open a pull request — now the change is *reviewed*, like any other.
-> Merge — the repo holds the new definition. Everyone pulls — and the next sandbox
-> each person starts matches yours. Update once, every sandbox follows. The
-> important shift: changing your team's agent security is no longer a silent local
-> tweak in someone's shell history — it's a reviewable event with a paper trail."
-
-[Call out the secrets nuance if the room is security-minded: the file holds a *source* for each secret — a 1Password ref — resolved on each developer's own host. The secret itself never travels in the repo.]
-
-### Slide 60 — Cloud Sandboxes run the same setup remotely
-*Purpose: the scale story — same file, Docker's infrastructure. Flag early access.*
-
-> "And the same file isn't limited to your laptop. **Local**: it runs on your
-> machine, bounded by your CPU and memory. **Cloud**: the exact same environment
-> file, running on Docker's infrastructure — so you can start far more sandboxes
-> than one laptop could ever hold. One agent per PR, a fleet of them, without
-> melting your machine. Honest caveat: Cloud Sandboxes are **early access, not yet
-> available for org use** — but the model is: write the file once, run it anywhere,
-> one laptop or a thousand in the cloud."
-
-### Slide 61 — Sharing a sandbox with the team (Lab setup)
-*Purpose: hand off to the Capacity lab.*
-
-> "Last lab. You'll be the *new teammate*: clone a repo that already has an
-> environment file, start a sandbox — and the kits and policy are already set, you
-> did nothing to configure them. Then change one line and start again. Before you
-> run it, `sbx env plan` shows exactly what it'll set up outside the box — including
-> which secrets it'll resolve from *your* host — and asks for approval before
-> touching anything. That's the `capacity` lab."
-
-[Switch to the lab. The contrast to show: the ad-hoc `sbx run claude` warning at the start vs. the fully-declared `sbx env run` at the end.]
-
-### Slide 62 — Agenda recap (all four done)
-*Purpose: all four Cs checked. The visual close of the content.*
-
-> "And that's all four. Contain, Control, Choice, Capacity — every box checked.
-> Let me put them together one last time."
-
-[This duplicates slide 55's layout with everything ticked — it's a deliberate 'we did it' beat. Quick.]
-
-### Slide 63 — Recap
-*Purpose: the three-sentence takeaway. If someone walked in late, this is the talk.*
-
-> "If you remember three things. One — **a trusted boundary**: a microVM, a network
-> proxy, and credentials the agent never holds. That's Contain and Control. Two —
-> **your choice inside it**: agent and mixin kits for your harness, tools, and
-> endpoints. That's Choice. Three — **shared with the team**: one environment file
-> in the repo; update once, everyone follows. That's Capacity. The boundary comes
-> from the box — not from the agent behaving. That's the difference between hoping
-> and knowing."
-
-[Land the callback: "refusal is a behaviour, not a boundary — the box is the boundary."]
-
-### Slide 64 — Thank you
-*Purpose: close, and point them at the labs to keep going.*
-
-> "That's the talk: run fast, *without* running wild. The four labs stay open —
-> finish any you didn't get to, they're all at
-> containerdays.dockerworkshop.com. Come find me after; I'd love to hear what your
-> agents have gotten up to. Thank you."
-
-[Leave the Thank You slide up for Q&A. Have the workshop URL ready to repeat.]
-
----
-
-## Appendix — Quick-reference cheat sheet
-
-**The four Cs, one line each:**
-- **Contain** — isolate the agent in a microVM with a guarded network. (Always on.)
-- **Control** — decide what it can reach; deny-by-default, everything logged; orgs govern on top.
-- **Choice** — bring your own agent, tools, endpoints via kits and MCP — without moving the boundary.
-- **Capacity** — one `sbxenv.yaml`, reproduced for every developer and every run.
-
-**The three recurring punchlines:**
-1. *Refusal is a behaviour, not a boundary.* (A well-behaved agent is not a control.)
-2. *The better the agent, the bigger the blast radius.*
-3. *The tool in the box changed the outcome — not the prompt.*
-
-**The numbers that prove it (from the labs, verify live):**
-- Ungoverned `node:20`: **2C / 12H / 20M / 13L**, 431 packages, no SBOM, root.
-- DHI hardened base: **0 / 0 / 0 / 0**, 211 packages, SBOM, signed, non-root.
-
-**Lab ↔ slide map:**
-- Lab 2 *Autonomy requires guardrails* → slides 5–23 (`an-agent-built-this`, first half)
-- Lab 3 *Contain & Control* → slides 24–41 (`an-agent-built-this` Contain + `find-vulnerabilities` Control)
-- Lab 4 *Choice & Capacity* → slides 42–63 (`securing-the-agentic-stack` Choice + `capacity` Capacity)
-
-**If you're running short on time, safe cuts:** slide 30 *or* 35 (same kernel
-point); slide 8 (second autonomy ladder); slide 53 (MCP four-questions recap).
-**Never cut:** 9 (trifecta), 26 (isolation table), 31 (four Cs), 54 (0-CVE
-payoff), 63 (recap).
-
-**Commands worth running live (source of truth is the lab terminal):**
-- Contain: `sbx exec demo printenv ANTHROPIC_API_KEY` (empty) · `sbx exec demo cat ~/.ssh/id_rsa` (not found)
-- Control: `sbx policy check network inventory.internal:8080` (before/after `sbx policy allow`)
-- Choice: `docker scout quickview` on the ungoverned vs DHI image
-- Capacity: `sbx env plan` then `sbx env run`
+## Slide 1 — Run Fast Without Running Wild
+
+Good morning, everyone. Thank you for being here.
+
+I want to start with a confession that I think a lot of you share. AI coding
+agents are the most productive thing that has happened to the way I build
+software in a decade. They read my codebases, they write my Dockerfiles, they
+open my pull requests while I'm in a meeting. And they are also, hands down, the
+single most dangerous thing I have ever handed a shell and a set of credentials
+to.
+
+That tension is what this talk is about. The title is "Run Fast Without Running
+Wild," because the usual advice you get is to slow the agent down — approve
+everything, lock everything, supervise every keystroke. And that works, in the
+same way that unplugging your laptop works. What I want to show you today is how
+to keep all of the speed, and still not wake up to a horror story. We're going to
+look at real incidents — agents that wrecked machines, leaked secrets, and ran
+commands that nobody approved — and then we're going to look at the one piece of
+infrastructure that makes every one of those incidents simply stop mattering.
+
+## Slide 2 — Meet your instructor
+
+Very quickly, so you know who's talking at you. My name is Ajeet Singh Raina,
+I'm a Developer Advocate at Docker. I've spent a little over twenty years in this
+industry — systems integration, testing, consulting, and developer relations. I
+was a Docker Captain before I joined the company, and I run a developer meetup in
+Bengaluru that's grown to about seventeen thousand people. I also co-wrote a book
+called *Operational AI with Docker*, which is honestly this talk stretched out to
+a few hundred pages.
+
+But you didn't come here for my résumé. You came here because somewhere in the
+last few weeks, an agent did something on your machine — or on a machine you're
+responsible for — that made your stomach drop just a little. Let's talk about
+that feeling, and then let's make it go away.
+
+## Slide 3 — Workshop agenda
+
+Here's how the next forty-five minutes are going to run. This is a hands-on
+workshop, so it's built around four short labs, and the slides exist to set each
+one up.
+
+Lab one is just logging in — two minutes, and you can start it the moment I give
+you the URL. Lab two is the part I think of as the horror-story half: why
+autonomy needs guardrails in the first place, and we'll actually watch an agent
+take a real application and containerise it. Then labs three and four are the
+cure, and I've organised that cure into four ideas I call the Four Cs — Contain,
+Control, Choice, and Capacity. You'll hear those four words a lot, so let them
+start sinking in now.
+
+Everything hands-on happens in the panel on the right side of your screen.
+There's nothing to install and no account to create — it all runs in your
+browser.
+
+## Slide 4 — Accessing the workshop
+
+So here is the one and only setup step for the entire session. Go to
+container-days-dot-docker-workshop-dot-com. I'll say it again:
+containerdays.dockerworkshop.com. It runs entirely in your browser.
+
+Open it right now, while I'm still talking, because by the time we reach the
+first real lab I want you to already be sitting inside it. Take a moment. Get it
+loaded. I'll wait for a few hands to go up so I know we're all in.
+
+## Slide 5 — Autonomy requires guardrails
+
+Before I show you the cure, I owe you the disease — and I want to actually earn
+it, not just assert that agents are scary and move on.
+
+The thesis of this whole first section fits in three words: autonomy requires
+guardrails. Notice what I am *not* saying. I'm not saying autonomy is bad.
+Autonomy is the entire point — it's the reason these tools are worth the risk.
+What I'm going to show you is that the very thing that makes an agent useful is
+the exact same thing that makes it dangerous, and that no amount of the agent
+behaving well changes that fact. Once you really see that, the solution becomes
+obvious.
+
+## Slide 6 — AI agents are here, and doing real work
+
+Let's ground this in where we actually are, because it's easy to dismiss agents
+as a demo-day toy. They are well past that.
+
+In engineering, agents read entire codebases and open pull requests with no
+human in the loop — they gather the context, they write the code, they send the
+review request. In marketing, they pull data straight out of the CRM and launch
+campaigns, going from research to creative to hitting send, end to end. In
+finance, they reconcile reports and query live systems, closing the loop between
+the ledger, the dashboard, and the actual decision.
+
+The word that runs through all three of those is *act*. These agents don't just
+answer a question and wait. They do things. And every single one of those things
+reaches out and touches something real — a production repository, a customer
+record, a financial ledger.
+
+## Slide 7 — More autonomy means more productivity
+
+Here's a map I find useful for thinking about just how much autonomy we're
+talking about. Picture a ladder with six rungs.
+
+At the bottom, stage one, is autocomplete — stateless, prompt in, suggestion out,
+no memory. Stage two starts to remember you and learn your preferences. By stage
+three the agent is proactive within boundaries you've set. Stage four, it starts
+making genuine judgment calls on your behalf. Stage five, it drives its own
+agenda and coordinates work around the clock. And stage six, the top rung, it
+sets its own goals within ethical bounds.
+
+Now, here's the honest and slightly reassuring part. Most enterprises in this
+room are living at stage one or two. Silicon Valley is poking cautiously at
+stage three. So when I start telling you horror stories in a few minutes, I am
+not talking about some runaway stage-six superintelligence. Every piece of damage
+you're about to see came from a stage-two or stage-three agent — the kind that is
+already running in your pipeline today.
+
+## Slide 8 — Autonomy is a change of control
+
+Same ladder, but I want you to look at it through a different lens, because
+there's something happening as you climb it that has nothing to do with how smart
+the model is.
+
+What changes as you move up these rungs is *who is in control*. Down at the
+bottom, it's human-led and AI-assisted — you're driving, the agent is helping.
+Up at the top, it has completely flipped: it's AI-led and human-assisted — the
+agent is driving, and you're supervising. And somewhere in the middle of that
+line, you cross a threshold where "well, a developer reviewed it" quietly stops
+being true by default. That crossing — that handover of control — is precisely
+the moment where trust stops being enough, and you need something sturdier.
+
+## Slide 9 — The lethal trifecta
+
+This is the most important slide in the first half of this talk, so I'm going to
+slow right down here.
+
+Every genuinely useful agent is built on three capabilities, and it has all three
+at the same time. The first is access to private data — your code, your internal
+systems, your customer records, your credentials. The second is exposure to
+untrusted content — web pages, emails, the responses coming back from tools,
+files on disk. And here's the subtle, dangerous part of the second one: any of
+that content can carry an instruction, and the agent will follow that instruction
+as faithfully as if you had typed it yourself. The third capability is the
+ability to act externally — to send an email, call an API, reach out onto the
+open internet. And once data leaves through that third door, it does not come
+back.
+
+Now here is the point, and I want to read it to you exactly as it's written,
+because it's the thesis of the entire talk. A useful agent has all three of these
+by design. You cannot train it out. You cannot prompt it out. You cannot
+policy-document it out. If you remove any one of the three, you have removed the
+very reason you brought the agent in to begin with. And that leaves exactly one
+place to actually fix the problem — an enforcement layer at runtime. Something
+that sits outside the agent and holds firm no matter what the agent decides to
+do.
+
+Hold onto that phrase — "by design." Everything after this slide is a consequence
+of it.
+
+## Slide 10 — What can go wrong?
+
+So let's make this concrete. I don't want to leave the trifecta as an abstraction
+on a slide — a neat little threat model with three bubbles. I want to show you a
+real application, handed to a real agent, and then I want to show you three
+genuinely different ways it goes wrong.
+
+## Slide 11 — A Product Catalog sample demo
+
+Here's our victim. It's a completely ordinary Product Catalog service — the kind
+of thing any of us would build on a normal Tuesday. It's written in Node and
+Express. It's backed by Postgres for the catalog data, S3 for the product images,
+and Kafka for the updates. It talks to an internal inventory service, and it
+processes live Stripe payments — real money.
+
+This is a normal microservice. There's nothing exotic here. The only thing I want
+you to notice is what sits underneath every one of those arrows: a credential. A
+database password. A set of AWS keys. A Stripe key that moves real money. An
+internal API key. And in this repository, exactly like in so many of yours, all
+of those secrets are sitting in a plaintext dot-env file right next to the code.
+That is the "private data" leg of the trifecta, and it is not some rare edge
+case — it's practically every repo you have ever cloned.
+
+## Slide 12 — The traditional workflow
+
+Now, to feel why agents change the picture, let me remind you how this used to
+work.
+
+You've got your inner loop — you write code, you build, you pull in some open
+source, you test. And your outer loop — you integrate, you test again, you
+deploy. And standing at every single one of those stations is a human being.
+That mattered for security in a way we almost never said out loud: your attack
+surface was only ever the things *you* chose to pull in. Every dependency, every
+base image, every command — a person selected it, and most of the time a second
+person reviewed it before it shipped.
+
+## Slide 13 — The agentic workflow
+
+Now watch what happens when we replace every one of those humans with an agent.
+
+Look carefully — it's the exact same diagram. The same inner loop, the same outer
+loop, the same stations. The only thing that's changed is that an agent now sits
+at each one. Nothing about the *pipeline* is different. But that sentence I just
+said on the last slide — the one about your attack surface being only what you
+choose to pull — that sentence just broke completely. Your attack surface is no
+longer what *you* pull. It's what the *agent* pulls, and generates, and reaches
+for, autonomously, at every stage of the process. You didn't widen that surface
+on purpose. It widened the instant you handed the keyboard to something that acts
+faster than you can possibly review.
+
+## Slide 14 — Agents expand your attack surface, automatically
+
+Let me put the two worlds side by side so the shift is unmistakable.
+
+In the traditional workflow: you pull the base image, deliberately, with intent.
+You install your dependencies, and they get reviewed in a pull request. Your CI
+pipeline runs on configuration that a human wrote. Now the agentic workflow: the
+agent pulls the base image autonomously. It installs packages with no human
+review at all. It invokes external tools using real credentials. It rewrites the
+Dockerfile in the middle of the pipeline. It's the same four steps — and every
+single human gate has vanished.
+
+And here is the line I most want you to carry out of this room. The better the
+agent gets, the bigger the blast radius becomes. Think about that for a second. A
+*worse* agent — a dumber, more limited one — would actually be safer. The more
+capable and trusted this thing becomes, the more damage it can do when something
+goes sideways. That should unsettle you, because you are absolutely going to keep
+reaching for the more capable one.
+
+## Slide 15 — What agents are already doing in your pipeline
+
+And I want to be very clear that this is not a warning about next year. This is a
+description of right now, today, in the pipeline you'll go back to after this
+conference.
+
+Right now, agents are pulling dependencies — resolving and adding packages you
+never personally chose, from registries nobody on your team ever audited. They're
+generating Dockerfiles — picking the base image, the install steps, and the user
+the container runs as, and usually picking whatever they saw first. They're
+editing your infrastructure — Terraform, Helm values, Compose files, IAM policy
+documents. And they're triggering builds — opening pull requests, pushing
+branches, kicking off pipelines entirely on their own initiative. Every one of
+those four things is a place where the lethal trifecta is live and loaded in your
+environment today.
+
+## Slide 16 — The ungoverned agent
+
+So let me show you what that actually produces when there's no boundary around
+it.
+
+Here the agent is running directly on your host — it's using your Docker daemon,
+your credentials, and there's no wall anywhere. You give it a simple, reasonable
+instruction: "containerise this app." It reaches out to open registries with no
+allowlist of any kind, and it chooses `FROM node:20`, because node:20 is the
+famous, convenient base image — chosen with absolutely zero guidance about
+security.
+
+And look at what you get back, before anyone has done anything malicious at all.
+An image carrying critical and high-severity vulnerabilities. Four hundred and
+thirty-one packages. No software bill of materials. No attestation. And it's
+running as root. I want to be precise about this: that is not a bug, and it's not
+the agent making a mistake. That is the *default*. That's what "helpful and
+unguided" looks like. Hold this picture in your mind, because later in this talk
+I'm going to put the very same prompt inside a sandbox, and we're going to watch
+every one of those numbers fall to zero.
+
+## Slide 17 — Demo time
+
+Alright — enough of me describing it. Let's actually watch it happen.
+
+This is lab two, over in the panel on your right. We're going to watch an agent
+containerise this exact application. Follow along at
+containerdays.dockerworkshop.com — it's the lab called "an agent built this." Go
+ahead and open it, and give yourself a second to find the terminal.
+
+## Slide 18 — Set up: clone the repo
+
+There are four quick steps here, and I'll narrate them as we go.
+
+First, clone the repository. Second, verify for yourself that there's no
+Dockerfile and no Compose file in there — it ships as source code only, which is
+exactly what teams hand to an agent these days. While you're in there, open up
+that dot-env file and look at the secrets with your own eyes, so you believe me
+that they're sitting in plaintext. Third, ask the agent to containerise the app
+for production, following best practices. And fourth, scan whatever it produces
+with `docker scout quickview`, and watch carefully what number comes back. We'll
+come back to that number — it's going to matter.
+
+## Slide 19 — AI coding agent horror stories
+
+That was a clean, well-behaved demo. Now I want to show you the part that is not
+clean.
+
+Everything on the next few slides is real. These are not hypotheticals I invented
+to scare you. They shipped. They hit real production systems and real people's
+machines. And somebody, somewhere, paid the price for every one of them.
+
+## Slide 20 — Horror headlines
+
+And I want to be honest with you — I did not have to go digging to find these. I
+pulled them together in an afternoon.
+
+An AI agent deleted twenty-five thousand documents out of the wrong database.
+One second of distraction, the right credentials sitting there, a script that was
+perfectly referenced — and it was gone. A team's agent deleted their production
+data, and the detail that should chill you is this: it was *technically allowed
+to*. No policy layer anywhere in the system ever said "no." Security researchers
+found a prompt-injection vulnerability in the GitHub MCP integration with no
+obvious fix. Somebody watched their agent delete four hundred emails because it
+decided, on its own, that they were clutter. And McDonald's AI hiring bot exposed
+the personal information of tens of millions of applicants, because the password
+protecting it was one-two-three-four-five-six.
+
+Different companies. Different tools. Completely different scenarios. And yet it's
+the exact same shape every single time: an agent with access, and nothing
+standing in between that agent and the damage it could do.
+
+## Slide 21 — "Clean up my project folder"
+
+This next one is drawn as a comic, and it's almost funny — right up until the
+moment you realise it could just as easily be you.
+
+A developer types a completely innocent request: "Hey, can you clean up my
+project folder?" The agent says, cheerfully, "On it!" It analyses the project. It
+hunts for unneeded files. It removes the clutter. It optimises the structure. And
+the way it does all of that is by running `rm -rf` on everything. "Cleanup
+complete!" it announces. And then the developer notices — wait, where's my home
+directory? Where are my Documents, my Downloads, my Pictures? All of it, gone.
+
+And then the punchline, in the last panel, which is the whole reason I'm showing
+you this: "Oh — did I forget to mention I had root access this entire time?"
+Nobody asked the agent to be malicious. It was being genuinely, enthusiastically
+helpful. It just happened to be helpful while holding permissions it never should
+have been given in the first place.
+
+## Slide 22 — Claude Cowork
+
+And in case you think that's a one-off — one bad tool, one bad day — here's the
+same failure wearing completely different clothes.
+
+This is January of this year, a different agent, and a home-user scenario. The
+request: "Can you help organise my wife's desktop?" The agent gets to work. It
+finds a few temporary Office files. It starts tidying up — and then it runs
+`rm -rf` on the family photos folder. Thirteen years of memories. And worse, it
+*bypassed the Trash* entirely, so there was nothing to restore from. The only
+reason this particular story has a happy ending is pure luck — iCloud's
+thirty-day retention happened to have a copy.
+
+Same story. A different path to get there. And the exact same damage. And the
+lesson here is not "that one tool is dangerous." The lesson is that this is
+structural. It will keep happening, to different tools, for exactly the same
+underlying reason.
+
+## Slide 23 — Developers have to choose between speed and safety
+
+So this is the corner that developers feel trapped in today, and I bet a lot of
+you are living in it right now.
+
+You feel like you have to choose between two bad options. On the left: safe, but
+slow. You make the agent stop and ask permission before every single action. It's
+safe — but now the agent is constantly tapping you on the shoulder, and *you* have
+become the bottleneck. You're not building anything anymore; you're babysitting a
+very fast intern. On the right: fast, but risky. This is what people call YOLO
+mode — you skip the permission prompts, you let it run — and now the agent has
+precisely the same access that you have, but with none of your judgment or your
+caution.
+
+And look at the quote at the bottom, because this is the single most common thing
+developers say to me about agents today: "I'm babysitting my agents." I want you
+to hold onto that frustration for the rest of this talk, because everything from
+here on is about refusing this choice entirely. We are going to get fast *and*
+safe, at the same time, with no babysitting.
+
+## Slide 24 — Why not containers?
+
+Now, we are at a Docker conference, so I know what a good chunk of you are already
+thinking. You're thinking the obvious thing: just put the agent in a container.
+
+And honestly, that's a fair instinct, and it deserves a real answer rather than me
+waving it away. So let's take it seriously. Containers isolate *applications*
+beautifully — that's what they were built for, and they're extraordinarily good at
+it. The problem is that an agent is not an application. An agent needs far more
+access than an application does to do its job, and that difference turns out to
+change absolutely everything.
+
+## Slide 25 — Escaping a container
+
+Here's the most common setup I run into in the real world. You take a coding
+agent and you put it in a container, and because you want it to be able to build
+images and run your tests, you mount the Docker socket into that container.
+
+That is a completely reasonable thing to do. That's how the agent does useful
+work. Watch the three steps on screen. One, the agent is running in a container.
+Two, the Docker socket is mounted so it can build and test. Three, the agent uses
+that very socket to reach right back out to the host. And that's the trap — the
+socket is simultaneously the feature that makes the container useful and the hole
+that makes it worthless as a boundary. You'll try this exact escape yourself in
+the lab.
+
+## Slide 26 — Each new capability weakens the container's isolation
+
+And this isn't about one careless flag. It's a slow, reasonable slide down a
+ramp, and I want you to watch the isolation drain away row by row on the
+right-hand side.
+
+You give the agent your source code, mounted in, so it can actually edit your
+project — perfectly reasonable — and now it can modify files on your host. You
+give it network access so it can fetch the packages it needs — reasonable — and
+now it can reach anything at all, internal or external. You pass it API keys so it
+can call the services it depends on — reasonable — and now it can read those keys
+and send them wherever it likes. And finally you mount the Docker socket so it can
+build images — reasonable — and now it can start containers on the host with full
+access, and it owns the entire machine, which is exactly what you just watched it
+do.
+
+Every one of those four grants was individually sensible. Not one of them was a
+mistake. But stack them together, and the isolation is simply gone. And here's the
+line at the bottom: the more useful you make the agent, the less isolated the
+container actually is. That is not a flaw in containers. A container shares the
+host's kernel, and the access an agent genuinely needs to be useful is the exact
+same access that lets it climb out. Which means we don't need a better-configured
+container. We need a fundamentally different kind of box.
+
+## Slide 27 — Agenda checkpoint
+
+Quick breath and a checkpoint, so you know where we are. We've done the setup, and
+we've done the whole problem — the first two labs are behind us.
+
+Now we build the cure, and we build it in four parts. First one up: Contain.
+
+## Slide 28 — Hello, Sandboxes
+
+So let me introduce the thing that fixes all of this. It's called a Docker
+Sandbox, and the entire idea fits into a single sentence, which is right there on
+the slide: give the agent everything it needs, inside a boundary it cannot cross.
+
+Read that again and notice what it does *not* say. It does not say "give the agent
+less." We are not taking capabilities away — the agent keeps all of its power.
+We're just putting that power inside a box that genuinely holds. And that one move
+is how we finally escape the speed-versus-safety trap I showed you a few slides
+ago.
+
+## Slide 29 — A sandbox is a private machine for your agent
+
+Here's the right way to picture what a sandbox actually is. It's a private
+machine for your agent. It runs on your computer, but it's completely walled off
+from it.
+
+Inside that box, the agent gets everything it needs to be useful. It gets the
+agent harness itself — Claude Code, Codex, whatever you prefer to bring. It gets
+your project — but notice, *only* this one folder, nothing else. And it gets its
+own Docker. The only way anything gets out of that box is through a proxy — a
+single, controlled exit — out to package registries, model APIs, and your
+services.
+
+Now look at what's sitting on the *outside* of that boundary, on your machine but
+beyond the agent's reach. Your SSH keys and your API keys. Your other projects.
+Your host's Docker. The agent literally cannot see any of it. And there are three
+ideas quietly embedded in this picture — a trusted boundary around the agent, the
+fact that you choose what goes inside, and the fact that your whole team can
+reproduce it — and those three ideas are going to grow up into Contain, Choice,
+and Capacity.
+
+## Slide 30 — Container vs Sandbox
+
+So why does this hold when a plain container didn't? It comes down to one picture.
+
+An ordinary container — here's Container A and Container B — shares the host
+kernel. That's completely fine for running applications, but it's a very thin wall
+to put around an agent that is going to run any command it feels like. A Docker
+Sandbox, on the right, runs Claude Code — with sudo, with full privileges — but on
+its *own* Linux kernel, inside a microVM. And that's the whole trick: sudo *inside*
+the sandbox is not admin on your Mac. The agent can go completely wild inside its
+own room — install anything, break anything, be fully root — and it's root of a
+disposable machine, not root of yours.
+
+## Slide 31 — A sandbox gives you four things
+
+So, pulling it together: a sandbox gives you four things, and these are the four
+words that the entire rest of this talk hangs from. Say them with me if you like.
+
+Contain — isolate the agent in a microVM with a guarded network. Control — decide
+what the agent is allowed to reach, and let your organisation layer governance and
+audit on top. Choice — bring your own agent, your own tools, your own endpoints,
+using what we call kits. And Capacity — reproduce the exact same sandbox for every
+developer, on every run, every time.
+
+Contain, Control, Choice, Capacity. We're going to walk through each one of them in
+turn, and each one comes with a hands-on lab.
+
+## Slide 32 — Contain
+
+Let's start with the first C — Contain. These are the boundaries that keep the
+agent's actions inside the sandbox.
+
+Think of this as the foundation. It's always on, it's not something you configure
+or can accidentally switch off, and everything else in the next three Cs is built
+on top of it.
+
+## Slide 33 — Three boundaries surround every agent
+
+Containment isn't a single wall — it's actually three boundaries working together,
+and I've got a little analogy for each one.
+
+The first is the microVM. It has its own kernel, its own filesystem, its own
+Docker engine, and your host is simply out of reach from inside it. Think of that
+as a separate room with its own solid walls. The second boundary is the network
+proxy — every single outbound request the agent makes has to pass through a proxy
+that applies your policy. Think of that as a front desk that checks everyone on
+their way out the door. And the third is credential injection — the keys get added
+by that proxy on the way out, so the agent itself never actually holds them. Think
+of that as a front desk that holds the keys for you, so you never have to hand them
+over.
+
+A separate room, checked exits, and the keys held safely at the desk. Put those
+three together and that's Contain.
+
+## Slide 34 — What the agent can reach
+
+Let me zoom all the way into the box so you can see exactly what the agent can and
+cannot touch.
+
+Inside, the agent is genuinely unleashed. Claude Code is running with the
+dangerously-skip-permissions flag and with sudo — and that is completely fine,
+because it's all happening inside the VM only. It has its own private files, and
+its own inner Docker that's totally separate from the one on your Mac. Through the
+workspace mount, it can reach your project folder — read and write if you want, or
+read-only if you'd rather. Outbound traffic flows through the policy proxy, which
+allows or blocks each destination and adds the API keys so they stay out of the
+VM. And everything else — your unshared files, your host processes, your host's
+Docker engine — has no direct path to it at all.
+
+So you get total freedom on the inside and a hard wall at the edge. And that is
+exactly the trade we were looking for the whole time: run as fast as you want
+*inside*, and you simply cannot run wild *outside*.
+
+## Slide 35 — A sandbox has its own kernel
+
+I want to say the kernel point one more time, plainly, because it is the
+load-bearing claim under this entire solution — if you don't believe this part,
+nothing else matters.
+
+Ordinary containers all share the host kernel. The kernel is the part of the
+operating system that manages your processes and your hardware — it's the most
+privileged thing on the machine. A Docker Sandbox brings its *own* Linux kernel,
+in a microVM. That single architectural decision is what lets the agent have a
+real, full-power Docker daemon inside the box without ever touching yours — and
+it's the reason that sudo inside the sandbox is not, and cannot be, admin on your
+Mac.
+
+## Slide 36 — Credentials are added outside the sandbox
+
+Now let me walk you through the credential flow step by step, because this is the
+part people genuinely don't believe until they see it laid out.
+
+Step one, inside the sandbox: the agent makes a call to an API — and the request
+goes out with no key attached to it whatsoever. Authorization: none. Step two, at
+the proxy: a policy check happens — is this destination even allowed? And if it's
+not, the request stops right there and goes no further. Step three, still at the
+proxy, and crucially *outside* the box: now the key gets injected. That key lives
+on the host, and it's added here, at the boundary. Step four: the API responds,
+two hundred OK, and the agent gets its result back — but it never, at any point,
+sees the key.
+
+Read the line at the bottom: the raw key never enters the sandbox. And here's why
+that's so powerful — even if the agent gets prompt-injected into trying to steal a
+secret and mail it out, there is no secret inside the box for it to steal in the
+first place.
+
+## Slide 37 — Testing the boundaries
+
+Now it's your turn to prove all of this to yourselves, rather than taking my word
+for it. This is the first half of lab three.
+
+Three things to try. First, attempt that exact same container escape we saw
+earlier — except this time the socket belongs to the sandbox, not the host, so
+it'll go absolutely nowhere. Second, go hunting for the host's SSH keys and your
+other projects — they were never mounted in, so they're simply not there to find.
+And third, make a real call to a model API without ever once seeing the key. It's
+the same agent, running the same kinds of prompts that caused all those horror
+stories — and you'll watch the blast radius collapse down to nothing.
+
+## Slide 38 — Control
+
+On to the second C — Control. Contain was the wall, and that wall is always on.
+Control is where *you* get to decide where the wall actually sits.
+
+The idea here is simple: let the agent do its work, and you decide, deliberately,
+exactly what it's allowed to reach while it does.
+
+## Slide 39 — Developers decide what the agent can reach
+
+Control starts from a position of deny-by-default — the agent can't reach anything
+until you say so — and then you open things up deliberately and explicitly.
+
+You begin by picking a profile, which is your starting posture. Locked Down means
+only the things you explicitly allow, and nothing else. Balanced — which is the
+default — allows the common development endpoints and denies everything else. And
+Open allows outbound traffic, but — and this matters — it's still logged, every
+bit of it. Then, on top of whichever profile you chose, you add your own allow and
+deny rules. And the thing that makes this real governance rather than security
+theatre is that every single connection the agent even *attempts* is logged. So
+you can always go and see exactly what it tried to reach, with one command: `sbx
+policy log`.
+
+## Slide 40 — Organizations add governance on top
+
+And this scales well beyond a single developer, which is where it gets genuinely
+powerful for a company. There are three layers here, and the order matters.
+
+At the very bottom, always on, is Contain — the microVM, the proxy, the credential
+injection. Nobody can switch that layer off; it's the floor. In the middle sits
+the individual developer, with their local policy — they choose a profile, they add
+their own allow and deny rules, they read their own log. And on top, the
+organisation layer — central policy, audit logs, a list of approved agents and
+kits, all of it enforced across every single sandbox in the company.
+
+So the developer gets the freedom to move fast and make local decisions, and the
+organisation gets a hard floor that nobody can drop beneath. That's how you hand
+agents to an entire company without having to pray that every individual person
+configured theirs correctly.
+
+## Slide 41 — Adjusting policy
+
+Back to the keyboard — this is the Control lab, and it's three steps.
+
+The agent tries to reach a blocked endpoint — an internal service that it
+legitimately needs. You go and find that blocked attempt sitting in the policy
+log. And then you add a single allow rule, and it carries on working — and you'll
+watch the decision flip, live, from Denied to Allowed, without ever restarting the
+agent. The whole point of this lab is to feel how fast that feedback loop is: you
+can check a host against your policy *before* the agent ever trips over it.
+
+## Slide 42 — Choice
+
+Third C — Choice. Because here's the thing: a perfectly locked box that can't
+actually do anything useful is, well, useless.
+
+Choice is how the box stays useful. A restricted sandbox still needs your tools,
+your agent, and your endpoints to earn its place in your workflow. And the whole
+art of it is adding all of that capability back in *without* weakening the wall we
+just spent so long building.
+
+## Slide 43 — Security tools usually trade away flexibility
+
+Now, most security tools make you pay for safety with flexibility — it feels like
+an iron law. Let me plot it out for you.
+
+A locked-down VM with no network is extremely secure and almost completely
+useless. An agent running loose on your bare host is maximally flexible and
+maximally dangerous. A plain container, and then a container with the Docker
+socket mounted, drift further and further to the right as you make them more
+useful and less safe. There's the tradeoff line, and everything seems stuck on it.
+
+Sandboxes break that line, and here's how. The security comes from the microVM and
+the proxy — and those two things are fixed; they don't move. What runs *inside* the
+box is fully configurable. So you get to make the inside more and more capable
+without shifting the boundary a single inch. You stop trading one for the other.
+
+## Slide 44 — Kits define what runs inside the boundary
+
+The mechanism that makes that possible is called a kit, and there are two flavours
+of them.
+
+An agent kit — and you get exactly one of these per sandbox — is the harness
+itself: which coding agent runs, and how it starts up. Claude Code, Codex, whatever
+you've chosen. Then there are mixin kits — and you can stack as many of these as
+you want — which add tools, their credentials, and their network rules on top of
+any agent. A code-server, a GitHub SSH setup, your project's own development
+environment. And underneath all of it, the microVM and the proxy stay completely
+unchanged. One last thing: kits ship anywhere — Docker Hub, any registry you like,
+a Git repo, or even just a folder sitting in your project.
+
+## Slide 45 — Swap the agent, add the tools
+
+Here's that composability in a single picture, and I love how clean it is.
+
+You pick one agent — it's a radio button, so just one. Claude Code today, maybe
+Codex tomorrow. Then you check off any tools you want — GitHub SSH, SSH signing,
+your dev environment, as many as you need. And out the other side comes your
+sandbox: those tools, that agent, and underneath all of it, always, the microVM
+and the proxy.
+
+And this is the key point — you can change either side as much as you like. Swap
+the harness. Add tools, drop tools. And the boundary stays exactly, precisely the
+same. That's the entire promise of Choice: configure the inside as freely as you
+want, and never once have to touch the wall.
+
+## Slide 46 — Running kits from Docker Hub
+
+In the lab, you're going to do exactly this. You'll start a sandbox with one agent
+kit. You'll swap the harness while keeping the same project. And then you'll stack
+mixins on top for GitHub, for signing, and for the dev environment.
+
+The specific mixin we add is called GitGuardian, and it's a nice one, because it
+wires a secret scanner directly into the agent as a hook. So every single write
+the agent makes gets scanned for secrets — and the scanner's own API key is
+injected by the proxy and never actually enters the box. It's the exact same
+credential trick we saw in Contain, just applied to a tool this time instead of
+the agent. And the lovely thing you'll see is this: if you ask the agent to
+hardcode an AWS key, it refuses — good — but the kit catches a real secret
+*regardless* of whether the agent cooperates, because the kit is enforcement, not
+hope.
+
+## Slide 47 — You can build your own kits
+
+And you are absolutely not limited to the kits that Docker ships. Kits follow an
+open specification — which means you can package up your own agent, or your own
+internal tooling, in exactly the same way the official Hub kits are built.
+
+The specification and a set of example kits are at
+github.com/docker/sandbox-kit-spec. Building your own kits is genuinely a whole
+session in its own right, so I'm not going to go deep here — I just want to plant
+the flag firmly. If your team has an internal tool, it can live inside this box,
+governed exactly the same way as everything else.
+
+## Slide 48 — Agents talking to an MCP server
+
+So kits put tools *into* the box. There's a second way to give an agent new
+capabilities, which is to let it *call out* to external tool servers — MCP servers.
+
+But — and this is the important part — it calls out through one governed gateway,
+and never, ever directly to those servers. This is where Choice gets really
+powerful, and it's also where governance gets genuinely interesting.
+
+## Slide 49 — Agent with a sandbox
+
+Let me give you a concrete example of an MCP server in action, and it happens to
+close the loop on the very first horror story from this morning.
+
+Inside the sandbox — own daemon, own network, host is read-only — the agent has
+its full permissions, and now it has one new tool available to it: the Docker
+Hardened Images MCP server, which exposes signed tools only. So when you tell it to
+"containerise this," before it writes even a single `FROM` line, it queries that
+catalog and it picks `dhi.io/node`. And the result? Zero criticals, zero highs,
+zero mediums, zero lows. Two hundred and eleven packages, a software bill of
+materials attached, signed, and running as non-root.
+
+That's the exact same task that gave us dozens of CVEs on the bare host at the
+start of this talk — now completely clean, purely because the right tool was
+sitting inside the box.
+
+## Slide 50 — Letting the agent use MCP servers safely
+
+So how does that "safely" part actually work under the hood? The agent never
+talks to any of those servers directly.
+
+It talks to one gateway — a single governed endpoint — and that gateway is what
+fans out to the local wiki, to GitHub, to Notion, to DuckDuckGo, to whatever
+you've registered behind it. Every single tool call the agent makes flows through
+that one chokepoint, and the tools are namespaced, so they show up as
+mcp-underscore-underscore-mcp-gateway. And that one chokepoint is precisely where
+your policy and your audit logging get to live. Many servers behind it, but just
+one door in and out.
+
+## Slide 51 — The gateway gatekeeper
+
+There's a deliberate, and I think rather elegant, safety design baked into this.
+The entire `sbx mcp` command subtree stays completely hidden until an environment
+variable called SBX_MCP_URL is set. And only two values for that variable carry
+the full, governed flow.
+
+The first is a local gateway, running on localhost port 8811 — that's wonderful
+for learning the mechanics, because you run it, and you control exactly what's
+registered. The second is the hosted control plane, at gateway.docker.com — and
+that's where organisation policy governs what's actually invocable, with central
+audit. That's the real governance story for a company.
+
+And the whole thing is fail-closed by design. If no policy is loaded, the default
+is deny-all — not allow-all. The policy is authored up in Docker Hub, it's fetched
+at `docker login`, and individual developers cannot override it. So the default
+state of this entire system is "nothing is allowed," not "everything is allowed."
+That's the right way around.
+
+## Slide 52 — Govern it with an MCP access policy
+
+And for those of you who want to see that this is real, enforceable policy — not
+just a nice diagram — here's the actual rule.
+
+It's written in a language called Cedar, and it's authored in Docker's AI
+governance console. What you're looking at is a default-deny allow-list over pairs
+of server-and-tool. This particular rule permits *only* the read-only DHI tools —
+list the repositories, get the CVEs, get the attestations, and so on. And here's
+what that buys you in practice: anyone in the organisation is free to *register* a
+server, but its tools are only ever *invocable* if the policy permits them — and
+that's evaluated right at the gateway, on every single invoke, by the very same
+engine that handles your network and filesystem policy. One surface, no way around
+it. A developer can run `sbx mcp add` on anything they like; but if the
+organisation's policy doesn't permit that server's tools, the calls are simply
+denied, and they're audited. You author it once, and it syncs everywhere.
+
+## Slide 53 — One feature: agents in a sandbox, using external tools, safely
+
+Let me pull that whole MCP thread back together, because it's really just one
+feature that happens to answer four very practical questions.
+
+What tool-servers are supported? Remote ones, local stdio ones, docker.io
+images — and the slide is honest about what isn't supported, too. How do you
+register them? With `sbx mcp add`, either one at a time or as a shareable bundle.
+How does the sandbox actually connect to them? Either as a locked, static set, or
+as a discoverable, dynamic catalog. And how are the credentials managed? The
+gateway holds OAuth centrally, so you can authorize, revoke, and audit from one
+place.
+
+Agents, inside a sandbox, using external tools, safely. That's the entire scope of
+it.
+
+## Slide 54 — Same agent, same prompt, a zero-CVE base
+
+And here is the whole of Choice, captured in one single comparison. I come back to
+this slide in my head all the time.
+
+On the left, ungoverned: `claude -p "containerise this"` picks node:20, blind.
+Docker Scout comes back with two criticals, twelve highs, twenty mediums, thirteen
+lows — across four hundred and thirty-one packages, with no SBOM. On the right,
+with the DHI MCP server sitting in the box: the exact same prompt, but now it
+queries DHI first, and it lands on dhi.io/node:24-debian13. And Scout comes back
+zero, zero, zero, zero — across two hundred and eleven packages, with an SBOM, and
+signed.
+
+Read the line at the bottom: the tool in the box changed the outcome — not the
+prompt. I didn't write a cleverer prompt. I didn't reach for a smarter model. I
+simply put the right tool inside the boundary, and the outcome transformed. That,
+right there, is Choice.
+
+## Slide 55 — Agenda checkpoint
+
+Quick checkpoint again. Contain, Control, Choice — all three done. One C left, and
+it's the one that turns everything you've seen so far from a clever personal trick
+into something an entire team can actually run, reliably, forever.
+
+## Slide 56 — Capacity
+
+The fourth and final C — Capacity. Here's the problem it solves. One developer,
+with one beautifully configured sandbox, is a great start. But a boundary that
+only exists on *your* laptop isn't really governance — it's a one-off. It's a party
+trick. Teams need the same sandbox, everywhere.
+
+## Slide 57 — Scaling up starts with reproducibility
+
+Watch how this breaks down without Capacity, in three steps.
+
+One developer, configuring by hand: it works, on one machine. Fine. A team, each
+configuring by hand: now every single setup drifts — different kits, different
+policies, slightly different everything. And that is *exactly* where "well, it
+works on my machine" is born, and it's exactly where an *ungoverned* sandbox
+quietly sneaks back in, because the policy you so carefully set never actually
+reached the next person. But a team working from one shared file: now every
+sandbox matches, and you can spin up as many of them as you need.
+
+And the fix is the same fix we reach for with everything else that matters in
+software — you declare it once, in a file, and you share that file like code.
+
+## Slide 58 — An environment file describes the whole sandbox
+
+That file is called sbxenv.yaml, and it gets committed right into the repository
+alongside your code.
+
+It names the agent — which harness the sandbox runs. It names the workspace — the
+one folder the agent is allowed to see. It lists the kits — and each kit brings its
+tools, its credentials, and its network rules along with it. And it sets the
+resources — the CPU and the memory for the box. So the sandbox stops being a pile
+of flags that you have to remember to type correctly every time, and it becomes
+data — reviewable, diffable, versioned data. You start it with `sbx env run`. One
+honest caveat: the format is still experimental, so it may change.
+
+## Slide 59 — Commit it once and the whole team shares one setup
+
+And because it's just a file, it travels exactly like code travels.
+
+You change the file — add a kit, swap the harness, whatever. You open a pull
+request — and now that change gets *reviewed*, like any other change to your
+system. You merge it, and the repository holds the new definition. And everyone
+pulls, and the very next sandbox each person starts matches yours exactly. Update
+it once, and every sandbox follows.
+
+Here's the shift that really matters: changing your team's agent security is no
+longer a silent little tweak buried in one person's shell history. It becomes a
+reviewable event, with a paper trail, that your team can see and roll back and
+audit. And one more thing worth calling out — the file holds a *source* for each
+secret, like a 1Password reference, which gets resolved on each developer's own
+machine. The secret itself never, ever travels in the repo.
+
+## Slide 60 — Cloud Sandboxes run the same setup remotely
+
+And that same file isn't confined to your laptop either.
+
+Locally, the sandbox runs on your machine, bounded by your CPU and your memory.
+But in the cloud, the very same environment file runs on Docker's infrastructure —
+which means you can start far more sandboxes than one laptop could ever hold. One
+agent per pull request. A whole fleet of them running at once, without melting your
+machine. Now, the honest caveat: Cloud Sandboxes are in early access right now, and
+they're not yet available for organisation use. But the model is the thing to take
+away — you write the file once, and you run it anywhere, whether that's one laptop
+or a thousand machines in the cloud.
+
+## Slide 61 — Sharing a sandbox with the team
+
+This is the last lab, and in it you get to play the role of the brand-new
+teammate.
+
+You clone a repo that already has an environment file in it, and you start a
+sandbox — and the kits and the policy are already set up for you; you did nothing
+to configure them. Then you change a single line and start it again. And before
+anything actually runs, `sbx env plan` shows you exactly what it's going to set up
+outside the box — including precisely which secrets it's going to resolve from
+*your* host — and it asks for your approval before it touches a single thing.
+
+## Slide 62 — All four done
+
+And there it is — all four Cs, every box ticked. Contain, Control, Choice,
+Capacity. Let me put them together for you one final time.
+
+## Slide 63 — Recap
+
+If you walked in late, or if you only remember three things from this entire talk,
+make it these three.
+
+One: a trusted boundary. A microVM, a network proxy, and credentials that the
+agent never actually holds. That's Contain and Control working together. Two: your
+choice inside it. Agent kits and mixin kits, for your harness, your tools, and your
+endpoints. That's Choice. And three: shared with the team. One environment file,
+sitting in the repo — you update it once, and everyone follows. That's Capacity.
+
+And underneath all three, the single idea this whole talk has been built on: the
+boundary comes from the box, not from the agent behaving itself. Refusal is a
+behaviour — it's a choice the agent makes, and it can fail on a bad day, or with a
+poisoned file, or with a different model. A boundary is a wall. That is the entire
+difference between *hoping* your agents are safe and *knowing* they are.
+
+## Slide 64 — Thank you
+
+And that's the talk — run fast, without running wild.
+
+The four labs stay open, so please go and finish any you didn't get to; they're
+all right there at containerdays.dockerworkshop.com. And please, come find me
+afterwards — genuinely, I would love to hear the stories of what your agents have
+gotten up to, the good and the terrifying.
+
+Thank you so much for your time.
