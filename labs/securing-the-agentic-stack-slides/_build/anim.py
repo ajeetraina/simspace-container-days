@@ -177,54 +177,6 @@ def slide13():
     return "".join(p)
 
 
-# ================================================================ slide 36 overlay
-# "Credentials are added outside the sandbox". Baked flow row at y=377; columns at
-# x=247/615/984/1352; the proxy (key injection) column is x=984.
-def slide36():
-    y = 377
-    x0, x1 = 150, 1430
-    proxy_x = 984
-    f = (proxy_x - x0) / (x1 - x0)          # motion fraction where the key is injected
-    dur = 5.0
-    p = [svg_open("slide-36")]
-    p.append('<defs>')
-    p.append(halo_def("halo36", GREEN))
-    p.append('</defs>')
-    # proxy "key injected" burst (fires as the request reaches the proxy)
-    p.append(f'<circle cx="{proxy_x}" cy="{y}" r="18" fill="none" stroke="{GREEN}" stroke-width="4">'
-             f'<animate attributeName="r" values="14;64" dur="{dur}s" begin="{dur*f:.2f}s" '
-             f'repeatCount="indefinite" calcMode="spline" keySplines="0.2 0 0.3 1" keyTimes="0;1"/>'
-             f'<animate attributeName="opacity" values="0.7;0" dur="{dur}s" begin="{dur*f:.2f}s" repeatCount="indefinite"/></circle>')
-    # final "200 OK" confirmation pulse at step 4
-    p.append(f'<circle cx="1352" cy="{y}" r="16" fill="none" stroke="{GREEN}" stroke-width="4">'
-             f'<animate attributeName="r" values="12;52" dur="{dur}s" begin="{dur*0.97:.2f}s" '
-             f'repeatCount="indefinite" calcMode="spline" keySplines="0.2 0 0.3 1" keyTimes="0;1"/>'
-             f'<animate attributeName="opacity" values="0.7;0" dur="{dur}s" begin="{dur*0.97:.2f}s" repeatCount="indefinite"/></circle>')
-    # the travelling AGENT, carrying its credential state (open lock -> key at proxy)
-    kf = min(f+0.02, 1)                       # moment the key appears
-    token = (
-        '<g>'
-        # green halo switches on once the key is injected
-        f'<circle cx="0" cy="0" r="30" fill="url(#halo36)" opacity="0">'
-        f'<animate attributeName="opacity" values="0;0;0.9;0.9" keyTimes="0;{f:.2f};{kf:.2f};1" dur="{dur}s" repeatCount="indefinite"/></circle>'
-        # the agent glyph
-        f'{agent_chip(0,0,scale=0.74)}'
-        # credential badge floats above the agent: red open-lock before the proxy...
-        f'<g opacity="1"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;{f:.2f};{kf:.2f};1" dur="{dur}s" repeatCount="indefinite"/>'
-        f'<rect x="-7" y="-40" width="14" height="12" rx="2" fill="{RED}"/>'
-        f'<path d="M -5,-40 v-4 a5,5 0 0 1 10,0" fill="none" stroke="{RED}" stroke-width="2.6"/></g>'
-        # ...a green key after it passes the proxy
-        f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;{f:.2f};{kf:.2f};1" dur="{dur}s" repeatCount="indefinite"/>'
-        f'{key_glyph(0,-34,scale=1.25,colour=GREEN)}</g>'
-        # travel left -> right along the baked flow row
-        f'<animateMotion dur="{dur}s" repeatCount="indefinite" calcMode="linear" path="M {x0},{y} L {x1},{y}"/>'
-        '</g>'
-    )
-    p.append(token)
-    p.append('</svg>')
-    return "".join(p)
-
-
 # ================================================================ slide 33 overlay
 # "Three boundaries surround every agent". Calm, literal: highlight each boundary in
 # sequence (1 MicroVM -> 2 Proxy -> 3 Credential injection), matching the three
@@ -304,7 +256,7 @@ def slide12():
 
 
 # ---------------------------------------------------------------- deck patching
-BUILDERS = {12: slide12, 33: slide33, 36: slide36}   # overlays
+BUILDERS = {12: slide12, 33: slide33}   # overlays
 RECREATE = {13: slide13}                                          # full replacements
 
 
