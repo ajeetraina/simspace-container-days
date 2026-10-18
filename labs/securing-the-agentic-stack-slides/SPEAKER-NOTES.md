@@ -383,6 +383,13 @@ safe, at the same time, with no babysitting.
 Now, we are at a Docker conference, so I know what a good chunk of you are already
 thinking. You're thinking the obvious thing: just put the agent in a container.
 
+But notice we're flipping the word around here. Up to now, a container has been the
+*thing the agent builds* — you asked it to containerise the app, and it handed you an
+image. Now turn it inside out: what if the container is the box we put the *agent
+itself* inside, as a wall around what it can do? Keep one line in your head as we work
+through this — containers isolate *software*; the job in front of us is isolating an
+*agent*, and those turn out to be very different problems.
+
 And honestly, that's a fair instinct, and it deserves a real answer rather than me
 waving it away. So let's take it seriously. Containers isolate *applications*
 beautifully — that's what they were built for, and they're extraordinarily good at
@@ -480,6 +487,13 @@ its *own* Linux kernel, inside a microVM. And that's the whole trick: sudo *insi
 the sandbox is not admin on your Mac. The agent can go completely wild inside its
 own room — install anything, break anything, be fully root — and it's root of a
 disposable machine, not root of yours.
+
+Here's the one sentence to take away from this picture. In a container, an escape
+targets the *kernel* — and that's your kernel, the same one running everything else
+on the machine. In a sandbox, an escape would have to target the *hypervisor* — it's
+no longer a matter of slipping between namespaces and cgroups, it's crossing hardware
+virtualization. We didn't build a thicker wall around the kernel; we took the kernel
+out of the isolation equation entirely.
 
 ## Slide 31 — A sandbox gives you four things
 
