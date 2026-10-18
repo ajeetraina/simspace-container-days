@@ -1,6 +1,6 @@
 # Speaker Notes — *Run Fast Without Running Wild*
 
-**Container Days Singapore 2026 · a 64-slide talk, ~45 minutes**
+**Container Days Singapore 2026 · a 65-slide talk, ~45 minutes**
 
 What follows is the full spoken script — read it aloud as written, or make it
 your own. Each section below is one slide; the heading tells you which slide
@@ -397,7 +397,16 @@ it. The problem is that an agent is not an application. An agent needs far more
 access than an application does to do its job, and that difference turns out to
 change absolutely everything.
 
-## Slide 25 — Escaping a container
+## Slide 25 — Why not put the Agent in a container?
+
+So let's picture that instinct literally. Here's the agent, tucked inside a nice
+blue Docker container, working away behind four walls. It looks safe. It looks
+contained — give it its own box, draw a boundary, and let it do its thing. And if
+the agent were an application, that picture would be the end of the story. But our
+agent isn't an application. So let's open this container up and watch what actually
+happens the moment it needs to do real work.
+
+## Slide 26 — Escaping a container
 
 Here's the most common setup I run into in the real world. You take a coding
 agent and you put it in a container, and because you want it to be able to build
@@ -411,7 +420,7 @@ socket is simultaneously the feature that makes the container useful and the hol
 that makes it worthless as a boundary. You'll try this exact escape yourself in
 the lab.
 
-## Slide 26 — Each new capability weakens the container's isolation
+## Slide 27 — Each new capability weakens the container's isolation
 
 And this isn't about one careless flag. It's a slow, reasonable slide down a
 ramp, and I want you to watch the isolation drain away row by row on the
@@ -435,14 +444,14 @@ host's kernel, and the access an agent genuinely needs to be useful is the exact
 same access that lets it climb out. Which means we don't need a better-configured
 container. We need a fundamentally different kind of box.
 
-## Slide 27 — Agenda checkpoint
+## Slide 28 — Agenda checkpoint
 
 Quick breath and a checkpoint, so you know where we are. We've done the setup, and
 we've done the whole problem — the first two labs are behind us.
 
 Now we build the cure, and we build it in four parts. First one up: Contain.
 
-## Slide 28 — Hello, Sandboxes
+## Slide 29 — Hello, Sandboxes
 
 So let me introduce the thing that fixes all of this. It's called a Docker
 Sandbox, and the entire idea fits into a single sentence, which is right there on
@@ -454,7 +463,7 @@ We're just putting that power inside a box that genuinely holds. And that one mo
 is how we finally escape the speed-versus-safety trap I showed you a few slides
 ago.
 
-## Slide 29 — A sandbox is a private machine for your agent
+## Slide 30 — A sandbox is a private machine for your agent
 
 Here's the right way to picture what a sandbox actually is. It's a private
 machine for your agent. It runs on your computer, but it's completely walled off
@@ -475,7 +484,7 @@ fact that you choose what goes inside, and the fact that your whole team can
 reproduce it — and those three ideas are going to grow up into Contain, Choice,
 and Capacity.
 
-## Slide 30 — Container vs Sandbox
+## Slide 31 — Container vs Sandbox
 
 So why does this hold when a plain container didn't? It comes down to one picture.
 
@@ -495,7 +504,7 @@ no longer a matter of slipping between namespaces and cgroups, it's crossing har
 virtualization. We didn't build a thicker wall around the kernel; we took the kernel
 out of the isolation equation entirely.
 
-## Slide 31 — A sandbox gives you four things
+## Slide 32 — A sandbox gives you four things
 
 So, pulling it together: a sandbox gives you four things, and these are the four
 words that the entire rest of this talk hangs from. Say them with me if you like.
@@ -509,7 +518,7 @@ developer, on every run, every time.
 Contain, Control, Choice, Capacity. We're going to walk through each one of them in
 turn, and each one comes with a hands-on lab.
 
-## Slide 32 — Contain
+## Slide 33 — Contain
 
 Let's start with the first C — Contain. These are the boundaries that keep the
 agent's actions inside the sandbox.
@@ -518,7 +527,7 @@ Think of this as the foundation. It's always on, it's not something you configur
 or can accidentally switch off, and everything else in the next three Cs is built
 on top of it.
 
-## Slide 33 — Three boundaries surround every agent
+## Slide 34 — Three boundaries surround every agent
 
 Containment isn't a single wall — it's actually three boundaries working together,
 and I've got a little analogy for each one.
@@ -536,7 +545,7 @@ over.
 A separate room, checked exits, and the keys held safely at the desk. Put those
 three together and that's Contain.
 
-## Slide 34 — What the agent can reach
+## Slide 35 — What the agent can reach
 
 Let me zoom all the way into the box so you can see exactly what the agent can and
 cannot touch.
@@ -555,7 +564,7 @@ So you get total freedom on the inside and a hard wall at the edge. And that is
 exactly the trade we were looking for the whole time: run as fast as you want
 *inside*, and you simply cannot run wild *outside*.
 
-## Slide 35 — A sandbox has its own kernel
+## Slide 36 — A sandbox has its own kernel
 
 I want to say the kernel point one more time, plainly, because it is the
 load-bearing claim under this entire solution — if you don't believe this part,
@@ -569,7 +578,7 @@ real, full-power Docker daemon inside the box without ever touching yours — an
 it's the reason that sudo inside the sandbox is not, and cannot be, admin on your
 Mac.
 
-## Slide 36 — Credentials are added outside the sandbox
+## Slide 37 — Credentials are added outside the sandbox
 
 Now let me walk you through the credential flow step by step, because this is the
 part people genuinely don't believe until they see it laid out.
@@ -588,7 +597,7 @@ that's so powerful — even if the agent gets prompt-injected into trying to ste
 secret and mail it out, there is no secret inside the box for it to steal in the
 first place.
 
-## Slide 37 — Testing the boundaries
+## Slide 38 — Testing the boundaries
 
 Now it's your turn to prove all of this to yourselves, rather than taking my word
 for it. This is the first half of lab three.
@@ -601,7 +610,7 @@ And third, make a real call to a model API without ever once seeing the key. It'
 the same agent, running the same kinds of prompts that caused all those horror
 stories — and you'll watch the blast radius collapse down to nothing.
 
-## Slide 38 — Control
+## Slide 39 — Control
 
 On to the second C — Control. Contain was the wall, and that wall is always on.
 Control is where *you* get to decide where the wall actually sits.
@@ -609,7 +618,7 @@ Control is where *you* get to decide where the wall actually sits.
 The idea here is simple: let the agent do its work, and you decide, deliberately,
 exactly what it's allowed to reach while it does.
 
-## Slide 39 — Developers decide what the agent can reach
+## Slide 40 — Developers decide what the agent can reach
 
 Control starts from a position of deny-by-default — the agent can't reach anything
 until you say so — and then you open things up deliberately and explicitly.
@@ -624,7 +633,7 @@ theatre is that every single connection the agent even *attempts* is logged. So
 you can always go and see exactly what it tried to reach, with one command: `sbx
 policy log`.
 
-## Slide 40 — Organizations add governance on top
+## Slide 41 — Organizations add governance on top
 
 And this scales well beyond a single developer, which is where it gets genuinely
 powerful for a company. There are three layers here, and the order matters.
@@ -641,7 +650,7 @@ organisation gets a hard floor that nobody can drop beneath. That's how you hand
 agents to an entire company without having to pray that every individual person
 configured theirs correctly.
 
-## Slide 41 — Adjusting policy
+## Slide 42 — Adjusting policy
 
 Back to the keyboard — this is the Control lab, and it's three steps.
 
@@ -652,7 +661,7 @@ watch the decision flip, live, from Denied to Allowed, without ever restarting t
 agent. The whole point of this lab is to feel how fast that feedback loop is: you
 can check a host against your policy *before* the agent ever trips over it.
 
-## Slide 42 — Choice
+## Slide 43 — Choice
 
 Third C — Choice. Because here's the thing: a perfectly locked box that can't
 actually do anything useful is, well, useless.
@@ -662,7 +671,7 @@ your agent, and your endpoints to earn its place in your workflow. And the whole
 art of it is adding all of that capability back in *without* weakening the wall we
 just spent so long building.
 
-## Slide 43 — Security tools usually trade away flexibility
+## Slide 44 — Security tools usually trade away flexibility
 
 Now, most security tools make you pay for safety with flexibility — it feels like
 an iron law. Let me plot it out for you.
@@ -678,7 +687,7 @@ the proxy — and those two things are fixed; they don't move. What runs *inside
 box is fully configurable. So you get to make the inside more and more capable
 without shifting the boundary a single inch. You stop trading one for the other.
 
-## Slide 44 — Kits define what runs inside the boundary
+## Slide 45 — Kits define what runs inside the boundary
 
 The mechanism that makes that possible is called a kit, and there are two flavours
 of them.
@@ -692,7 +701,7 @@ environment. And underneath all of it, the microVM and the proxy stay completely
 unchanged. One last thing: kits ship anywhere — Docker Hub, any registry you like,
 a Git repo, or even just a folder sitting in your project.
 
-## Slide 45 — Swap the agent, add the tools
+## Slide 46 — Swap the agent, add the tools
 
 Here's that composability in a single picture, and I love how clean it is.
 
@@ -707,7 +716,7 @@ the harness. Add tools, drop tools. And the boundary stays exactly, precisely th
 same. That's the entire promise of Choice: configure the inside as freely as you
 want, and never once have to touch the wall.
 
-## Slide 46 — Running kits from Docker Hub
+## Slide 47 — Running kits from Docker Hub
 
 In the lab, you're going to do exactly this. You'll start a sandbox with one agent
 kit. You'll swap the harness while keeping the same project. And then you'll stack
@@ -723,7 +732,7 @@ hardcode an AWS key, it refuses — good — but the kit catches a real secret
 *regardless* of whether the agent cooperates, because the kit is enforcement, not
 hope.
 
-## Slide 47 — You can build your own kits
+## Slide 48 — You can build your own kits
 
 And you are absolutely not limited to the kits that Docker ships. Kits follow an
 open specification — which means you can package up your own agent, or your own
@@ -735,7 +744,7 @@ session in its own right, so I'm not going to go deep here — I just want to pl
 the flag firmly. If your team has an internal tool, it can live inside this box,
 governed exactly the same way as everything else.
 
-## Slide 48 — Agents talking to an MCP server
+## Slide 49 — Agents talking to an MCP server
 
 So kits put tools *into* the box. There's a second way to give an agent new
 capabilities, which is to let it *call out* to external tool servers — MCP servers.
@@ -744,7 +753,7 @@ But — and this is the important part — it calls out through one governed gat
 and never, ever directly to those servers. This is where Choice gets really
 powerful, and it's also where governance gets genuinely interesting.
 
-## Slide 49 — Agent with a sandbox
+## Slide 50 — Agent with a sandbox
 
 Let me give you a concrete example of an MCP server in action, and it happens to
 close the loop on the very first horror story from this morning.
@@ -761,7 +770,7 @@ That's the exact same task that gave us dozens of CVEs on the bare host at the
 start of this talk — now completely clean, purely because the right tool was
 sitting inside the box.
 
-## Slide 50 — Letting the agent use MCP servers safely
+## Slide 51 — Letting the agent use MCP servers safely
 
 So how does that "safely" part actually work under the hood? The agent never
 talks to any of those servers directly.
@@ -774,7 +783,7 @@ mcp-underscore-underscore-mcp-gateway. And that one chokepoint is precisely wher
 your policy and your audit logging get to live. Many servers behind it, but just
 one door in and out.
 
-## Slide 51 — The gateway gatekeeper
+## Slide 52 — The gateway gatekeeper
 
 There's a deliberate, and I think rather elegant, safety design baked into this.
 The entire `sbx mcp` command subtree stays completely hidden until an environment
@@ -793,7 +802,7 @@ at `docker login`, and individual developers cannot override it. So the default
 state of this entire system is "nothing is allowed," not "everything is allowed."
 That's the right way around.
 
-## Slide 52 — Govern it with an MCP access policy
+## Slide 53 — Govern it with an MCP access policy
 
 And for those of you who want to see that this is real, enforceable policy — not
 just a nice diagram — here's the actual rule.
@@ -810,7 +819,7 @@ it. A developer can run `sbx mcp add` on anything they like; but if the
 organisation's policy doesn't permit that server's tools, the calls are simply
 denied, and they're audited. You author it once, and it syncs everywhere.
 
-## Slide 53 — One feature: agents in a sandbox, using external tools, safely
+## Slide 54 — One feature: agents in a sandbox, using external tools, safely
 
 Let me pull that whole MCP thread back together, because it's really just one
 feature that happens to answer four very practical questions.
@@ -826,7 +835,7 @@ place.
 Agents, inside a sandbox, using external tools, safely. That's the entire scope of
 it.
 
-## Slide 54 — Same agent, same prompt, a zero-CVE base
+## Slide 55 — Same agent, same prompt, a zero-CVE base
 
 And here is the whole of Choice, captured in one single comparison. I come back to
 this slide in my head all the time.
@@ -844,20 +853,20 @@ prompt. I didn't write a cleverer prompt. I didn't reach for a smarter model. I
 simply put the right tool inside the boundary, and the outcome transformed. That,
 right there, is Choice.
 
-## Slide 55 — Agenda checkpoint
+## Slide 56 — Agenda checkpoint
 
 Quick checkpoint again. Contain, Control, Choice — all three done. One C left, and
 it's the one that turns everything you've seen so far from a clever personal trick
 into something an entire team can actually run, reliably, forever.
 
-## Slide 56 — Capacity
+## Slide 57 — Capacity
 
 The fourth and final C — Capacity. Here's the problem it solves. One developer,
 with one beautifully configured sandbox, is a great start. But a boundary that
 only exists on *your* laptop isn't really governance — it's a one-off. It's a party
 trick. Teams need the same sandbox, everywhere.
 
-## Slide 57 — Scaling up starts with reproducibility
+## Slide 58 — Scaling up starts with reproducibility
 
 Watch how this breaks down without Capacity, in three steps.
 
@@ -872,7 +881,7 @@ sandbox matches, and you can spin up as many of them as you need.
 And the fix is the same fix we reach for with everything else that matters in
 software — you declare it once, in a file, and you share that file like code.
 
-## Slide 58 — An environment file describes the whole sandbox
+## Slide 59 — An environment file describes the whole sandbox
 
 That file is called sbxenv.yaml, and it gets committed right into the repository
 alongside your code.
@@ -885,7 +894,7 @@ of flags that you have to remember to type correctly every time, and it becomes
 data — reviewable, diffable, versioned data. You start it with `sbx env run`. One
 honest caveat: the format is still experimental, so it may change.
 
-## Slide 59 — Commit it once and the whole team shares one setup
+## Slide 60 — Commit it once and the whole team shares one setup
 
 And because it's just a file, it travels exactly like code travels.
 
@@ -902,7 +911,7 @@ audit. And one more thing worth calling out — the file holds a *source* for ea
 secret, like a 1Password reference, which gets resolved on each developer's own
 machine. The secret itself never, ever travels in the repo.
 
-## Slide 60 — Cloud Sandboxes run the same setup remotely
+## Slide 61 — Cloud Sandboxes run the same setup remotely
 
 And that same file isn't confined to your laptop either.
 
@@ -915,7 +924,7 @@ they're not yet available for organisation use. But the model is the thing to ta
 away — you write the file once, and you run it anywhere, whether that's one laptop
 or a thousand machines in the cloud.
 
-## Slide 61 — Sharing a sandbox with the team
+## Slide 62 — Sharing a sandbox with the team
 
 This is the last lab, and in it you get to play the role of the brand-new
 teammate.
@@ -927,12 +936,12 @@ anything actually runs, `sbx env plan` shows you exactly what it's going to set 
 outside the box — including precisely which secrets it's going to resolve from
 *your* host — and it asks for your approval before it touches a single thing.
 
-## Slide 62 — All four done
+## Slide 63 — All four done
 
 And there it is — all four Cs, every box ticked. Contain, Control, Choice,
 Capacity. Let me put them together for you one final time.
 
-## Slide 63 — Recap
+## Slide 64 — Recap
 
 If you walked in late, or if you only remember three things from this entire talk,
 make it these three.
@@ -949,7 +958,7 @@ behaviour — it's a choice the agent makes, and it can fail on a bad day, or wi
 poisoned file, or with a different model. A boundary is a wall. That is the entire
 difference between *hoping* your agents are safe and *knowing* they are.
 
-## Slide 64 — Thank you
+## Slide 65 — Thank you
 
 And that's the talk — run fast, without running wild.
 

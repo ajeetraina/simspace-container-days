@@ -303,35 +303,8 @@ def slide12():
     return "".join(p)
 
 
-# ================================================================ slide 16 overlay
-# "The Ungoverned Agent" - foreshadow the fix. Wrap the Agent box in a thick dark
-# "container" boundary and pose the rhetorical question the deck then answers over
-# slides 24-26: why not just put the agent in a container and restrict it?
-# Agent box measured from assets/slide-16.webp -> (1600x900): x[531..853] y[303..384].
-BOUNDARY = "#334155"
-def slide16():
-    ax0, ay0, ax1, ay1 = 531, 303, 853, 384
-    pad = 16
-    bx, by = ax0 - pad, ay0 - pad
-    bw, bh = (ax1 - ax0) + 2 * pad, (ay1 - ay0) + 2 * pad
-    p = [svg_open("slide-16")]
-    # thick dark container boundary around the agent, with a slow breathing stroke
-    p.append(
-        f'<rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="18" fill="none" '
-        f'stroke="{BOUNDARY}" stroke-width="11" stroke-linejoin="round">'
-        f'<animate attributeName="stroke-opacity" values="0.92;0.6;0.92" dur="3.2s" repeatCount="indefinite"/>'
-        f'<animate attributeName="stroke-width" values="11;13;11" dur="3.2s" repeatCount="indefinite"/></rect>')
-    # the rhetorical question, upper-right, two lines (matches the mockup)
-    tx, ty = 815, 210
-    for i, line in enumerate(("Why not put it in a container and restrict it in a", "boundary?")):
-        p.append(f'<text x="{tx}" y="{ty + i * 40}" font-family="{SANS}" font-size="30" '
-                 f'font-weight="500" fill="{INK}">{line}</text>')
-    p.append('</svg>')
-    return "".join(p)
-
-
 # ---------------------------------------------------------------- deck patching
-BUILDERS = {12: slide12, 16: slide16, 33: slide33, 36: slide36}   # overlays
+BUILDERS = {12: slide12, 33: slide33, 36: slide36}   # overlays
 RECREATE = {13: slide13}                                          # full replacements
 
 
