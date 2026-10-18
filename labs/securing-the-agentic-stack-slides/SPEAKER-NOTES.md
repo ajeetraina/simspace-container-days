@@ -399,12 +399,17 @@ change absolutely everything.
 
 ## Slide 25 — Why not put the Agent in a container?
 
-So let's picture that instinct literally. Here's the agent, tucked inside a nice
-blue Docker container, working away behind four walls. It looks safe. It looks
-contained — give it its own box, draw a boundary, and let it do its thing. And if
-the agent were an application, that picture would be the end of the story. But our
-agent isn't an application. So let's open this container up and watch what actually
-happens the moment it needs to do real work.
+So let's make the instinct concrete. Here's exactly how you'd do it — one
+`docker run`: mount the project in, and because you want the agent to actually
+build and test images, you mount the Docker socket in too. That's the last flag on
+the line: dash-v, var-run-docker-dot-sock. Now the agent is sitting in a nice blue
+box, working away behind four walls. It looks safe. It looks contained.
+
+But look at that last mount, because it's the whole catch. For an application, this
+picture would be the end of the story — a container is a perfect box around an app.
+For an agent, that one socket flag quietly hands the container back the keys to the
+host: anything the agent can do with Docker inside the box, it can now do to your
+actual machine. So let's open this container up and watch exactly what happens.
 
 ## Slide 26 — Escaping a container
 
