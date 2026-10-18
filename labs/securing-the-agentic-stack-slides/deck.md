@@ -94,6 +94,8 @@
 
 <img src="assets/slide-16.webp" alt="Slide 16" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
+<svg data-anim="slide-16" viewBox="0 0 1600 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;pointer-events:none"><rect x="515" y="287" width="354" height="113" rx="18" fill="none" stroke="#334155" stroke-width="11" stroke-linejoin="round"><animate attributeName="stroke-opacity" values="0.92;0.6;0.92" dur="3.2s" repeatCount="indefinite"/><animate attributeName="stroke-width" values="11;13;11" dur="3.2s" repeatCount="indefinite"/></rect><text x="815" y="210" font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="30" font-weight="500" fill="#0a0c10">Why not put it in a container and restrict it in a</text><text x="815" y="250" font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="30" font-weight="500" fill="#0a0c10">boundary?</text></svg>
+
 ---
 
 <!-- chrome: false -->
