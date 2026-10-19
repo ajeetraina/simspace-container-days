@@ -207,12 +207,6 @@
 
 <!-- chrome: false -->
 
-<img src="assets/slide-35.webp" alt="Slide 35" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
 <img src="assets/slide-36.webp" alt="Slide 36" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
