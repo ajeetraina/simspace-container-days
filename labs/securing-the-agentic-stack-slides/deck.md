@@ -225,6 +225,12 @@
 
 <!-- chrome: false -->
 
+<iframe src="labs/securing-the-agentic-stack-slides/assets/the-door.html" title="The Door — one way out, with a guard" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff"></iframe>
+
+---
+
+<!-- chrome: false -->
+
 <img src="assets/slide-39.webp" alt="Slide 39" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
