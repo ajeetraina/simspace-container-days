@@ -200,6 +200,12 @@
 
 <!-- chrome: false -->
 
+<img src="assets/4c-contain.webp" alt="Contain — a boundary the agent cannot cross" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
 <img src="assets/slide-33.webp" alt="Slide 33" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 <svg data-anim="slide-33" viewBox="0 0 1600 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;pointer-events:none"><defs><radialGradient id="halo33k" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f5a623" stop-opacity="0.55"/><stop offset="55%" stop-color="#f5a623" stop-opacity="0.16"/><stop offset="100%" stop-color="#f5a623" stop-opacity="0"/></radialGradient></defs><g opacity="0"><animate attributeName="opacity" dur="6.0s" repeatCount="indefinite" keyTimes="0;0.02;0.30;0.333;1" values="0;1;1;0;0"/><rect x="368" y="384" width="600" height="206" rx="18" fill="none" stroke="#f5a623" stroke-width="6"/><circle cx="413" cy="406" r="29" fill="none" stroke="#f5a623" stroke-width="4"/><circle cx="116" cy="705" r="29" fill="none" stroke="#f5a623" stroke-width="4"/></g><g opacity="0"><animate attributeName="opacity" dur="6.0s" repeatCount="indefinite" keyTimes="0;0.333;0.353;0.633;0.666;1" values="0;0;1;1;0;0"/><rect x="1028" y="362" width="144" height="232" rx="18" fill="none" stroke="#f5a623" stroke-width="6"/><circle cx="600" cy="704" r="29" fill="none" stroke="#f5a623" stroke-width="4"/></g><g opacity="0"><animate attributeName="opacity" dur="6.0s" repeatCount="indefinite" keyTimes="0;0.666;0.686;0.966;1" values="0;0;1;1;0"/><rect x="1028" y="362" width="144" height="232" rx="18" fill="none" stroke="#f5a623" stroke-width="4"/><g><circle cx="0" cy="0" r="26" fill="url(#halo33k)"/><circle cx="-12.6" cy="0.0" r="9.0" fill="none" stroke="#f5a623" stroke-width="5.4"/><rect x="-3.6" y="-2.7" width="23.4" height="5.4" fill="#f5a623"/><rect x="16.2" y="-2.7" width="5.4" height="10.8" fill="#f5a623"/><animateMotion dur="6.0s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.686;0.93;1" calcMode="linear" path="M 1180,486 L 1288,486"/></g><circle cx="1085" cy="705" r="29" fill="none" stroke="#f5a623" stroke-width="4"/></g></svg>
@@ -238,6 +244,12 @@
 
 <!-- chrome: false -->
 
+<img src="assets/4c-control.webp" alt="Control — you decide what it can reach" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
 <img src="assets/slide-39.webp" alt="Slide 39" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
@@ -257,6 +269,12 @@
 <!-- chrome: false -->
 
 <img src="assets/slide-42.webp" alt="Slide 42" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/4c-choice.webp" alt="Choice — you decide what goes inside" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
@@ -341,6 +359,12 @@
 <!-- chrome: false -->
 
 <img src="assets/slide-56.webp" alt="Slide 56" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/4c-capacity.webp" alt="Capacity — the whole team reproduces it" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
