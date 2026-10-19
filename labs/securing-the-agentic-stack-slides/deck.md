@@ -188,19 +188,13 @@
 
 <!-- chrome: false -->
 
-<img src="assets/slide-31.webp" alt="Slide 31" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<img src="assets/4cs-overview.webp" alt="The 4Cs on one sandbox — Contain, Control, Choice, Capacity" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
 <!-- chrome: false -->
 
 <img src="assets/slide-32.webp" alt="Slide 32" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/4c-contain.webp" alt="Contain — a boundary the agent cannot cross" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
@@ -244,12 +238,6 @@
 
 <!-- chrome: false -->
 
-<img src="assets/4c-control.webp" alt="Control — you decide what it can reach" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
 <img src="assets/slide-39.webp" alt="Slide 39" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
@@ -269,12 +257,6 @@
 <!-- chrome: false -->
 
 <img src="assets/slide-42.webp" alt="Slide 42" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/4c-choice.webp" alt="Choice — you decide what goes inside" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
@@ -359,12 +341,6 @@
 <!-- chrome: false -->
 
 <img src="assets/slide-56.webp" alt="Slide 56" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/4c-capacity.webp" alt="Capacity — the whole team reproduces it" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
