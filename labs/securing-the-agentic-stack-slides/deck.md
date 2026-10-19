@@ -201,7 +201,7 @@
 
 <!-- chrome: false -->
 
-<img src="assets/4cs-agent-reach.webp" alt="What the agent can and cannot reach" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+<iframe src="labs/securing-the-agentic-stack-slides/assets/the-box.html" title="The Box — what the agent can reach" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff"></iframe>
 
 ---
 
