@@ -1,10 +1,10 @@
 title: "Choice"
 description: >
-  A locked-down sandbox still has to be useful. Give the boxed agent its tools two
-  ways: a GitGuardian mixin kit from Docker Hub that scans the agent's own actions
-  for secrets, and the Docker Hardened Images (DHI) MCP server so it picks a 0-CVE
-  base before it writes FROM - both with credentials brokered outside the box.
-  Fully simulated; nothing to install.
+  A locked-down sandbox still has to be useful. Give the boxed agent Docker
+  Hardened Images (DHI) two ways: first as an MCP server, so it queries the catalog
+  and picks a 0-CVE base before it writes FROM; then as a mixin kit that pins the
+  agent to DHI and denies 3rd-party registries at the network edge. Fully
+  simulated; nothing to install.
 
 # Landing-page card. Only shown when this repo has two or more labs. `order: 4`
 # puts this sandbox payoff lab last, after the deck (1), "An Agent Built This"
@@ -13,9 +13,9 @@ description: >
 catalog:
   icon: shield_lock
   order: 4
-  description: "Kits for your agents, tools, and endpoints"
-  tags: ["sandbox", "mcp", "kits", "tools", "authorization", "choice"]
-  estimatedMinutes: 45
+  description: "Give the boxed agent DHI - as an MCP server, then as a kit"
+  tags: ["sandbox", "mcp", "kits", "dhi", "authorization", "choice"]
+  estimatedMinutes: 20
 
 # Command behaviour lives in simulator.yaml (relative to this file).
 simulator: simulator.yaml
@@ -137,8 +137,8 @@ files:
       ('Widget', 'WGT-001', 9.99),
       ('Gadget', 'GDG-002', 19.99)
     ON CONFLICT (sku) DO NOTHING;
-  # A developer's .env with real-looking keys, so `ggshield secret scan` has a
-  # genuine secret to catch. The app reads from the env; nothing is hardcoded.
+  # A developer's .env - the app reads config and secrets from the environment;
+  # nothing is hardcoded. Part of the realistic project the boxed agent works on.
   .env: |
     POSTGRES_HOST=db.internal.acme.corp
     POSTGRES_PASSWORD=pg_S3cr3t_9f2b!
@@ -183,16 +183,14 @@ files:
 sections:
   - title: "A Locked Box Needs Tools"
     contentPath: 00-tools-in-the-box.md
-  - title: "Bring a Mixin Kit: GitGuardian"
-    contentPath: 01-bring-a-kit.md
-  - title: "The Kit Enforces It"
-    contentPath: 02-kit-catches-secret.md
   - title: "Register the DHI MCP Server"
-    contentPath: 03-register-dhi-mcp.md
+    contentPath: 01-register-dhi-mcp.md
   - title: "Attach and Authorize"
-    contentPath: 04-attach-and-authorize.md
+    contentPath: 02-attach-and-authorize.md
   - title: "The Agent Uses DHI"
-    contentPath: 05-agent-uses-dhi.md
+    contentPath: 03-agent-uses-dhi.md
+  - title: "Pin It to DHI: One Kit, No Drift"
+    contentPath: 04-pin-with-kit.md
 
 # $$name$$ in markdown is replaced with these values. `org` is overridden by the
 # :variableDefinition prompt in Setup.

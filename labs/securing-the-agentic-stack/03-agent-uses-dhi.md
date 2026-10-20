@@ -44,8 +44,8 @@ read **2C / 12H / 20M / 13L** over 431 packages; on the DHI hardened base it's
 **0 / 0 / 0 / 0** over 211. The tool in the box changed the outcome.
 
 > [!NOTE]
-> That's **Choice**: the box stays locked, but you decide which tools go inside -
-> and the right tool steers the agent to a better outcome. Next pillar:
-> **Capacity** - give the whole team this exact sandbox.
+> The right tool in the box steered the agent to a better outcome. But notice the
+> agent *chose* DHI - nothing stopped it from reaching for a third-party registry
+> instead. Next, we make that choice impossible to get wrong.
 
-You've completed Choice.
+Next: pin it to DHI, so the agent can't drift to a third-party registry.

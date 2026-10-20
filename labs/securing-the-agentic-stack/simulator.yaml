@@ -5,17 +5,18 @@ metadata:
   title: "Choice"
   summary: >
     A locked-down sandbox still has to be useful. Register the Docker Hardened
-    Images (DHI) MCP server as a kit, attach it to the sandbox, authorize it, and
-    watch the boxed agent query the DHI catalog before it picks a base - building a
-    0-CVE image. All simulated with real sbx commands (mcp add/inspect/ls/auth,
-    run --static-mcp).
+    Images (DHI) MCP server, lock it into the box with --static-mcp, and watch the
+    boxed agent query the DHI catalog before it picks a 0-CVE base - then pin it
+    with the dhi-mixin kit, which denies 3rd-party registries at the network edge.
+    All simulated with real sbx commands (mcp add/inspect/ls/auth, run --static-mcp,
+    kit inspect/add, policy check).
 
 # `mcp.added` flips once the DHI MCP server is registered; `mcp.authorized` once
 # it is authorized through the control plane.
 state:
   org: "your-org"
   kit:
-    attached: false # GitGuardian mixin kit attached to the sandbox
+    attached: false # the demo sandbox has been created (via --static-mcp)
   mcp:
     added: false
     authorized: false
@@ -41,61 +42,55 @@ scenarios:
         - "sbx version: v0.45.1 9d79d90ee4c5d297fb3d36b75384e8cea7a4fbcb"
 
   # ===========================================================================
-  # Section 1-2 - Bring a mixin kit (GitGuardian). Output mirrors real sbx
-  # (kit inspect verified live). The kit wires ggshield as the agent's AI hook;
-  # asking the agent to hardcode a secret trips the hook (agent-ggshield-block).
+  # Section 6 - Pin it to DHI with the dhi-mixin kit. Inspect output and deny
+  # count verified live against sbx v0.48 (`sbx kit inspect`: 1 allow, 7 deny).
+  # The DHI-specific kit inspect MUST precede the generic sbx-kit-inspect below
+  # (first-match-wins, top to bottom). The deny is the kit's, so a third-party
+  # registry check reads Denied.
   # ===========================================================================
-  - id: sbx-kit-inspect
+  - id: sbx-kit-inspect-dhi
     when:
       command: [sbx, kit, inspect]
+      args: { 0: "git+https://github.com/ajeetraina/docker-cloud-sandboxes-demo.git#dir=agent-cli/codex-dhi/dhi-mixin" }
     then:
       output:
-        - "  Name:           gitguardian"
+        - "  Name:           dhi-mixin"
         - "  Kind:           mixin"
-        - "  Schema:         v2"
-        - "  Display:        GitGuardian (ggshield) — Claude Code"
-        - "  Description:    Installs the GitGuardian CLI (ggshield) with proxy-injected API-key auth for api.gitguardian.com and wires it as a Claude Code AI hook, so the agent's own actions are scanned for hardcoded secrets automatically - the real key never enters the sandbox."
+        - "  Schema:         v3"
+        - "  Display:        Docker Hardened Images (DHI)"
+        - "  Description:    Wires an agent to the hosted Docker Hardened Images MCP server (dhi.io), steers it to prefer DHI for hardened base images, and denies 3rd party registries at the network edge."
         - ""
         - "  Policies:"
-        - "    Network:      4 allow, 0 deny"
-        - "    Credentials:  1 sources"
+        - "    Network:      1 allow, 7 deny"
+        - "    Credentials:  2 sources"
         - "    Environment:  1 variables, 0 proxy-managed"
-        - "    Commands:     2 install, 0 startup, 0 init files"
+        - "    Commands:     0 install, 1 startup, 1 init files"
 
-  - id: sbx-run-kit
+  - id: sbx-kit-add-dhi
     when:
-      command: [sbx, run, claude]
-      args: { --kit: { any: true } }
-    then:
-      state: { kit.attached: true }
-      output:
-        - { text: "Creating sandbox 'demo' (agent: claude)...", delay: boot }
-        - "  mixin kit: gitguardian  (pinned by digest)"
-        - { text: "  → installing ggshield 1.53.0 (pinned release, SHA256-verified)...", delay: pull }
-        - "  → wiring ggshield as the Claude Code AI hook (~/.claude/settings.json)"
-        - "  → GITGUARDIAN_API_KEY: proxy-managed placeholder (real key stays on the host)"
-        - ""
-        - "✓ The GitGuardian kit is in the box. The agent's own actions are now scanned for"
-        - "  secrets. Ask it to hardcode a key and watch the hook refuse."
-
-  - id: sbx-exec-ggshield
-    when:
-      command: [sbx, exec, demo, ggshield]
+      command: [sbx, kit, add]
     then:
       output:
-        - { text: "Scanning the workspace... (api.gitguardian.com - key injected by the proxy)", delay: scan }
-        - ""
-        - "  .env: 2 incidents detected"
-        - "    >> AWS Keys (High)"
-        - "       8 | AWS_ACCESS_KEY_ID=AKIA..."
-        - "       9 | AWS_SECRET_ACCESS_KEY=wJal..."
-        - ""
-        - "2 incidents found. ggshield caught real keys sitting in the tree - independent of"
-        - "whether any agent was careful. The scanner ran inside the box; its API key was"
-        - "injected by the proxy on the wire and never entered the sandbox."
+        - { text: "  ✓ sandbox demo — started", delay: scan }
+        - "  KITS"
+        - "    ✓ dhi-mixin — built"
+        - { text: "  Recreating 'demo' with kit: dhi-mixin…", delay: boot }
+        - "    workspace and session state preserved"
+        - "  ✓ demo ready — dhi-mixin active: DHI MCP registered · dhi.io allowed · 3rd-party registries denied"
+
+  - id: sbx-policy-check-cgr
+    when:
+      command: [sbx, policy, check, network]
+      args: { 0: { oneOf: [cgr.dev, "*.cgr.dev", chainguard.dev, "*.chainguard.dev", wolfi.dev, "*.wolfi.dev", apk.dag.dev] } }
+    then:
+      output:
+        - { text: "Denied: {{ args.0 }}", delay: scan }
+        - "Governance: Local policy only"
+        - "Context: global"
+        - "Reason: denied by dhi-mixin (3rd-party registry block); deny beats allow"
 
   # ===========================================================================
-  # Section 2 - Register the DHI MCP server. Positional 0 = name, --url = URL.
+  # Section 1 - Register the DHI MCP server. Positional 0 = name, --url = URL.
   # ===========================================================================
   - id: sbx-mcp-add
     when:
@@ -175,32 +170,31 @@ scenarios:
         - "Authorized. Attach it to a sandbox with: sbx run claude --static-mcp remotedhi"
 
   # ===========================================================================
-  # Section 4 - The agent uses DHI. A containerise prompt makes it query the
-  # catalog before writing FROM. The -p match precedes the plain run.
+  # Section 2/3 - Create the box with DHI locked in (--static-mcp), then the agent
+  # uses it. The --static-mcp run creates 'demo'; the plain run is a fallback.
   # ===========================================================================
-  # MCP into the RUNNING box. The box already exists (created with the kit), so we
-  # hot-load the DHI server into it - no restart. (--static-mcp is create-time only
-  # and can't be changed on re-attach, so for an existing sandbox you use load.)
-  - id: sbx-mcp-load
+  - id: sbx-run-static-mcp
     when:
-      command: [sbx, mcp, load]
+      command: [sbx, run, claude]
+      args: { --static-mcp: { any: true } }
     then:
+      state: { kit.attached: true }
       output:
-        - { text: "Loading 'remotedhi' into running sandbox 'demo'...", delay: scan }
-        - "  ✓ attached to the sandbox's MCP gateway"
-        - "  the agent sees the new tools immediately (tools/list_changed) - no restart."
+        - { text: "Creating sandbox 'demo' (agent: claude, static MCP: remotedhi)...", delay: boot }
+        - "  ✓ microVM booted through the proxy; host is read-only"
+        - "  ✓ remotedhi locked into the agent's one MCP gateway at creation"
         - ""
-        - "The boxed agent can now query DHI. Ask it to containerise with a hardened base."
+        - "The boxed agent can query DHI now - and only the servers fixed at create time."
+        - "Ask it to containerise with a hardened base."
 
   - id: sbx-run
     when:
       command: [sbx, run, claude]
     then:
       output:
-        - { text: "Re-attaching to sandbox 'demo'...", delay: boot }
+        - { text: "Creating sandbox 'claude' (agent: claude)...", delay: boot }
         - ""
-        - "The box already exists, with the GitGuardian kit in it. Load the DHI MCP server"
-        - "with `sbx mcp load remotedhi --sandbox demo`, then ask the agent to containerise."
+        - "Tip: add --name demo --static-mcp remotedhi to lock the DHI server into the box."
 
   # ===========================================================================
   # Agent sessions + filler.
@@ -215,24 +209,6 @@ scenarios:
           - "Claude Code ready. Enter a task, or type /exit to leave."
         outro:
           - "Claude session ended."
-
-  # HONEST: asked to hardcode a secret, a current agent REFUSES on its own. The
-  # kit isn't a backstop for the agent being careless - it's enforcement for when
-  # a secret slips through anyway (injection, a different/older agent, a paste).
-  - id: agent-refuse-hardcode
-    when:
-      agent: true
-      promptContains: [hardcode]
-    then:
-      output:
-        - "● I won't do that. Hardcoding AWS keys into source is a serious security problem,"
-        - "  not a fix: they'd land in git history (effectively permanent), build artifacts,"
-        - "  and every clone, and long-lived keys in reachable code are hard to rotate."
-        - ""
-        - "  Better: keep the proxy, use the AWS credential chain (env / profile / IAM role),"
-        - "  or hand out S3 presigned URLs so no long-lived key ever enters the code."
-        - ""
-        - "  (Good instinct from the agent - but that's its judgment, not a guarantee.)"
 
   # The boxed agent, with DHI MCP loaded, queries the catalog before writing FROM.
   - id: agent-dhi-build
