@@ -825,15 +825,15 @@ In the lab, you're going to do exactly this. You'll start a sandbox with one age
 kit. You'll swap the harness while keeping the same project. And then you'll stack
 mixins on top for GitHub, for signing, and for the dev environment.
 
-The specific mixin we add is called GitGuardian, and it's a nice one, because it
-wires a secret scanner directly into the agent as a hook. So every single write
-the agent makes gets scanned for secrets — and the scanner's own API key is
-injected by the proxy and never actually enters the box. It's the exact same
+The specific mixin we lean on is the DHI kit — the `dhi-mixin`. It wires the
+Docker Hardened Images MCP server straight into the agent and denies the
+third-party registries at the network edge, so the agent lands on a 0-CVE base and
+*can't* drift to Chainguard or Wolfi even if it tries. Its Docker Hub token is
+injected by the proxy and never actually enters the box — the exact same
 credential trick we saw in Contain, just applied to a tool this time instead of
-the agent. And the lovely thing you'll see is this: if you ask the agent to
-hardcode an AWS key, it refuses — good — but the kit catches a real secret
-*regardless* of whether the agent cooperates, because the kit is enforcement, not
-hope.
+the agent. And here's the lovely part: the steering only *asks* the agent to prefer
+DHI, but the deny *guarantees* it, because the kit is enforcement, not hope. We dig
+into that kit on the next slides.
 
 ## Slide 54 — You can build your own kits
 
