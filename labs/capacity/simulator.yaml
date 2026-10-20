@@ -65,10 +65,10 @@ scenarios:
         - "   product-catalog"
         - ""
         - "   kits:"
-        - "+    - source: oci://.../gitguardian-kit@sha256:8a3ad30…"
+        - "+    - source: git+…/docker-cloud-sandboxes-demo.git#dir=…/dhi-mixin  (DHI pin + 3rd-party deny)"
         - ""
         - "   secrets:"
-        - "+    gitguardian  (ref op://Engineering/GitGuardian/api-key · snapshot)"
+        - "+    dhi-mcp-pat  (ref op://Engineering/DockerHub/pat · snapshot)"
         - "       resolved on your host, needs your approval — never read from the file"
         - ""
         - "+  sandbox:"
@@ -84,8 +84,8 @@ scenarios:
     then:
       output:
         - { text: "Reading sbxenv.yaml... applying the plan...", delay: sync }
-        - "   secret 'gitguardian': resolving op://Engineering/GitGuardian/api-key on this host [approve]  ✓"
-        - { text: "Creating sandbox 'product-catalog' (agent: claude, kit: gitguardian)...", delay: boot }
+        - "   secret 'dhi-mcp-pat': resolving op://Engineering/DockerHub/pat on this host [approve]  ✓"
+        - { text: "Creating sandbox 'product-catalog' (agent: claude, kit: dhi-mixin)...", delay: boot }
         - "  workspace: .  mounted at /workspace"
         - ""
         - "✓ Identical to every other run - same agent, workspace, and kit. The secret was"

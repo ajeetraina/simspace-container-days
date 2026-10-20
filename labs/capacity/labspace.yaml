@@ -45,12 +45,14 @@ files:
     agent: claude
     workspace: .
     kits:
-      # the GitGuardian secret scanner from Choice, pinned by digest
-      - oci://docker.io/ajeetraina777/gitguardian-kit@sha256:8a3ad30666e6e651e4fff3c56a16e715bff4ac5356512c7dcbaa47f97988e8c4
+      # the DHI pinning kit from Choice: registers the DHI MCP, steers to dhi.io,
+      # and denies 3rd-party registries at the network edge
+      - git+https://github.com/ajeetraina/docker-cloud-sandboxes-demo.git#dir=agent-cli/codex-dhi/dhi-mixin
     secrets:
-      # a SOURCE, not a value - resolved on each developer's own host, never committed
-      gitguardian:
-        ref: "op://Engineering/GitGuardian/api-key"
+      # a SOURCE, not a value - resolved on each developer's own host, never committed.
+      # The DHI mirror tools need a Docker Hub PAT; the proxy injects it on dhi.io only.
+      dhi-mcp-pat:
+        ref: "op://Engineering/DockerHub/pat"
         snapshot: true
   product-catalog-demo-showcase/package.json: |
     {

@@ -18,10 +18,10 @@ sbx env plan
    product-catalog
 
    kits:
-+    - source: oci://.../gitguardian-kit@sha256:8a3ad30…
++    - source: git+…/docker-cloud-sandboxes-demo.git#dir=…/dhi-mixin  (DHI pin + 3rd-party deny)
 
    secrets:
-+    gitguardian  (ref op://Engineering/GitGuardian/api-key · snapshot)
++    dhi-mcp-pat  (ref op://Engineering/DockerHub/pat · snapshot)
        resolved on your host, needs your approval — never read from the file
 
 +  sandbox:
