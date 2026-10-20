@@ -261,30 +261,6 @@
 
 <!-- chrome: false -->
 
-<img src="assets/slide-44.webp" alt="Slide 44" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-45.webp" alt="Slide 45" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-46.webp" alt="Slide 46" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
-<img src="assets/slide-47.webp" alt="Slide 47" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
-
----
-
-<!-- chrome: false -->
-
 <img src="assets/slide-48.webp" alt="Slide 48" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
@@ -322,6 +298,36 @@
 <!-- chrome: false -->
 
 <img src="assets/slide-54.webp" alt="Slide 54" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-44.webp" alt="Slide 44" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-45.webp" alt="Slide 45" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-46.webp" alt="Slide 46" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/slide-47.webp" alt="Slide 47" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
+
+---
+
+<!-- chrome: false -->
+
+<img src="assets/dhi-kit.webp" alt="Pin the agent to DHI with a kit" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
 ---
 
