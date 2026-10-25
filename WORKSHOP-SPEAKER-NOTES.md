@@ -2,12 +2,6 @@
 
 **Container Days Singapore 2026 · a 64-slide talk, ~45 minutes**
 
-What follows is the full spoken script — read it aloud as written, or make it
-your own. Each section below is one slide; the heading tells you which slide
-you're on so you can keep pace with the deck. The narration already carries its
-own transitions, so you can run straight through from the title to the thank-you.
-
----
 
 ## Slide 1 — Run Fast Without Running Wild
 
