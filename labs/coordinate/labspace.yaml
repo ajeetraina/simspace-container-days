@@ -1,18 +1,18 @@
 title: "Coordinate"
 description: >
-  One secured agent can do a task. A software factory is a team: a coordinator
-  that assigns work from a backlog, a developer that edits and commits, and a
-  reviewer that checks the result against the task and your coding policy - all
-  running inside the one sandbox you secured and made reproducible. When the team
-  hits a product decision, it stops and asks you. Fully simulated; nothing to
-  install.
+  One agent is one pair of hands. A software factory needs more than one role -
+  a developer that writes, a reviewer that checks - working the same project.
+  sbx runs one agent per sandbox, so a team is several sandboxes over one shared
+  workspace, each boxed by the same policy you set in the earlier Cs. sbx gives
+  every role the same secured box; coordinating them - and owning the product
+  decision - is still your job. Fully simulated; nothing to install.
 
 # Landing-page card. Only shown when the repo has two or more labs. labs.json is
 # GENERATED from this block - never edit labs.json by hand.
 catalog:
   icon: hub
-  description: "Run a team of agents - coordinator, developer, reviewer - inside the secured, reproducible sandbox, driven by a task backlog, pausing to ask you when a human decision is needed."
-  tags: ["sandbox", "sbx", "agents", "team", "coordinate", "backlog", "human-in-the-loop"]
+  description: "Run more than one agent over the same project with real sbx - a developer and a reviewer, each in its own secured sandbox - and stay the coordinator who makes the product call."
+  tags: ["sandbox", "sbx", "agents", "team", "coordinate", "exec", "human-in-the-loop"]
   estimatedMinutes: 20
   order: 6
 
@@ -23,44 +23,39 @@ terminals:
     title: Terminal
     icon: terminal
 
-# Seed the project, the shared sbxenv.yaml from Capacity (now with a team block),
-# and a small task backlog the coordinator pulls from.
+# Seed the project, the secured sbxenv.yaml from Capacity, and a plain task file
+# the developer will implement. The "backlog" here is just a file you cat - sbx
+# has no task tracker of its own.
 files:
   README.md: |
     # Coordinate - lab workspace
 
     You secured one sandbox across the earlier Cs - Contain (an isolated microVM),
     Control (a network policy), Choice (the MCP tools) - and Capacity made it
-    reproducible for the whole team. Coordinate is what turns that one sandbox into
-    a software factory: a team of agents working the same project, the same way.
+    reproducible for the whole team. Coordinate is what turns that one box into a
+    factory: more than one agent working the same project at once.
 
-    In this lab a coordinator pulls a task from the backlog, hands it to a
-    developer, a reviewer checks the result against the task and the coding policy,
-    and the team pauses to ask you when a product decision is needed.
+    sbx runs one agent per sandbox. So a "team" is several sandboxes over the same
+    shared workspace - a developer and a reviewer here - each boxed by the same
+    policy. You create them with `sbx create`, give each work with `sbx exec`, and
+    stay the one who makes the product call. sbx isolates the agents; it does not
+    orchestrate them for you.
 
     Everything here is scripted - no real sbx, agents, or network - so every
     learner gets the same result.
   sbxenv.yaml: |
-    # sbxenv.yaml - the team's sandbox from Capacity, now with a team block.
+    # sbxenv.yaml - the secured single-agent box from Capacity. Each role sandbox
+    # you create reuses the same agent, kit, and policy baseline.
     schemaVersion: "1"
     name: product-catalog
     agent: claude
     workspace: .
     kits:
-      # the DHI pinning kit from Choice: registers the DHI MCP, steers to dhi.io,
-      # and denies 3rd-party registries at the network edge
       - git+https://github.com/ajeetraina/docker-cloud-sandboxes-demo.git#dir=agent-cli/codex-dhi/dhi-mixin
     secrets:
       dhi-mcp-pat:
         ref: "op://Engineering/DockerHub/pat"
         snapshot: true
-    # The team: three roles, each a session inside THIS sandbox. Provider and model
-    # are chosen per role - here all Claude, but a reviewer could be a different model.
-    team:
-      coordinator: { agent: claude, model: opus }
-      developer:   { agent: claude, model: sonnet }
-      reviewer:    { agent: claude, model: sonnet }
-      backlog: ./backlog   # where the coordinator reads tasks and writes results
   backlog/CAT-12-category-filter.md: |
     # CAT-12 - Add a category filter to the product list
 
@@ -80,14 +75,14 @@ files:
     }
 
 sections:
-  - title: "One Agent Isn't a Team"
-    contentPath: 00-one-agent-isnt-a-team.md
-  - title: "Assign From the Backlog"
-    contentPath: 01-assign-from-the-backlog.md
-  - title: "Develop, Then Review"
-    contentPath: 02-develop-and-review.md
-  - title: "Ask the Human"
-    contentPath: 03-ask-the-human.md
+  - title: "One Box Isn't a Factory"
+    contentPath: 00-one-box-isnt-a-factory.md
+  - title: "Stand Up the Roles"
+    contentPath: 01-stand-up-the-roles.md
+  - title: "Give Each Role Work"
+    contentPath: 02-give-each-role-work.md
+  - title: "You Are the Coordinator"
+    contentPath: 03-you-are-the-coordinator.md
 
 variables:
   org: your-org

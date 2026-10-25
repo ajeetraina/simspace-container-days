@@ -4,19 +4,22 @@ metadata:
   id: coordinate
   title: "Coordinate"
   summary: >
-    Run a team of agents - coordinator, developer, reviewer - inside the secured,
-    reproducible sandbox. The coordinator assigns a task from the backlog, the
-    developer commits, the reviewer checks it, and the team pauses to ask the
-    human for a product decision before it finishes. Fully simulated.
+    Run more than one agent over the same project with real sbx verbs - create a
+    developer and a reviewer sandbox over one shared workspace, give each work
+    with `sbx exec`, and stay the coordinator who makes the product call. sbx
+    isolates the agents; it does not orchestrate them. All simulated with real sbx
+    commands (create, ls, exec, policy ls, stop, rm).
 
 state:
   org: "your-org"
-  team:
-    running: false   # `sbx env run` booted the team inside the sandbox
-    assigned: false  # coordinator handed CAT-12 to the developer
-    reviewed: false  # reviewer looked at the change and raised a question
-    decided: false   # the human answered the product question
-    done: false      # task closed in the backlog
+  dev:
+    created: false   # `sbx create --name developer` made the developer box
+  reviewer:
+    created: false   # `sbx create --name reviewer` made the reviewer box
+  committed: false   # the developer committed CAT-12 to the shared workspace
+  reviewed: false    # the reviewer ran the change and raised a product question
+  decided: false     # you made the product call and the developer applied it
+  torndown: false    # the role sandboxes were removed
 
 settings:
   pace:
@@ -38,8 +41,7 @@ scenarios:
         - "sandboxd: running"
 
   # ===========================================================================
-  # Section 1 - One agent isn't a team. A lone session does the task, but nobody
-  # assigns it, reviews it, or owns the product decision.
+  # Section 1 - One box isn't a factory. A lone agent is one pair of hands.
   # ===========================================================================
   - id: sbx-run-solo
     when:
@@ -47,204 +49,237 @@ scenarios:
     then:
       output:
         - { text: "Creating sandbox 'claude' (agent: claude)...", delay: boot }
-        - "claude> I can edit the code, run the tests, and commit. What's the task?"
+        - "claude> ready. One agent, one session, one pair of hands."
         - ""
-        - "One agent, one session. It will do whatever you type - but there's no"
-        - "coordinator deciding WHAT to work on, no reviewer checking the result,"
-        - "and no one to stop and ask you when a product call is needed."
+        - "It can edit, test, and commit - but it both writes AND reviews its own"
+        - "work, and there's no second role to catch what it rationalises. A factory"
+        - "needs more than one agent. sbx runs one agent per sandbox, so make more"
+        - "sandboxes: `sbx create --name developer claude .`"
 
   # ===========================================================================
-  # Section 2 - Boot the team inside the secured sandbox, then assign from the
-  # backlog. The team block in sbxenv.yaml turns one box into three roles.
+  # Section 2 - Stand up the roles. Two sandboxes over the SAME workspace, each
+  # boxed by the same policy. Create is real; the shared mount is the point.
   # ===========================================================================
-  - id: sbx-env-run
+  - id: sbx-create-developer
     when:
-      command: [sbx, env, run]
+      command: [sbx, create, --name, developer]
     then:
-      state: { team.running: true }
+      state: { dev.created: true }
       output:
-        - { text: "Reading sbxenv.yaml... applying the plan...", delay: sync }
-        - { text: "Creating sandbox 'product-catalog' (agent: claude, kit: dhi-mixin)...", delay: boot }
-        - "  workspace: .  mounted at /workspace"
-        - "  team: coordinator (opus), developer (sonnet), reviewer (sonnet)"
-        - "  backlog: ./backlog"
+        - { text: "Created sandbox 'developer' (agent: claude).", delay: boot }
+        - "  workspace: .  mounted at /workspace   (same files as every other role)"
+        - "  policy: inherits the global network policy from Control"
         - ""
-        - "✓ Three roles, one secured sandbox. Same microVM, network policy, and DHI"
-        - "  pin from the earlier Cs - now shared by the whole team."
+        - "A box for the developer role. Now make one for the reviewer."
 
-  - id: team-status-done
+  - id: sbx-create-reviewer
     when:
-      command: [team, status]
-      state: { team.done: true }
+      command: [sbx, create, --name, reviewer]
     then:
+      state: { reviewer.created: true }
       output:
-        - "ROLE          STATUS    TASK"
-        - "coordinator   idle      -"
-        - "developer     idle      -"
-        - "reviewer      idle      -"
+        - { text: "Created sandbox 'reviewer' (agent: claude).", delay: boot }
+        - "  workspace: .  mounted at /workspace   (the SAME workspace as developer)"
+        - "  policy: inherits the global network policy from Control"
         - ""
-        - "CAT-12  done  ✓ reviewed and closed in the backlog."
+        - "Two isolated agents, one shared project. See them with `sbx ls`."
 
-  - id: team-status-reviewed
+  - id: sbx-create-generic
     when:
-      command: [team, status]
-      state: { team.reviewed: true }
+      command: [sbx, create]
     then:
       output:
-        - "ROLE          STATUS           TASK"
-        - "coordinator   waiting-on-you   CAT-12"
-        - "developer     idle             CAT-12"
-        - "reviewer      blocked          CAT-12"
+        - "Usage: sbx create --name <role> claude ."
+        - "  Create one sandbox per role - try `developer`, then `reviewer`."
+
+  - id: sbx-ls-both
+    when:
+      command: [sbx, ls]
+      state: { dev.created: true, reviewer.created: true }
+    then:
+      output:
+        - "SANDBOX     AGENT    STATUS    PORTS   WORKSPACE"
+        - "developer   claude   running           ~/product-catalog-demo-showcase"
+        - "reviewer    claude   running           ~/product-catalog-demo-showcase"
         - ""
-        - "⏸ The reviewer raised a product question. Run `team ask` to see it."
+        - "Two agents, two microVMs - same WORKSPACE. Each is isolated from the host"
+        - "and from each other, but they edit the one project. That shared mount is"
+        - "what lets a developer's commit reach the reviewer."
 
-  - id: team-status-assigned
+  - id: sbx-ls
     when:
-      command: [team, status]
-      state: { team.assigned: true }
+      command: [sbx, ls]
     then:
       output:
-        - "ROLE          STATUS    TASK"
-        - "coordinator   watching  CAT-12"
-        - "developer     working   CAT-12  (editing product-list.js, adding the category filter)"
-        - "reviewer      idle      -"
-
-  - id: team-status
-    when:
-      command: [team, status]
-    then:
-      output:
-        - "ROLE          STATUS    TASK"
-        - "coordinator   idle      -"
-        - "developer     idle      -"
-        - "reviewer      idle      -"
+        - "SANDBOX   AGENT   STATUS   PORTS   WORKSPACE"
         - ""
-        - "No task assigned yet. Run `backlog ls` to see the work, then"
-        - "`team assign CAT-12`."
+        - "No role sandboxes yet. Create them with"
+        - "  sbx create --name developer claude ."
+        - "  sbx create --name reviewer claude ."
 
-  - id: backlog-ls
+  - id: sbx-policy-ls
     when:
-      command: [backlog, ls]
+      command: [sbx, policy, ls]
     then:
       output:
-        - "ID        STATUS   TITLE"
-        - "CAT-12   todo     Add a category filter to the product list"
+        - "SANDBOX     RULE                         SOURCE"
+        - "developer   deny  3rd-party registries   global (Control)"
+        - "reviewer    deny  3rd-party registries   global (Control)"
         - ""
-        - "1 open task. Assign it with `team assign CAT-12`."
-
-  - id: backlog-show
-    when:
-      command: [backlog, show]
-    then:
-      output:
-        - "CAT-12 - Add a category filter to the product list   [todo]"
-        - ""
-        - "  Add a filter that narrows the product list to one category."
-        - "  Existing tests must still pass."
-
-  - id: team-assign
-    when:
-      command: [team, assign]
-    then:
-      state: { team.assigned: true }
-      output:
-        - "coordinator → developer:  you have CAT-12. Acceptance is in the task."
-        - "developer:  reading CAT-12, exploring product-list.js..."
-        - ""
-        - "The coordinator picked the task and handed it off. It stays out of the"
-        - "edit itself - its job is WHAT and WHO, not the diff."
+        - "Both roles inherit the SAME boundary you set in Control - adding agents"
+        - "doesn't widen what any of them can reach."
 
   # ===========================================================================
-  # Section 3 - Develop, then review. The developer commits; the reviewer checks
-  # the change against the task AND the coding policy, and flags a gap.
+  # Section 3 - Give each role work. `sbx exec <sandbox> claude -p` runs the agent
+  # headless in that box. Developer writes and commits; reviewer reads the shared
+  # workspace and checks it.
   # ===========================================================================
-  - id: git-log
+  - id: sbx-exec-developer-apply
     when:
-      command: [git, log]
-      state: { team.assigned: true }
+      command: [sbx, exec, developer, claude]
+      state: { reviewed: true }
+    then:
+      state: { decided: true }
+      output:
+        - { text: "developer (claude -p): applying your decision...", delay: sync }
+        - "  products with no category now show under \"Uncategorized\""
+        - "  committed b2c3d4e, tests still green"
+        - ""
+        - "Your call is in the code. Have the reviewer sign off, or tear the team down."
+
+  - id: sbx-exec-developer-work
+    when:
+      command: [sbx, exec, developer, claude]
+    then:
+      state: { committed: true }
+      output:
+        - { text: "developer (claude -p): reading backlog/CAT-12, editing product-list.js...", delay: sync }
+        - "  added a category filter to the product list"
+        - "  ran the tests: 12 passed"
+        - "  committed a1b2c3d to the shared workspace"
+        - ""
+        - "The commit lives in the mounted project - so the reviewer's box can see it."
+
+  - id: sbx-exec-reviewer-test
+    when:
+      command: [sbx, exec, reviewer, npm]
+    then:
+      output:
+        - "> product-catalog@1.0.0 test"
+        - "> node --test"
+        - ""
+        - "  tests 12"
+        - "  pass 12"
+        - ""
+        - "The reviewer ran the developer's commit in its OWN box - same files, its"
+        - "own isolated process."
+
+  - id: sbx-exec-reviewer-git
+    when:
+      command: [sbx, exec, reviewer, git]
+      state: { committed: true }
     then:
       output:
         - "a1b2c3d (developer) CAT-12: add category filter to the product list"
         - "9f3c1a2 Add sbxenv.yaml - shared team sandbox"
+        - ""
+        - "The reviewer sees the developer's commit because both boxes mount the same"
+        - "workspace. No copying, no handoff tool - just the shared project."
 
-  - id: team-review
+  - id: sbx-exec-reviewer-claude
     when:
-      command: [team, review]
-      state: { team.assigned: true }
+      command: [sbx, exec, reviewer, claude]
+      state: { committed: true }
     then:
-      state: { team.reviewed: true }
+      state: { reviewed: true }
       output:
-        - { text: "reviewer:  checking a1b2c3d against CAT-12 and the coding policy...", delay: sync }
+        - { text: "reviewer (claude -p): checking a1b2c3d against CAT-12 and the policy...", delay: sync }
         - "  ✓ category filter renders on the product list"
         - "  ✓ filter narrows the list to one category"
         - "  ✓ existing tests pass"
         - "  ✓ no secrets added, no new 3rd-party registry (policy from Choice holds)"
         - ""
-        - "  ⚠ product question, not a bug:"
-        - "    the task doesn't say what to show for products with NO category set."
-        - "    The reviewer will not guess. It paused and asked for a human call."
+        - "  ⚠ product question, not a bug - the task never decided what to show for"
+        - "    products with NO category set. The reviewer will not guess."
         - ""
-        - "⏸ Run `team ask` to see the question."
+        - "There's no sbx command for this. The decision is yours - see the next step."
 
-  - id: team-review-unassigned
+  - id: sbx-exec-reviewer-claude-early
     when:
-      command: [team, review]
+      command: [sbx, exec, reviewer, claude]
     then:
       output:
-        - "Nothing to review yet - no task is assigned. Run `team assign CAT-12` first."
+        - "reviewer (claude -p): nothing to review yet - no commit in the workspace."
+        - "  Have the developer do the work first:"
+        - "  sbx exec developer claude -p \"Implement CAT-12\""
 
-  # ===========================================================================
-  # Section 4 - Ask the human. The team stops at the product decision, you answer,
-  # and it finishes and closes the task.
-  # ===========================================================================
-  - id: team-ask
+  - id: sbx-exec-generic
     when:
-      command: [team, ask]
-      state: { team.reviewed: true }
+      command: [sbx, exec]
     then:
       output:
-        - "reviewer → you:"
-        - "  CAT-12 adds the category filter. One thing the task didn't"
-        - "  decide: products with no category assigned. Options:"
-        - "    (a) show them under an \"Uncategorized\" category"
-        - "    (b) hide them when a category filter is active"
+        - "Usage: sbx exec <sandbox> <command>"
+        - "  Give a role work headless, e.g."
+        - "  sbx exec developer claude -p \"Implement CAT-12\""
+        - "  or run a check: sbx exec reviewer npm test"
+
+  - id: sbx-attach
+    when:
+      command: [sbx, attach]
+    then:
+      output:
+        - "Attaching opens that role's interactive agent session (Ctrl-D to detach)."
+        - "In this lab, drive the roles non-interactively with"
+        - "  sbx exec <role> claude -p \"...\"  so every learner gets the same result."
+
+  # ===========================================================================
+  # Section 4 - Tear down. Removing the role sandboxes leaves the project intact.
+  # ===========================================================================
+  - id: sbx-stop
+    when:
+      command: [sbx, stop]
+    then:
+      output:
+        - "Stopped 'developer' and 'reviewer'. The workspace on your host is untouched."
+
+  - id: sbx-rm
+    when:
+      command: [sbx, rm]
+    then:
+      state: { torndown: true }
+      output:
+        - "Removed 'developer' and 'reviewer'. Two agents gone; the project and its"
+        - "git history stay on your host - the boxes were disposable, the work wasn't."
+
+  - id: sbx-prune
+    when:
+      command: [sbx, prune]
+    then:
+      state: { torndown: true }
+      output:
+        - "Removed all stopped sandboxes. The mounted workspace remains on your host."
+
+  # ===========================================================================
+  # Host-side git + agent sessions + filler.
+  # ===========================================================================
+  - id: git-log
+    when:
+      command: [git, log]
+      state: { committed: true }
+    then:
+      output:
+        - "a1b2c3d (developer) CAT-12: add category filter to the product list"
+        - "9f3c1a2 Add sbxenv.yaml - shared team sandbox"
+
+  - id: git-log-empty
+    when:
+      command: [git, log]
+    then:
+      output:
+        - "9f3c1a2 Add sbxenv.yaml - shared team sandbox"
         - ""
-        - "  Answer with:  team answer \"a\"   (or \"b\", or your own guidance)"
+        - "No role work yet - have the developer implement CAT-12 first."
 
-  - id: team-ask-none
-    when:
-      command: [team, ask]
-    then:
-      output:
-        - "No open question. The team only asks when it hits a decision that isn't"
-        - "in the task - run it through `team review` first."
-
-  - id: team-answer
-    when:
-      command: [team, answer]
-      state: { team.reviewed: true }
-    then:
-      state: { team.decided: true, team.done: true }
-      output:
-        - "you → team:  decision recorded on CAT-12."
-        - "developer:  applying it - products with no category show under \"Uncategorized\"."
-        - "reviewer:  re-checked, acceptance met, tests green. Approving."
-        - "coordinator:  marking CAT-12 done and writing the result to the backlog."
-        - ""
-        - "✓ The team finished the task - and the one judgement call that was yours"
-        - "  stayed yours. That's the point of a factory: agents do the work, humans"
-        - "  make the decisions."
-
-  - id: team-answer-early
-    when:
-      command: [team, answer]
-    then:
-      output:
-        - "There's no open question to answer yet."
-
-  # ===========================================================================
-  # Agent sessions + filler.
-  # ===========================================================================
   - id: claude-session
     when:
       command: [claude]
@@ -252,8 +287,8 @@ scenarios:
       session:
         prompt: "claude> "
         intro:
-          - "Claude Code ready. In a team, the coordinator drives this - try"
-          - "`team assign CAT-12` instead of prompting a lone session."
+          - "Claude Code ready. In a team you'd run this inside a role's box:"
+          - "sbx exec developer claude -p \"Implement CAT-12\"."
         outro:
           - "Claude session ended."
 
@@ -262,8 +297,8 @@ scenarios:
       agent: true
     then:
       output:
-        - "● I'm one role in the team. Let the coordinator assign work:"
-        - "  `team assign CAT-12`."
+        - "● I'm one role. Create a box per role with `sbx create`, then give each"
+        - "  work with `sbx exec <role> claude -p \"...\"`."
 
   - id: cd
     when:
@@ -272,18 +307,10 @@ scenarios:
       output:
         - "Note: this simulated terminal has no working directory - every command runs from the lab root."
 
-  - id: team-generic
+  - id: sbx-generic
     when:
-      command: [team]
+      command: [sbx]
     then:
       output:
-        - "team coordinates the roles in sbxenv.yaml. Try `team status`,"
-        - "`team assign CAT-12`, `team review`, `team ask`, or `team answer`."
-
-  - id: backlog-generic
-    when:
-      command: [backlog]
-    then:
-      output:
-        - "backlog is the task tracker the coordinator reads from. Try `backlog ls`"
-        - "or `backlog show CAT-12`."
+        - "sbx runs one agent per sandbox. For a team, make several:"
+        - "  sbx create --name developer claude .   then   sbx ls"
