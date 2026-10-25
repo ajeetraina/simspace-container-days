@@ -9,9 +9,9 @@ team ask
 
 ```text no-run-button
 reviewer → you:
-  incidents with no service assigned. Options:
-    (a) show them under an "Unassigned" service
-    (b) hide them when a service filter is active
+  products with no category assigned. Options:
+    (a) show them under an "Uncategorized" category
+    (b) hide them when a category filter is active
 ```
 
 This is the whole reason a factory beats a runaway agent. The team did everything
@@ -31,7 +31,7 @@ team status
 ```
 
 ```text no-run-button
-WAD-104  done  ✓ reviewed and closed in the backlog.
+CAT-12  done  ✓ reviewed and closed in the backlog.
 ```
 
 That's the factory, end to end:

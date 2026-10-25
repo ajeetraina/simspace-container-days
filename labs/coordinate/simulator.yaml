@@ -13,7 +13,7 @@ state:
   org: "your-org"
   team:
     running: false   # `sbx env run` booted the team inside the sandbox
-    assigned: false  # coordinator handed WAD-104 to the developer
+    assigned: false  # coordinator handed CAT-12 to the developer
     reviewed: false  # reviewer looked at the change and raised a question
     decided: false   # the human answered the product question
     done: false      # task closed in the backlog
@@ -83,7 +83,7 @@ scenarios:
         - "developer     idle      -"
         - "reviewer      idle      -"
         - ""
-        - "WAD-104  done  ✓ reviewed and closed in the backlog."
+        - "CAT-12  done  ✓ reviewed and closed in the backlog."
 
   - id: team-status-reviewed
     when:
@@ -92,9 +92,9 @@ scenarios:
     then:
       output:
         - "ROLE          STATUS           TASK"
-        - "coordinator   waiting-on-you   WAD-104"
-        - "developer     idle             WAD-104"
-        - "reviewer      blocked          WAD-104"
+        - "coordinator   waiting-on-you   CAT-12"
+        - "developer     idle             CAT-12"
+        - "reviewer      blocked          CAT-12"
         - ""
         - "⏸ The reviewer raised a product question. Run `team ask` to see it."
 
@@ -105,8 +105,8 @@ scenarios:
     then:
       output:
         - "ROLE          STATUS    TASK"
-        - "coordinator   watching  WAD-104"
-        - "developer     working   WAD-104  (editing board.jsx, adding the Service column)"
+        - "coordinator   watching  CAT-12"
+        - "developer     working   CAT-12  (editing product-list.js, adding the category filter)"
         - "reviewer      idle      -"
 
   - id: team-status
@@ -120,7 +120,7 @@ scenarios:
         - "reviewer      idle      -"
         - ""
         - "No task assigned yet. Run `backlog ls` to see the work, then"
-        - "`team assign WAD-104`."
+        - "`team assign CAT-12`."
 
   - id: backlog-ls
     when:
@@ -128,19 +128,19 @@ scenarios:
     then:
       output:
         - "ID        STATUS   TITLE"
-        - "WAD-104   todo     Add a service column and filter"
+        - "CAT-12   todo     Add a category filter to the product list"
         - ""
-        - "1 open task. Assign it with `team assign WAD-104`."
+        - "1 open task. Assign it with `team assign CAT-12`."
 
   - id: backlog-show
     when:
       command: [backlog, show]
     then:
       output:
-        - "WAD-104 - Add a service column and filter   [todo]"
+        - "CAT-12 - Add a category filter to the product list   [todo]"
         - ""
-        - "  Add a Service column to the incident board and a filter that narrows"
-        - "  the list to one service. Existing tests must still pass."
+        - "  Add a filter that narrows the product list to one category."
+        - "  Existing tests must still pass."
 
   - id: team-assign
     when:
@@ -148,8 +148,8 @@ scenarios:
     then:
       state: { team.assigned: true }
       output:
-        - "coordinator → developer:  you have WAD-104. Acceptance is in the task."
-        - "developer:  reading WAD-104, exploring board.jsx..."
+        - "coordinator → developer:  you have CAT-12. Acceptance is in the task."
+        - "developer:  reading CAT-12, exploring product-list.js..."
         - ""
         - "The coordinator picked the task and handed it off. It stays out of the"
         - "edit itself - its job is WHAT and WHO, not the diff."
@@ -164,7 +164,7 @@ scenarios:
       state: { team.assigned: true }
     then:
       output:
-        - "a1b2c3d (developer) WAD-104: add Service column + filter to the board"
+        - "a1b2c3d (developer) CAT-12: add category filter to the product list"
         - "9f3c1a2 Add sbxenv.yaml - shared team sandbox"
 
   - id: team-review
@@ -174,14 +174,14 @@ scenarios:
     then:
       state: { team.reviewed: true }
       output:
-        - { text: "reviewer:  checking a1b2c3d against WAD-104 and the coding policy...", delay: sync }
-        - "  ✓ Service column renders on the board"
-        - "  ✓ filter narrows the list to one service"
+        - { text: "reviewer:  checking a1b2c3d against CAT-12 and the coding policy...", delay: sync }
+        - "  ✓ category filter renders on the product list"
+        - "  ✓ filter narrows the list to one category"
         - "  ✓ existing tests pass"
         - "  ✓ no secrets added, no new 3rd-party registry (policy from Choice holds)"
         - ""
         - "  ⚠ product question, not a bug:"
-        - "    the task doesn't say what to show for incidents with NO service set."
+        - "    the task doesn't say what to show for products with NO category set."
         - "    The reviewer will not guess. It paused and asked for a human call."
         - ""
         - "⏸ Run `team ask` to see the question."
@@ -191,7 +191,7 @@ scenarios:
       command: [team, review]
     then:
       output:
-        - "Nothing to review yet - no task is assigned. Run `team assign WAD-104` first."
+        - "Nothing to review yet - no task is assigned. Run `team assign CAT-12` first."
 
   # ===========================================================================
   # Section 4 - Ask the human. The team stops at the product decision, you answer,
@@ -204,10 +204,10 @@ scenarios:
     then:
       output:
         - "reviewer → you:"
-        - "  WAD-104 adds the Service column and filter. One thing the task didn't"
-        - "  decide: incidents with no service assigned. Options:"
-        - "    (a) show them under an \"Unassigned\" service"
-        - "    (b) hide them when a service filter is active"
+        - "  CAT-12 adds the category filter. One thing the task didn't"
+        - "  decide: products with no category assigned. Options:"
+        - "    (a) show them under an \"Uncategorized\" category"
+        - "    (b) hide them when a category filter is active"
         - ""
         - "  Answer with:  team answer \"a\"   (or \"b\", or your own guidance)"
 
@@ -226,10 +226,10 @@ scenarios:
     then:
       state: { team.decided: true, team.done: true }
       output:
-        - "you → team:  decision recorded on WAD-104."
-        - "developer:  applying it - unassigned incidents show under \"Unassigned\"."
+        - "you → team:  decision recorded on CAT-12."
+        - "developer:  applying it - products with no category show under \"Uncategorized\"."
         - "reviewer:  re-checked, acceptance met, tests green. Approving."
-        - "coordinator:  marking WAD-104 done and writing the result to the backlog."
+        - "coordinator:  marking CAT-12 done and writing the result to the backlog."
         - ""
         - "✓ The team finished the task - and the one judgement call that was yours"
         - "  stayed yours. That's the point of a factory: agents do the work, humans"
@@ -253,7 +253,7 @@ scenarios:
         prompt: "claude> "
         intro:
           - "Claude Code ready. In a team, the coordinator drives this - try"
-          - "`team assign WAD-104` instead of prompting a lone session."
+          - "`team assign CAT-12` instead of prompting a lone session."
         outro:
           - "Claude session ended."
 
@@ -263,7 +263,7 @@ scenarios:
     then:
       output:
         - "● I'm one role in the team. Let the coordinator assign work:"
-        - "  `team assign WAD-104`."
+        - "  `team assign CAT-12`."
 
   - id: cd
     when:
@@ -278,7 +278,7 @@ scenarios:
     then:
       output:
         - "team coordinates the roles in sbxenv.yaml. Try `team status`,"
-        - "`team assign WAD-104`, `team review`, `team ask`, or `team answer`."
+        - "`team assign CAT-12`, `team review`, `team ask`, or `team answer`."
 
   - id: backlog-generic
     when:
@@ -286,4 +286,4 @@ scenarios:
     then:
       output:
         - "backlog is the task tracker the coordinator reads from. Try `backlog ls`"
-        - "or `backlog show WAD-104`."
+        - "or `backlog show CAT-12`."

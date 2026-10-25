@@ -61,18 +61,16 @@ files:
       developer:   { agent: claude, model: sonnet }
       reviewer:    { agent: claude, model: sonnet }
       backlog: ./backlog   # where the coordinator reads tasks and writes results
-  backlog/WAD-104-service-column.md: |
-    # WAD-104 - Add a service column and filter
+  backlog/CAT-12-category-filter.md: |
+    # CAT-12 - Add a category filter to the product list
 
     Status: todo
 
-    The incident board lists incidents but you can't see or filter by the service
-    each one belongs to. Add a "Service" column to the board and a filter that
-    narrows the list to one service.
+    The product list shows every product but you can't narrow it by category.
+    Add a category filter that narrows the list to one category.
 
     Acceptance:
-    - A Service column appears on the board.
-    - A filter control narrows incidents to a selected service.
+    - A filter control narrows the product list to a selected category.
     - Existing tests still pass.
   product-catalog-demo-showcase/package.json: |
     {

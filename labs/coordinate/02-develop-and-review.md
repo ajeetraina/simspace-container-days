@@ -1,14 +1,14 @@
 # Develop, Then Review
 
-The developer has the task. It edits the board, runs the tests, and commits -
-inside the sandbox, against the mounted project. See the commit it made:
+The developer has the task. It edits the product list, runs the tests, and
+commits - inside the sandbox, against the mounted project. See the commit it made:
 
 ```bash
 git log
 ```
 
 ```text no-run-button
-a1b2c3d (developer) WAD-104: add Service column + filter to the board
+a1b2c3d (developer) CAT-12: add category filter to the product list
 9f3c1a2 Add sbxenv.yaml - shared team sandbox
 ```
 
@@ -24,8 +24,8 @@ the change against the **acceptance criteria in the task** *and* the **coding
 policy** you installed back in the earlier Cs:
 
 ```text no-run-button
-  ✓ Service column renders           (acceptance)
-  ✓ filter narrows to one service    (acceptance)
+  ✓ category filter renders          (acceptance)
+  ✓ filter narrows to one category   (acceptance)
   ✓ existing tests pass              (acceptance)
   ✓ no secrets, no new registry      (policy - the boundary from Choice holds)
 ```
@@ -34,7 +34,7 @@ So far so good. But the reviewer finds something the *task never decided*:
 
 ```text no-run-button
   ⚠ product question, not a bug:
-    what should the board show for incidents with NO service set?
+    what should the list show for products with NO category set?
 ```
 
 This is the important move. The reviewer **does not guess**. A bug it would send

@@ -39,17 +39,17 @@ backlog ls
 ```
 
 ```bash
-backlog show WAD-104
+backlog show CAT-12
 ```
 
 The coordinator reads from this backlog so *you* aren't the one dispatching every
 step. Hand it the task:
 
 ```bash
-team assign WAD-104
+team assign CAT-12
 ```
 
-The coordinator picks up WAD-104 and hands it to the developer - then stays out of
+The coordinator picks up CAT-12 and hands it to the developer - then stays out of
 the diff. Its job is **what** and **who**, not the edit itself. Check again:
 
 ```bash
@@ -58,7 +58,7 @@ team status
 
 > [!NOTE]
 > The backlog is a plain folder of task files here. In a real factory it's your
-> tracker (Jira, GitHub issues, Beans) reached through the **MCP gateway** from
+> tracker (Jira, GitHub issues, or any backlog tool) reached through the **MCP gateway** from
 > Choice - so the team gets *scoped* access to it, not your whole host.
 
 Next: let the developer finish and the reviewer check the work.
