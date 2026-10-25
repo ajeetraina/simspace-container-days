@@ -1,0 +1,289 @@
+version: "2.0"
+
+metadata:
+  id: coordinate
+  title: "Coordinate"
+  summary: >
+    Run a team of agents - coordinator, developer, reviewer - inside the secured,
+    reproducible sandbox. The coordinator assigns a task from the backlog, the
+    developer commits, the reviewer checks it, and the team pauses to ask the
+    human for a product decision before it finishes. Fully simulated.
+
+state:
+  org: "your-org"
+  team:
+    running: false   # `sbx env run` booted the team inside the sandbox
+    assigned: false  # coordinator handed WAD-104 to the developer
+    reviewed: false  # reviewer looked at the change and raised a question
+    decided: false   # the human answered the product question
+    done: false      # task closed in the backlog
+
+settings:
+  pace:
+    boot: 900
+    sync: 500
+
+defaults:
+  unmatched:
+    stderr: ["command not found - this command isn't part of the lab."]
+    exit: 1
+
+scenarios:
+  - id: sbx-version
+    when:
+      command: [sbx, version]
+    then:
+      output:
+        - "Docker Sandboxes (sbx) 0.12.0"
+        - "sandboxd: running"
+
+  # ===========================================================================
+  # Section 1 - One agent isn't a team. A lone session does the task, but nobody
+  # assigns it, reviews it, or owns the product decision.
+  # ===========================================================================
+  - id: sbx-run-solo
+    when:
+      command: [sbx, run, claude]
+    then:
+      output:
+        - { text: "Creating sandbox 'claude' (agent: claude)...", delay: boot }
+        - "claude> I can edit the code, run the tests, and commit. What's the task?"
+        - ""
+        - "One agent, one session. It will do whatever you type - but there's no"
+        - "coordinator deciding WHAT to work on, no reviewer checking the result,"
+        - "and no one to stop and ask you when a product call is needed."
+
+  # ===========================================================================
+  # Section 2 - Boot the team inside the secured sandbox, then assign from the
+  # backlog. The team block in sbxenv.yaml turns one box into three roles.
+  # ===========================================================================
+  - id: sbx-env-run
+    when:
+      command: [sbx, env, run]
+    then:
+      state: { team.running: true }
+      output:
+        - { text: "Reading sbxenv.yaml... applying the plan...", delay: sync }
+        - { text: "Creating sandbox 'product-catalog' (agent: claude, kit: dhi-mixin)...", delay: boot }
+        - "  workspace: .  mounted at /workspace"
+        - "  team: coordinator (opus), developer (sonnet), reviewer (sonnet)"
+        - "  backlog: ./backlog"
+        - ""
+        - "✓ Three roles, one secured sandbox. Same microVM, network policy, and DHI"
+        - "  pin from the earlier Cs - now shared by the whole team."
+
+  - id: team-status-done
+    when:
+      command: [team, status]
+      state: { team.done: true }
+    then:
+      output:
+        - "ROLE          STATUS    TASK"
+        - "coordinator   idle      -"
+        - "developer     idle      -"
+        - "reviewer      idle      -"
+        - ""
+        - "WAD-104  done  ✓ reviewed and closed in the backlog."
+
+  - id: team-status-reviewed
+    when:
+      command: [team, status]
+      state: { team.reviewed: true }
+    then:
+      output:
+        - "ROLE          STATUS           TASK"
+        - "coordinator   waiting-on-you   WAD-104"
+        - "developer     idle             WAD-104"
+        - "reviewer      blocked          WAD-104"
+        - ""
+        - "⏸ The reviewer raised a product question. Run `team ask` to see it."
+
+  - id: team-status-assigned
+    when:
+      command: [team, status]
+      state: { team.assigned: true }
+    then:
+      output:
+        - "ROLE          STATUS    TASK"
+        - "coordinator   watching  WAD-104"
+        - "developer     working   WAD-104  (editing board.jsx, adding the Service column)"
+        - "reviewer      idle      -"
+
+  - id: team-status
+    when:
+      command: [team, status]
+    then:
+      output:
+        - "ROLE          STATUS    TASK"
+        - "coordinator   idle      -"
+        - "developer     idle      -"
+        - "reviewer      idle      -"
+        - ""
+        - "No task assigned yet. Run `backlog ls` to see the work, then"
+        - "`team assign WAD-104`."
+
+  - id: backlog-ls
+    when:
+      command: [backlog, ls]
+    then:
+      output:
+        - "ID        STATUS   TITLE"
+        - "WAD-104   todo     Add a service column and filter"
+        - ""
+        - "1 open task. Assign it with `team assign WAD-104`."
+
+  - id: backlog-show
+    when:
+      command: [backlog, show]
+    then:
+      output:
+        - "WAD-104 - Add a service column and filter   [todo]"
+        - ""
+        - "  Add a Service column to the incident board and a filter that narrows"
+        - "  the list to one service. Existing tests must still pass."
+
+  - id: team-assign
+    when:
+      command: [team, assign]
+    then:
+      state: { team.assigned: true }
+      output:
+        - "coordinator → developer:  you have WAD-104. Acceptance is in the task."
+        - "developer:  reading WAD-104, exploring board.jsx..."
+        - ""
+        - "The coordinator picked the task and handed it off. It stays out of the"
+        - "edit itself - its job is WHAT and WHO, not the diff."
+
+  # ===========================================================================
+  # Section 3 - Develop, then review. The developer commits; the reviewer checks
+  # the change against the task AND the coding policy, and flags a gap.
+  # ===========================================================================
+  - id: git-log
+    when:
+      command: [git, log]
+      state: { team.assigned: true }
+    then:
+      output:
+        - "a1b2c3d (developer) WAD-104: add Service column + filter to the board"
+        - "9f3c1a2 Add sbxenv.yaml - shared team sandbox"
+
+  - id: team-review
+    when:
+      command: [team, review]
+      state: { team.assigned: true }
+    then:
+      state: { team.reviewed: true }
+      output:
+        - { text: "reviewer:  checking a1b2c3d against WAD-104 and the coding policy...", delay: sync }
+        - "  ✓ Service column renders on the board"
+        - "  ✓ filter narrows the list to one service"
+        - "  ✓ existing tests pass"
+        - "  ✓ no secrets added, no new 3rd-party registry (policy from Choice holds)"
+        - ""
+        - "  ⚠ product question, not a bug:"
+        - "    the task doesn't say what to show for incidents with NO service set."
+        - "    The reviewer will not guess. It paused and asked for a human call."
+        - ""
+        - "⏸ Run `team ask` to see the question."
+
+  - id: team-review-unassigned
+    when:
+      command: [team, review]
+    then:
+      output:
+        - "Nothing to review yet - no task is assigned. Run `team assign WAD-104` first."
+
+  # ===========================================================================
+  # Section 4 - Ask the human. The team stops at the product decision, you answer,
+  # and it finishes and closes the task.
+  # ===========================================================================
+  - id: team-ask
+    when:
+      command: [team, ask]
+      state: { team.reviewed: true }
+    then:
+      output:
+        - "reviewer → you:"
+        - "  WAD-104 adds the Service column and filter. One thing the task didn't"
+        - "  decide: incidents with no service assigned. Options:"
+        - "    (a) show them under an \"Unassigned\" service"
+        - "    (b) hide them when a service filter is active"
+        - ""
+        - "  Answer with:  team answer \"a\"   (or \"b\", or your own guidance)"
+
+  - id: team-ask-none
+    when:
+      command: [team, ask]
+    then:
+      output:
+        - "No open question. The team only asks when it hits a decision that isn't"
+        - "in the task - run it through `team review` first."
+
+  - id: team-answer
+    when:
+      command: [team, answer]
+      state: { team.reviewed: true }
+    then:
+      state: { team.decided: true, team.done: true }
+      output:
+        - "you → team:  decision recorded on WAD-104."
+        - "developer:  applying it - unassigned incidents show under \"Unassigned\"."
+        - "reviewer:  re-checked, acceptance met, tests green. Approving."
+        - "coordinator:  marking WAD-104 done and writing the result to the backlog."
+        - ""
+        - "✓ The team finished the task - and the one judgement call that was yours"
+        - "  stayed yours. That's the point of a factory: agents do the work, humans"
+        - "  make the decisions."
+
+  - id: team-answer-early
+    when:
+      command: [team, answer]
+    then:
+      output:
+        - "There's no open question to answer yet."
+
+  # ===========================================================================
+  # Agent sessions + filler.
+  # ===========================================================================
+  - id: claude-session
+    when:
+      command: [claude]
+    then:
+      session:
+        prompt: "claude> "
+        intro:
+          - "Claude Code ready. In a team, the coordinator drives this - try"
+          - "`team assign WAD-104` instead of prompting a lone session."
+        outro:
+          - "Claude session ended."
+
+  - id: agent-fallback
+    when:
+      agent: true
+    then:
+      output:
+        - "● I'm one role in the team. Let the coordinator assign work:"
+        - "  `team assign WAD-104`."
+
+  - id: cd
+    when:
+      command: [cd]
+    then:
+      output:
+        - "Note: this simulated terminal has no working directory - every command runs from the lab root."
+
+  - id: team-generic
+    when:
+      command: [team]
+    then:
+      output:
+        - "team coordinates the roles in sbxenv.yaml. Try `team status`,"
+        - "`team assign WAD-104`, `team review`, `team ask`, or `team answer`."
+
+  - id: backlog-generic
+    when:
+      command: [backlog]
+    then:
+      output:
+        - "backlog is the task tracker the coordinator reads from. Try `backlog ls`"
+        - "or `backlog show WAD-104`."
