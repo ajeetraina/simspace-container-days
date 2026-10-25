@@ -62,6 +62,86 @@
 
 <img src="assets/slide-11.webp" alt="Slide 11" width="1600" height="900" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill" />
 
+<svg viewBox="0 0 1600 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2">
+  <defs>
+    <filter id="keyShadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <g id="credKey" filter="url(#keyShadow)">
+      <circle cx="-18" cy="0" r="13" fill="none" stroke="#3a2c00" stroke-width="9"/>
+      <circle cx="-18" cy="0" r="13" fill="none" stroke="#F4B400" stroke-width="5.5"/>
+      <line x1="-7" y1="0" x2="26" y2="0" stroke="#3a2c00" stroke-width="12" stroke-linecap="round"/>
+      <line x1="-7" y1="0" x2="26" y2="0" stroke="#F4B400" stroke-width="7" stroke-linecap="round"/>
+      <line x1="15" y1="0" x2="15" y2="10" stroke="#F4B400" stroke-width="6" stroke-linecap="round"/>
+      <line x1="24" y1="0" x2="24" y2="12" stroke="#F4B400" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <style>
+    .credLabel { font-family: Inter, Helvetica, Arial, sans-serif; font-size: 21px; font-weight: 800;
+      fill: #c0141c; stroke: #fff; stroke-width: 4px; paint-order: stroke; text-anchor: middle; }
+  </style>
+
+  <!-- Database password : Application -> PostgreSQL -->
+  <g transform="translate(762,376)">
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.2s" dur="0.3s" fill="freeze"/>
+      <g>
+        <animateTransform attributeName="transform" type="scale" from="0.2" to="1" begin="0.2s" dur="0.4s" fill="freeze"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+          <use href="#credKey"/>
+        </g>
+      </g>
+      <text class="credLabel" y="44">DB password</text>
+    </g>
+  </g>
+
+  <!-- AWS keys : Application -> AWS S3 -->
+  <g transform="translate(776,484)">
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.7s" dur="0.3s" fill="freeze"/>
+      <g>
+        <animateTransform attributeName="transform" type="scale" from="0.2" to="1" begin="0.7s" dur="0.4s" fill="freeze"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="1.8s" begin="1.1s" repeatCount="indefinite"/>
+          <use href="#credKey"/>
+        </g>
+      </g>
+      <text class="credLabel" y="44">AWS keys</text>
+    </g>
+  </g>
+
+  <!-- Stripe key : Kafka -> Other service(s) -->
+  <g transform="translate(940,604)">
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="1.2s" dur="0.3s" fill="freeze"/>
+      <g>
+        <animateTransform attributeName="transform" type="scale" from="0.2" to="1" begin="1.2s" dur="0.4s" fill="freeze"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="1.8s" begin="1.6s" repeatCount="indefinite"/>
+          <use href="#credKey"/>
+        </g>
+      </g>
+      <text class="credLabel" y="44">Stripe key</text>
+    </g>
+  </g>
+
+  <!-- Internal API key : Catalog -> Inventory service -->
+  <g transform="translate(1060,300)">
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="1.7s" dur="0.3s" fill="freeze"/>
+      <g>
+        <animateTransform attributeName="transform" type="scale" from="0.2" to="1" begin="1.7s" dur="0.4s" fill="freeze"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="1.8s" begin="2.1s" repeatCount="indefinite"/>
+          <use href="#credKey"/>
+        </g>
+      </g>
+      <text class="credLabel" y="-30">internal API key</text>
+    </g>
+  </g>
+</svg>
+
 ---
 
 <!-- chrome: false -->
